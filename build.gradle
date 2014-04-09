@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'de.uniwue.ub'
+
+version = '0.0.1'
+sourceCompatibility = 1.7
+
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'JTesseract',
+      'Implementation-Version': version
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+// include all JAR files in lib
+dependencies {
+  compile 'net.java.dev.jna:jna:4.1.0'
+}
+
+// Assume UTF-8 source code
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+// custom javadoc generation task
+// will include res/overview.html
+task doc(type: Javadoc) {
+  source = sourceSets.main.allSource
+  classpath = sourceSets.main.compileClasspath
+  options.addStringOption('overview', 'res/overview.html')
+}
