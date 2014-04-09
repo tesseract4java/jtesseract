@@ -30,5 +30,4 @@ dependencies {
 task doc(type: Javadoc) {
   source = sourceSets.main.allSource
   classpath = sourceSets.main.compileClasspath
-  options.addStringOption('overview', 'res/overview.html')
 }
