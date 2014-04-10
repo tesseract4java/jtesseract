@@ -1,4 +1,4 @@
-package de.vorb.tesseract;
+package de.vorb.tesseract.jna;
 
 import com.sun.jna.IntegerType;
 import com.sun.jna.Library;
