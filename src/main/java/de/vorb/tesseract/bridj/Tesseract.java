@@ -1,4 +1,4 @@
-package de.vorb.libtesseract.bridj;
+package de.vorb.tesseract.bridj;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -15,7 +15,7 @@ import org.bridj.ann.Runtime;
 
 @Library("tesseract")
 @Runtime(CRuntime.class)
-public class LibTesseract {
+public class Tesseract {
   static {
     BridJ.register();
   }
@@ -223,7 +223,7 @@ public class LibTesseract {
    * <i>native declaration : line 98</i>
    */
   @Name("TessTextRendererCreate")
-  native public static Pointer<LibTesseract.TessResultRenderer> TessTextRendererCreate();
+  native public static Pointer<Tesseract.TessResultRenderer> TessTextRendererCreate();
 
   /**
    * Original signature :
@@ -231,7 +231,7 @@ public class LibTesseract {
    * <i>native declaration : line 99</i>
    */
   @Name("TessHOcrRendererCreate")
-  native public static Pointer<LibTesseract.TessResultRenderer> TessHOcrRendererCreate();
+  native public static Pointer<Tesseract.TessResultRenderer> TessHOcrRendererCreate();
 
   /**
    * Original signature :
@@ -239,7 +239,7 @@ public class LibTesseract {
    * <i>native declaration : line 100</i>
    */
   @Name("TessPDFRendererCreate")
-  native public static Pointer<LibTesseract.TessResultRenderer> TessPDFRendererCreate(
+  native public static Pointer<Tesseract.TessResultRenderer> TessPDFRendererCreate(
       Pointer<Byte> datadir);
 
   /**
@@ -248,7 +248,7 @@ public class LibTesseract {
    * <i>native declaration : line 101</i>
    */
   @Name("TessUnlvRendererCreate")
-  native public static Pointer<LibTesseract.TessResultRenderer> TessUnlvRendererCreate();
+  native public static Pointer<Tesseract.TessResultRenderer> TessUnlvRendererCreate();
 
   /**
    * Original signature :
@@ -256,7 +256,7 @@ public class LibTesseract {
    * <i>native declaration : line 102</i>
    */
   @Name("TessBoxTextRendererCreate")
-  native public static Pointer<LibTesseract.TessResultRenderer> TessBoxTextRendererCreate();
+  native public static Pointer<Tesseract.TessResultRenderer> TessBoxTextRendererCreate();
 
   /**
    * Original signature :
@@ -265,7 +265,7 @@ public class LibTesseract {
    */
   @Name("TessDeleteResultRenderer")
   native public static void TessDeleteResultRenderer(
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -275,8 +275,8 @@ public class LibTesseract {
    */
   @Name("TessResultRendererInsert")
   native public static void TessResultRendererInsert(
-      Pointer<LibTesseract.TessResultRenderer> renderer,
-      Pointer<LibTesseract.TessResultRenderer> next);
+      Pointer<Tesseract.TessResultRenderer> renderer,
+      Pointer<Tesseract.TessResultRenderer> next);
 
   /**
    * Original signature :
@@ -285,8 +285,8 @@ public class LibTesseract {
    * <i>native declaration : line 106</i>
    */
   @Name("TessResultRendererNext")
-  native public static Pointer<LibTesseract.TessResultRenderer> TessResultRendererNext(
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+  native public static Pointer<Tesseract.TessResultRenderer> TessResultRendererNext(
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -296,7 +296,7 @@ public class LibTesseract {
    */
   @Name("TessResultRendererBeginDocument")
   native public static int TessResultRendererBeginDocument(
-      Pointer<LibTesseract.TessResultRenderer> renderer, Pointer<Byte> title);
+      Pointer<Tesseract.TessResultRenderer> renderer, Pointer<Byte> title);
 
   /**
    * Original signature :
@@ -306,8 +306,8 @@ public class LibTesseract {
    */
   @Name("TessResultRendererAddImage")
   native public static int TessResultRendererAddImage(
-      Pointer<LibTesseract.TessResultRenderer> renderer,
-      Pointer<LibTesseract.TessBaseAPI> api);
+      Pointer<Tesseract.TessResultRenderer> renderer,
+      Pointer<Tesseract.TessBaseAPI> api);
 
   /**
    * Original signature :
@@ -317,8 +317,8 @@ public class LibTesseract {
    */
   @Name("TessResultRendererAddError")
   native public static int TessResultRendererAddError(
-      Pointer<LibTesseract.TessResultRenderer> renderer,
-      Pointer<LibTesseract.TessBaseAPI> api);
+      Pointer<Tesseract.TessResultRenderer> renderer,
+      Pointer<Tesseract.TessBaseAPI> api);
 
   /**
    * Original signature :
@@ -327,7 +327,7 @@ public class LibTesseract {
    */
   @Name("TessResultRendererEndDocument")
   native public static int TessResultRendererEndDocument(
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -337,7 +337,7 @@ public class LibTesseract {
    */
   @Name("TessResultRendererGetOutput")
   native public static int TessResultRendererGetOutput(
-      Pointer<LibTesseract.TessResultRenderer> renderer,
+      Pointer<Tesseract.TessResultRenderer> renderer,
       Pointer<Pointer<Byte>> data, Pointer<Integer> data_len);
 
   /**
@@ -347,7 +347,7 @@ public class LibTesseract {
    */
   @Name("TessResultRendererTypename")
   native public static Pointer<Byte> TessResultRendererTypename(
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -356,7 +356,7 @@ public class LibTesseract {
    */
   @Name("TessResultRendererExtention")
   native public static Pointer<Byte> TessResultRendererExtention(
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -365,7 +365,7 @@ public class LibTesseract {
    */
   @Name("TessResultRendererTitle")
   native public static Pointer<Byte> TessResultRendererTitle(
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -374,14 +374,14 @@ public class LibTesseract {
    */
   @Name("TessResultRendererImageNum")
   native public static int TessResultRendererImageNum(
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature : <code>TessBaseAPI* TessBaseAPICreate()</code><br>
    * <i>native declaration : line 121</i>
    */
   @Name("TessBaseAPICreate")
-  native public static Pointer<LibTesseract.TessBaseAPI> TessBaseAPICreate();
+  native public static Pointer<Tesseract.TessBaseAPI> TessBaseAPICreate();
 
   /**
    * Original signature : <code>void TessBaseAPIDelete(TessBaseAPI*)</code><br>
@@ -389,7 +389,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIDelete")
   native public static void TessBaseAPIDelete(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -399,7 +399,7 @@ public class LibTesseract {
   @Name("TessBaseAPIGetOpenCLDevice")
   @Ptr
   native public static long TessBaseAPIGetOpenCLDevice(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Pointer<?>> device);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Pointer<?>> device);
 
   /**
    * Original signature :
@@ -408,7 +408,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetInputName")
   native public static void TessBaseAPISetInputName(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name);
 
   /**
    * Original signature :
@@ -417,7 +417,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetInputName")
   native public static Pointer<Byte> TessBaseAPIGetInputName(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -426,7 +426,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetInputImage")
   native public static void TessBaseAPISetInputImage(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<LibTesseract.Pix> pix);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Tesseract.Pix> pix);
 
   /**
    * Original signature :
@@ -434,8 +434,8 @@ public class LibTesseract {
    * <i>native declaration : line 131</i>
    */
   @Name("TessBaseAPIGetInputImage")
-  native public static Pointer<LibTesseract.Pix> TessBaseAPIGetInputImage(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+  native public static Pointer<Tesseract.Pix> TessBaseAPIGetInputImage(
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -444,7 +444,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetSourceYResolution")
   native public static int TessBaseAPIGetSourceYResolution(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -453,7 +453,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetDatapath")
   native public static Pointer<Byte> TessBaseAPIGetDatapath(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -462,7 +462,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetOutputName")
   native public static void TessBaseAPISetOutputName(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name);
 
   /**
    * Original signature :
@@ -472,7 +472,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetVariable")
   native public static int TessBaseAPISetVariable(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name,
       Pointer<Byte> value);
 
   /**
@@ -483,7 +483,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetDebugVariable")
   native public static int TessBaseAPISetDebugVariable(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name,
       Pointer<Byte> value);
 
   /**
@@ -494,7 +494,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetIntVariable")
   native public static int TessBaseAPIGetIntVariable(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name,
       Pointer<Integer> value);
 
   /**
@@ -505,7 +505,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetBoolVariable")
   native public static int TessBaseAPIGetBoolVariable(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name,
       Pointer<Integer> value);
 
   /**
@@ -516,7 +516,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetDoubleVariable")
   native public static int TessBaseAPIGetDoubleVariable(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name,
       Pointer<Double> value);
 
   /**
@@ -527,7 +527,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetStringVariable")
   native public static Pointer<Byte> TessBaseAPIGetStringVariable(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> name);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> name);
 
   /**
    * Original signature :
@@ -536,7 +536,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIPrintVariables")
   native public static void TessBaseAPIPrintVariables(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<LibTesseract.FILE> fp);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Tesseract.FILE> fp);
 
   /**
    * Original signature :
@@ -546,7 +546,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIPrintVariablesToFile")
   native public static int TessBaseAPIPrintVariablesToFile(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> filename);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> filename);
 
   /**
    * Original signature :
@@ -556,9 +556,9 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIInit1")
   native public static int TessBaseAPIInit1(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
       Pointer<Byte> language,
-      IntValuedEnum<LibTesseract.TessOcrEngineMode> oem,
+      IntValuedEnum<Tesseract.TessOcrEngineMode> oem,
       Pointer<Pointer<Byte>> configs, int configs_size);
 
   /**
@@ -569,8 +569,8 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIInit2")
   native public static int TessBaseAPIInit2(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
-      Pointer<Byte> language, IntValuedEnum<LibTesseract.TessOcrEngineMode> oem);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
+      Pointer<Byte> language, IntValuedEnum<Tesseract.TessOcrEngineMode> oem);
 
   /**
    * Original signature :
@@ -579,7 +579,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIInit3")
   native public static int TessBaseAPIInit3(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
       Pointer<Byte> language);
 
   /**
@@ -590,9 +590,9 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIInit4")
   native public static int TessBaseAPIInit4(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
       Pointer<Byte> language,
-      IntValuedEnum<LibTesseract.TessOcrEngineMode> mode,
+      IntValuedEnum<Tesseract.TessOcrEngineMode> mode,
       Pointer<Pointer<Byte>> configs, int configs_size,
       Pointer<Pointer<Byte>> vars_vec, Pointer<Pointer<Byte>> vars_values,
       @Ptr long vars_vec_size, int set_only_non_debug_params);
@@ -604,7 +604,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetInitLanguagesAsString")
   native public static Pointer<Byte> TessBaseAPIGetInitLanguagesAsString(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -614,7 +614,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetLoadedLanguagesAsVector")
   native public static Pointer<Pointer<Byte>> TessBaseAPIGetLoadedLanguagesAsVector(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -624,7 +624,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetAvailableLanguagesAsVector")
   native public static Pointer<Pointer<Byte>> TessBaseAPIGetAvailableLanguagesAsVector(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -634,7 +634,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIInitLangMod")
   native public static int TessBaseAPIInitLangMod(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
       Pointer<Byte> language);
 
   /**
@@ -644,7 +644,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIInitForAnalysePage")
   native public static void TessBaseAPIInitForAnalysePage(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -653,7 +653,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIReadConfigFile")
   native public static void TessBaseAPIReadConfigFile(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> filename);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> filename);
 
   /**
    * Original signature :
@@ -662,7 +662,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIReadDebugConfigFile")
   native public static void TessBaseAPIReadDebugConfigFile(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> filename);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> filename);
 
   /**
    * Original signature :
@@ -671,8 +671,8 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetPageSegMode")
   native public static void TessBaseAPISetPageSegMode(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      IntValuedEnum<LibTesseract.TessPageSegMode> mode);
+      Pointer<Tesseract.TessBaseAPI> handle,
+      IntValuedEnum<Tesseract.TessPageSegMode> mode);
 
   /**
    * Original signature :
@@ -680,8 +680,8 @@ public class LibTesseract {
    * <i>native declaration : line 183</i>
    */
   @Name("TessBaseAPIGetPageSegMode")
-  native public static IntValuedEnum<LibTesseract.TessPageSegMode> TessBaseAPIGetPageSegMode(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+  native public static IntValuedEnum<Tesseract.TessPageSegMode> TessBaseAPIGetPageSegMode(
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -691,7 +691,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIRect")
   native public static Pointer<Byte> TessBaseAPIRect(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> imagedata,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> imagedata,
       int bytes_per_pixel, int bytes_per_line, int left, int top, int width,
       int height);
 
@@ -702,7 +702,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIClearAdaptiveClassifier")
   native public static void TessBaseAPIClearAdaptiveClassifier(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -712,7 +712,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetImage")
   native public static void TessBaseAPISetImage(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> imagedata,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> imagedata,
       int width, int height, int bytes_per_pixel, int bytes_per_line);
 
   /**
@@ -722,7 +722,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetImage2")
   native public static void TessBaseAPISetImage2(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<LibTesseract.Pix> pix);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Tesseract.Pix> pix);
 
   /**
    * Original signature :
@@ -731,7 +731,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetSourceResolution")
   native public static void TessBaseAPISetSourceResolution(
-      Pointer<LibTesseract.TessBaseAPI> handle, int ppi);
+      Pointer<Tesseract.TessBaseAPI> handle, int ppi);
 
   /**
    * Original signature :
@@ -740,7 +740,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetRectangle")
   native public static void TessBaseAPISetRectangle(
-      Pointer<LibTesseract.TessBaseAPI> handle, int left, int top, int width,
+      Pointer<Tesseract.TessBaseAPI> handle, int left, int top, int width,
       int height);
 
   /**
@@ -749,8 +749,8 @@ public class LibTesseract {
    * <i>native declaration : line 204</i>
    */
   @Name("TessBaseAPIGetThresholdedImage")
-  native public static Pointer<LibTesseract.Pix> TessBaseAPIGetThresholdedImage(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+  native public static Pointer<Tesseract.Pix> TessBaseAPIGetThresholdedImage(
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -758,9 +758,9 @@ public class LibTesseract {
    * <i>native declaration : line 206</i>
    */
   @Name("TessBaseAPIGetRegions")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetRegions(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      Pointer<Pointer<LibTesseract.Pixa>> pixa);
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetRegions(
+      Pointer<Tesseract.TessBaseAPI> handle,
+      Pointer<Pointer<Tesseract.Pixa>> pixa);
 
   /**
    * Original signature :
@@ -768,9 +768,9 @@ public class LibTesseract {
    * <i>native declaration : line 208</i>
    */
   @Name("TessBaseAPIGetTextlines")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetTextlines(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      Pointer<Pointer<LibTesseract.Pixa>> pixa,
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetTextlines(
+      Pointer<Tesseract.TessBaseAPI> handle,
+      Pointer<Pointer<Tesseract.Pixa>> pixa,
       Pointer<Pointer<Integer>> blockids);
 
   /**
@@ -780,9 +780,9 @@ public class LibTesseract {
    * <i>native declaration : line 210</i>
    */
   @Name("TessBaseAPIGetTextlines1")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetTextlines1(
-      Pointer<LibTesseract.TessBaseAPI> handle, int raw_image, int raw_padding,
-      Pointer<Pointer<LibTesseract.Pixa>> pixa,
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetTextlines1(
+      Pointer<Tesseract.TessBaseAPI> handle, int raw_image, int raw_padding,
+      Pointer<Pointer<Tesseract.Pixa>> pixa,
       Pointer<Pointer<Integer>> blockids, Pointer<Pointer<Integer>> paraids);
 
   /**
@@ -791,9 +791,9 @@ public class LibTesseract {
    * <i>native declaration : line 213</i>
    */
   @Name("TessBaseAPIGetStrips")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetStrips(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      Pointer<Pointer<LibTesseract.Pixa>> pixa,
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetStrips(
+      Pointer<Tesseract.TessBaseAPI> handle,
+      Pointer<Pointer<Tesseract.Pixa>> pixa,
       Pointer<Pointer<Integer>> blockids);
 
   /**
@@ -802,9 +802,9 @@ public class LibTesseract {
    * <i>native declaration : line 215</i>
    */
   @Name("TessBaseAPIGetWords")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetWords(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      Pointer<Pointer<LibTesseract.Pixa>> pixa);
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetWords(
+      Pointer<Tesseract.TessBaseAPI> handle,
+      Pointer<Pointer<Tesseract.Pixa>> pixa);
 
   /**
    * Original signature :
@@ -812,9 +812,9 @@ public class LibTesseract {
    * <i>native declaration : line 217</i>
    */
   @Name("TessBaseAPIGetConnectedComponents")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetConnectedComponents(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      Pointer<Pointer<LibTesseract.Pixa>> cc);
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetConnectedComponents(
+      Pointer<Tesseract.TessBaseAPI> handle,
+      Pointer<Pointer<Tesseract.Pixa>> cc);
 
   /**
    * Original signature :
@@ -823,10 +823,10 @@ public class LibTesseract {
    * <i>native declaration : line 219</i>
    */
   @Name("TessBaseAPIGetComponentImages")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetComponentImages(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level, int text_only,
-      Pointer<Pointer<LibTesseract.Pixa>> pixa,
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetComponentImages(
+      Pointer<Tesseract.TessBaseAPI> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level, int text_only,
+      Pointer<Pointer<Tesseract.Pixa>> pixa,
       Pointer<Pointer<Integer>> blockids);
 
   /**
@@ -836,10 +836,10 @@ public class LibTesseract {
    * <i>native declaration : line 222</i>
    */
   @Name("TessBaseAPIGetComponentImages1")
-  native public static Pointer<LibTesseract.Boxa> TessBaseAPIGetComponentImages1(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level, int text_only,
-      int raw_image, int raw_padding, Pointer<Pointer<LibTesseract.Pixa>> pixa,
+  native public static Pointer<Tesseract.Boxa> TessBaseAPIGetComponentImages1(
+      Pointer<Tesseract.TessBaseAPI> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level, int text_only,
+      int raw_image, int raw_padding, Pointer<Pointer<Tesseract.Pixa>> pixa,
       Pointer<Pointer<Integer>> blockids, Pointer<Pointer<Integer>> paraids);
 
   /**
@@ -850,7 +850,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetThresholdedImageScaleFactor")
   native public static int TessBaseAPIGetThresholdedImageScaleFactor(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -859,7 +859,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIDumpPGM")
   native public static void TessBaseAPIDumpPGM(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> filename);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> filename);
 
   /**
    * Original signature :
@@ -867,8 +867,8 @@ public class LibTesseract {
    * <i>native declaration : line 231</i>
    */
   @Name("TessBaseAPIAnalyseLayout")
-  native public static Pointer<LibTesseract.TessPageIterator> TessBaseAPIAnalyseLayout(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+  native public static Pointer<Tesseract.TessPageIterator> TessBaseAPIAnalyseLayout(
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -877,8 +877,8 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIRecognize")
   native public static int TessBaseAPIRecognize(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      Pointer<LibTesseract.ETEXT_DESC> monitor);
+      Pointer<Tesseract.TessBaseAPI> handle,
+      Pointer<Tesseract.ETEXT_DESC> monitor);
 
   /**
    * Original signature :
@@ -887,8 +887,8 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIRecognizeForChopTest")
   native public static int TessBaseAPIRecognizeForChopTest(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      Pointer<LibTesseract.ETEXT_DESC> monitor);
+      Pointer<Tesseract.TessBaseAPI> handle,
+      Pointer<Tesseract.ETEXT_DESC> monitor);
 
   /**
    * Original signature :
@@ -898,7 +898,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIProcessPages")
   native public static Pointer<Byte> TessBaseAPIProcessPages(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> filename,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> filename,
       Pointer<Byte> retry_config, int timeout_millisec);
 
   /**
@@ -909,9 +909,9 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIProcessPages1")
   native public static int TessBaseAPIProcessPages1(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> filename,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> filename,
       Pointer<Byte> retry_config, int timeout_millisec,
-      Pointer<LibTesseract.TessResultRenderer> renderer);
+      Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -921,7 +921,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIProcessPage")
   native public static Pointer<Byte> TessBaseAPIProcessPage(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<LibTesseract.Pix> pix,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Tesseract.Pix> pix,
       int page_index, Pointer<Byte> filename, Pointer<Byte> retry_config,
       int timeout_millisec);
 
@@ -933,9 +933,9 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIProcessPage1")
   native public static int TessBaseAPIProcessPage1(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<LibTesseract.Pix> pix,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Tesseract.Pix> pix,
       int page_index, Pointer<Byte> filename, Pointer<Byte> retry_config,
-      int timeout_millisec, Pointer<LibTesseract.TessResultRenderer> renderer);
+      int timeout_millisec, Pointer<Tesseract.TessResultRenderer> renderer);
 
   /**
    * Original signature :
@@ -943,8 +943,8 @@ public class LibTesseract {
    * <i>native declaration : line 245</i>
    */
   @Name("TessBaseAPIGetIterator")
-  native public static Pointer<LibTesseract.TessResultIterator> TessBaseAPIGetIterator(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+  native public static Pointer<Tesseract.TessResultIterator> TessBaseAPIGetIterator(
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -953,8 +953,8 @@ public class LibTesseract {
    * <i>native declaration : line 247</i>
    */
   @Name("TessBaseAPIGetMutableIterator")
-  native public static Pointer<LibTesseract.TessMutableIterator> TessBaseAPIGetMutableIterator(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+  native public static Pointer<Tesseract.TessMutableIterator> TessBaseAPIGetMutableIterator(
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -963,7 +963,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetUTF8Text")
   native public static Pointer<Byte> TessBaseAPIGetUTF8Text(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -972,7 +972,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetHOCRText")
   native public static Pointer<Byte> TessBaseAPIGetHOCRText(
-      Pointer<LibTesseract.TessBaseAPI> handle, int page_number);
+      Pointer<Tesseract.TessBaseAPI> handle, int page_number);
 
   /**
    * Original signature :
@@ -981,7 +981,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetBoxText")
   native public static Pointer<Byte> TessBaseAPIGetBoxText(
-      Pointer<LibTesseract.TessBaseAPI> handle, int page_number);
+      Pointer<Tesseract.TessBaseAPI> handle, int page_number);
 
   /**
    * Original signature :
@@ -990,7 +990,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetUNLVText")
   native public static Pointer<Byte> TessBaseAPIGetUNLVText(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature : <code>int TessBaseAPIMeanTextConf(TessBaseAPI*)</code><br>
@@ -998,7 +998,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIMeanTextConf")
   native public static int TessBaseAPIMeanTextConf(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -1007,7 +1007,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIAllWordConfidences")
   native public static Pointer<Integer> TessBaseAPIAllWordConfidences(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -1017,8 +1017,8 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIAdaptToWordStr")
   native public static int TessBaseAPIAdaptToWordStr(
-      Pointer<LibTesseract.TessBaseAPI> handle,
-      IntValuedEnum<LibTesseract.TessPageSegMode> mode, Pointer<Byte> wordstr);
+      Pointer<Tesseract.TessBaseAPI> handle,
+      IntValuedEnum<Tesseract.TessPageSegMode> mode, Pointer<Byte> wordstr);
 
   /**
    * Original signature : <code>void TessBaseAPIClear(TessBaseAPI*)</code><br>
@@ -1026,7 +1026,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIClear")
   native public static void TessBaseAPIClear(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature : <code>void TessBaseAPIEnd(TessBaseAPI*)</code><br>
@@ -1034,7 +1034,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIEnd")
   native public static void TessBaseAPIEnd(
-      Pointer<LibTesseract.TessBaseAPI> handle);
+      Pointer<Tesseract.TessBaseAPI> handle);
 
   /**
    * Original signature :
@@ -1043,7 +1043,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIIsValidWord")
   native public static int TessBaseAPIIsValidWord(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Byte> word);
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> word);
 
   /**
    * Original signature :
@@ -1052,7 +1052,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetTextDirection")
   native public static int TessBaseAPIGetTextDirection(
-      Pointer<LibTesseract.TessBaseAPI> handle, Pointer<Integer> out_offset,
+      Pointer<Tesseract.TessBaseAPI> handle, Pointer<Integer> out_offset,
       Pointer<Float> out_slope);
 
   /**
@@ -1062,7 +1062,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPIGetUnichar")
   native public static Pointer<Byte> TessBaseAPIGetUnichar(
-      Pointer<LibTesseract.TessBaseAPI> handle, int unichar_id);
+      Pointer<Tesseract.TessBaseAPI> handle, int unichar_id);
 
   /**
    * Original signature :
@@ -1071,7 +1071,7 @@ public class LibTesseract {
    */
   @Name("TessBaseAPISetMinOrientationMargin")
   native public static void TessBaseAPISetMinOrientationMargin(
-      Pointer<LibTesseract.TessBaseAPI> handle, double margin);
+      Pointer<Tesseract.TessBaseAPI> handle, double margin);
 
   /**
    * Original signature :
@@ -1080,7 +1080,7 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorDelete")
   native public static void TessPageIteratorDelete(
-      Pointer<LibTesseract.TessPageIterator> handle);
+      Pointer<Tesseract.TessPageIterator> handle);
 
   /**
    * Original signature :
@@ -1089,8 +1089,8 @@ public class LibTesseract {
    * <i>native declaration : line 314</i>
    */
   @Name("TessPageIteratorCopy")
-  native public static Pointer<LibTesseract.TessPageIterator> TessPageIteratorCopy(
-      Pointer<LibTesseract.TessPageIterator> handle);
+  native public static Pointer<Tesseract.TessPageIterator> TessPageIteratorCopy(
+      Pointer<Tesseract.TessPageIterator> handle);
 
   /**
    * Original signature :
@@ -1099,7 +1099,7 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorBegin")
   native public static void TessPageIteratorBegin(
-      Pointer<LibTesseract.TessPageIterator> handle);
+      Pointer<Tesseract.TessPageIterator> handle);
 
   /**
    * Original signature :
@@ -1109,8 +1109,8 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorNext")
   native public static int TessPageIteratorNext(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level);
+      Pointer<Tesseract.TessPageIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
 
   /**
    * Original signature :
@@ -1120,8 +1120,8 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorIsAtBeginningOf")
   native public static int TessPageIteratorIsAtBeginningOf(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level);
+      Pointer<Tesseract.TessPageIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
 
   /**
    * Original signature :
@@ -1131,9 +1131,9 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorIsAtFinalElement")
   native public static int TessPageIteratorIsAtFinalElement(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> element);
+      Pointer<Tesseract.TessPageIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> element);
 
   /**
    * Original signature :
@@ -1143,8 +1143,8 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorBoundingBox")
   native public static int TessPageIteratorBoundingBox(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level,
+      Pointer<Tesseract.TessPageIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
       Pointer<Integer> left, Pointer<Integer> top, Pointer<Integer> right,
       Pointer<Integer> bottom);
 
@@ -1155,8 +1155,8 @@ public class LibTesseract {
    * <i>native declaration : line 325</i>
    */
   @Name("TessPageIteratorBlockType")
-  native public static IntValuedEnum<LibTesseract.TessPolyBlockType> TessPageIteratorBlockType(
-      Pointer<LibTesseract.TessPageIterator> handle);
+  native public static IntValuedEnum<Tesseract.TessPolyBlockType> TessPageIteratorBlockType(
+      Pointer<Tesseract.TessPageIterator> handle);
 
   /**
    * Original signature :
@@ -1165,9 +1165,9 @@ public class LibTesseract {
    * <i>native declaration : line 328</i>
    */
   @Name("TessPageIteratorGetBinaryImage")
-  native public static Pointer<LibTesseract.Pix> TessPageIteratorGetBinaryImage(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level);
+  native public static Pointer<Tesseract.Pix> TessPageIteratorGetBinaryImage(
+      Pointer<Tesseract.TessPageIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
 
   /**
    * Original signature :
@@ -1176,9 +1176,9 @@ public class LibTesseract {
    * <i>native declaration : line 330</i>
    */
   @Name("TessPageIteratorGetImage")
-  native public static Pointer<LibTesseract.Pix> TessPageIteratorGetImage(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level, int padding,
+  native public static Pointer<Tesseract.Pix> TessPageIteratorGetImage(
+      Pointer<Tesseract.TessPageIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level, int padding,
       Pointer<Integer> left, Pointer<Integer> top);
 
   /**
@@ -1189,8 +1189,8 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorBaseline")
   native public static int TessPageIteratorBaseline(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level,
+      Pointer<Tesseract.TessPageIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
       Pointer<Integer> x1, Pointer<Integer> y1, Pointer<Integer> x2,
       Pointer<Integer> y2);
 
@@ -1202,10 +1202,10 @@ public class LibTesseract {
    */
   @Name("TessPageIteratorOrientation")
   native public static void TessPageIteratorOrientation(
-      Pointer<LibTesseract.TessPageIterator> handle,
-      Pointer<IntValuedEnum<LibTesseract.TessOrientation>> orientation,
-      Pointer<IntValuedEnum<LibTesseract.TessWritingDirection>> writing_direction,
-      Pointer<IntValuedEnum<LibTesseract.TessTextlineOrder>> textline_order,
+      Pointer<Tesseract.TessPageIterator> handle,
+      Pointer<IntValuedEnum<Tesseract.TessOrientation>> orientation,
+      Pointer<IntValuedEnum<Tesseract.TessWritingDirection>> writing_direction,
+      Pointer<IntValuedEnum<Tesseract.TessTextlineOrder>> textline_order,
       Pointer<Float> deskew_angle);
 
   /**
@@ -1215,7 +1215,7 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorDelete")
   native public static void TessResultIteratorDelete(
-      Pointer<LibTesseract.TessResultIterator> handle);
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1224,8 +1224,8 @@ public class LibTesseract {
    * <i>native declaration : line 344</i>
    */
   @Name("TessResultIteratorCopy")
-  native public static Pointer<LibTesseract.TessResultIterator> TessResultIteratorCopy(
-      Pointer<LibTesseract.TessResultIterator> handle);
+  native public static Pointer<Tesseract.TessResultIterator> TessResultIteratorCopy(
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1234,8 +1234,8 @@ public class LibTesseract {
    * <i>native declaration : line 346</i>
    */
   @Name("TessResultIteratorGetPageIterator")
-  native public static Pointer<LibTesseract.TessPageIterator> TessResultIteratorGetPageIterator(
-      Pointer<LibTesseract.TessResultIterator> handle);
+  native public static Pointer<Tesseract.TessPageIterator> TessResultIteratorGetPageIterator(
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1244,8 +1244,8 @@ public class LibTesseract {
    * <i>native declaration : line 348</i>
    */
   @Name("TessResultIteratorGetPageIteratorConst")
-  native public static Pointer<LibTesseract.TessPageIterator> TessResultIteratorGetPageIteratorConst(
-      Pointer<LibTesseract.TessResultIterator> handle);
+  native public static Pointer<Tesseract.TessPageIterator> TessResultIteratorGetPageIteratorConst(
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1255,8 +1255,8 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorGetUTF8Text")
   native public static Pointer<Byte> TessResultIteratorGetUTF8Text(
-      Pointer<LibTesseract.TessResultIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level);
+      Pointer<Tesseract.TessResultIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
 
   /**
    * Original signature :
@@ -1266,8 +1266,8 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorConfidence")
   native public static float TessResultIteratorConfidence(
-      Pointer<LibTesseract.TessResultIterator> handle,
-      IntValuedEnum<LibTesseract.TessPageIteratorLevel> level);
+      Pointer<Tesseract.TessResultIterator> handle,
+      IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
 
   /**
    * Original signature :
@@ -1277,7 +1277,7 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorWordFontAttributes")
   native public static Pointer<Byte> TessResultIteratorWordFontAttributes(
-      Pointer<LibTesseract.TessResultIterator> handle,
+      Pointer<Tesseract.TessResultIterator> handle,
       Pointer<Integer> is_bold, Pointer<Integer> is_italic,
       Pointer<Integer> is_underlined, Pointer<Integer> is_monospace,
       Pointer<Integer> is_serif, Pointer<Integer> is_smallcaps,
@@ -1291,7 +1291,7 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorWordIsFromDictionary")
   native public static int TessResultIteratorWordIsFromDictionary(
-      Pointer<LibTesseract.TessResultIterator> handle);
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1300,7 +1300,7 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorWordIsNumeric")
   native public static int TessResultIteratorWordIsNumeric(
-      Pointer<LibTesseract.TessResultIterator> handle);
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1310,7 +1310,7 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorSymbolIsSuperscript")
   native public static int TessResultIteratorSymbolIsSuperscript(
-      Pointer<LibTesseract.TessResultIterator> handle);
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1320,7 +1320,7 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorSymbolIsSubscript")
   native public static int TessResultIteratorSymbolIsSubscript(
-      Pointer<LibTesseract.TessResultIterator> handle);
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /**
    * Original signature :
@@ -1330,7 +1330,7 @@ public class LibTesseract {
    */
   @Name("TessResultIteratorSymbolIsDropcap")
   native public static int TessResultIteratorSymbolIsDropcap(
-      Pointer<LibTesseract.TessResultIterator> handle);
+      Pointer<Tesseract.TessResultIterator> handle);
 
   /** Undefined type */
   public static interface Boxa {
