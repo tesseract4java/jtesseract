@@ -10,6 +10,7 @@ import com.sun.jna.ptr.FloatByReference;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
+import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -156,73 +157,73 @@ public interface TesseractLibrary extends Library {
    * Original signature : <code>char* TessVersion()</code><br>
    * <i>native declaration : line 88</i>
    */
-  String tessVersion();
+  String TessVersion();
 
   /**
    * Original signature : <code>void TessDeleteText(char*)</code><br>
    * <i>native declaration : line 90</i><br>
    * 
-   * @deprecated use the safer methods {@link #tessDeleteText(java.lang.String)}
-   *             and {@link #tessDeleteText(com.sun.jna.Pointer)} instead
+   * @deprecated use the safer methods {@link #TessDeleteText(java.lang.String)}
+   *             and {@link #TessDeleteText(com.sun.jna.Pointer)} instead
    */
   @Deprecated
-  void tessDeleteText(Pointer text);
+  void TessDeleteText(Pointer text);
 
   /**
    * Original signature : <code>void TessDeleteText(char*)</code><br>
    * <i>native declaration : line 90</i>
    */
-  void tessDeleteText(String text);
+  void TessDeleteText(String text);
 
   /**
    * Original signature : <code>void TessDeleteTextArray(char**)</code><br>
    * <i>native declaration : line 91</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessDeleteTextArray(java.lang.String[])} and
-   *             {@link #tessDeleteTextArray(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessDeleteTextArray(java.lang.String[])} and
+   *             {@link #TessDeleteTextArray(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessDeleteTextArray(PointerByReference arr);
+  void TessDeleteTextArray(PointerByReference arr);
 
   /**
    * Original signature : <code>void TessDeleteTextArray(char**)</code><br>
    * <i>native declaration : line 91</i>
    */
-  void tessDeleteTextArray(String arr[]);
+  void TessDeleteTextArray(String arr[]);
 
   /**
    * Original signature : <code>void TessDeleteIntArray(int*)</code><br>
    * <i>native declaration : line 92</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessDeleteIntArray(java.nio.IntBuffer)} and
-   *             {@link #tessDeleteIntArray(com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessDeleteIntArray(java.nio.IntBuffer)} and
+   *             {@link #TessDeleteIntArray(com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  void tessDeleteIntArray(IntByReference arr);
+  void TessDeleteIntArray(IntByReference arr);
 
   /**
    * Original signature : <code>void TessDeleteIntArray(int*)</code><br>
    * <i>native declaration : line 92</i>
    */
-  void tessDeleteIntArray(IntBuffer arr);
+  void TessDeleteIntArray(IntBuffer arr);
 
   /**
    * Original signature :
    * <code>TessResultRenderer* TessTextRendererCreate()</code><br>
    * <i>native declaration : line 98</i>
    */
-  PointerByReference tessTextRendererCreate();
+  PointerByReference TessTextRendererCreate();
 
   /**
    * Original signature :
    * <code>TessResultRenderer* TessHOcrRendererCreate()</code><br>
    * <i>native declaration : line 99</i>
    */
-  PointerByReference tessHOcrRendererCreate();
+  PointerByReference TessHOcrRendererCreate();
 
   /**
    * Original signature :
@@ -230,32 +231,32 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 100</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessPDFRendererCreate(java.lang.String)} and
-   *             {@link #tessPDFRendererCreate(com.sun.jna.Pointer)} instead
+   *             {@link #TessPDFRendererCreate(java.lang.String)} and
+   *             {@link #TessPDFRendererCreate(com.sun.jna.Pointer)} instead
    */
   @Deprecated
-  PointerByReference tessPDFRendererCreate(Pointer datadir);
+  PointerByReference TessPDFRendererCreate(Pointer datadir);
 
   /**
    * Original signature :
    * <code>TessResultRenderer* TessPDFRendererCreate(const char*)</code><br>
    * <i>native declaration : line 100</i>
    */
-  PointerByReference tessPDFRendererCreate(String datadir);
+  PointerByReference TessPDFRendererCreate(String datadir);
 
   /**
    * Original signature :
    * <code>TessResultRenderer* TessUnlvRendererCreate()</code><br>
    * <i>native declaration : line 101</i>
    */
-  PointerByReference tessUnlvRendererCreate();
+  PointerByReference TessUnlvRendererCreate();
 
   /**
    * Original signature :
    * <code>TessResultRenderer* TessBoxTextRendererCreate()</code><br>
    * <i>native declaration : line 102</i>
    */
-  PointerByReference tessBoxTextRendererCreate();
+  PointerByReference TessBoxTextRendererCreate();
 
   /**
    * Original signature :
@@ -263,18 +264,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 104</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessDeleteResultRenderer(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessDeleteResultRenderer(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessDeleteResultRenderer(Pointer renderer);
+  void TessDeleteResultRenderer(Pointer renderer);
 
   /**
    * Original signature :
    * <code>void TessDeleteResultRenderer(TessResultRenderer*)</code><br>
    * <i>native declaration : line 104</i>
    */
-  void tessDeleteResultRenderer(PointerByReference renderer);
+  void TessDeleteResultRenderer(PointerByReference renderer);
 
   /**
    * Original signature :
@@ -283,11 +284,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 105</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererInsert(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererInsert(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessResultRendererInsert(Pointer renderer, Pointer next);
+  void TessResultRendererInsert(Pointer renderer, Pointer next);
 
   /**
    * Original signature :
@@ -295,7 +296,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 105</i>
    */
-  void tessResultRendererInsert(PointerByReference renderer,
+  void TessResultRendererInsert(PointerByReference renderer,
       PointerByReference next);
 
   /**
@@ -305,11 +306,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 106</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererNext(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererNext(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessResultRendererNext(Pointer renderer);
+  PointerByReference TessResultRendererNext(Pointer renderer);
 
   /**
    * Original signature :
@@ -317,7 +318,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 106</i>
    */
-  PointerByReference tessResultRendererNext(PointerByReference renderer);
+  PointerByReference TessResultRendererNext(PointerByReference renderer);
 
   /**
    * Original signature :
@@ -326,13 +327,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 108</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessResultRendererBeginDocument(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessResultRendererBeginDocument(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessResultRendererBeginDocument(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessResultRendererBeginDocument(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessResultRendererBeginDocument(Pointer renderer, Pointer title);
+  int TessResultRendererBeginDocument(Pointer renderer, Pointer title);
 
   /**
    * Original signature :
@@ -340,7 +341,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 108</i>
    */
-  int tessResultRendererBeginDocument(PointerByReference renderer, String title);
+  int TessResultRendererBeginDocument(PointerByReference renderer, String title);
 
   /**
    * Original signature :
@@ -348,7 +349,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 108</i>
    */
-  int tessResultRendererBeginDocument(PointerByReference renderer, Pointer title);
+  int TessResultRendererBeginDocument(PointerByReference renderer, Pointer title);
 
   /**
    * Original signature :
@@ -357,11 +358,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 109</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererAddImage(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererAddImage(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultRendererAddImage(Pointer renderer, Pointer api);
+  int TessResultRendererAddImage(Pointer renderer, Pointer api);
 
   /**
    * Original signature :
@@ -369,7 +370,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 109</i>
    */
-  int tessResultRendererAddImage(PointerByReference renderer,
+  int TessResultRendererAddImage(PointerByReference renderer,
       PointerByReference api);
 
   /**
@@ -379,11 +380,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 110</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererAddError(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererAddError(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultRendererAddError(Pointer renderer, Pointer api);
+  int TessResultRendererAddError(Pointer renderer, Pointer api);
 
   /**
    * Original signature :
@@ -391,7 +392,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 110</i>
    */
-  int tessResultRendererAddError(PointerByReference renderer,
+  int TessResultRendererAddError(PointerByReference renderer,
       PointerByReference api);
 
   /**
@@ -400,18 +401,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 111</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererEndDocument(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererEndDocument(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultRendererEndDocument(Pointer renderer);
+  int TessResultRendererEndDocument(Pointer renderer);
 
   /**
    * Original signature :
    * <code>int TessResultRendererEndDocument(TessResultRenderer*)</code><br>
    * <i>native declaration : line 111</i>
    */
-  int tessResultRendererEndDocument(PointerByReference renderer);
+  int TessResultRendererEndDocument(PointerByReference renderer);
 
   /**
    * Original signature :
@@ -420,13 +421,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 112</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessResultRendererGetOutput(com.sun.jna.ptr.PointerByReference, java.lang.String[], java.nio.IntBuffer)}
+   *             {@link #TessResultRendererGetOutput(com.sun.jna.ptr.PointerByReference, java.lang.String[], java.nio.IntBuffer)}
    *             and
-   *             {@link #tessResultRendererGetOutput(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessResultRendererGetOutput(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultRendererGetOutput(Pointer renderer, PointerByReference data,
+  int TessResultRendererGetOutput(Pointer renderer, PointerByReference data,
       IntByReference data_len);
 
   /**
@@ -435,7 +436,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 112</i>
    */
-  int tessResultRendererGetOutput(PointerByReference renderer, String data[],
+  int TessResultRendererGetOutput(PointerByReference renderer, String data[],
       IntBuffer data_len);
 
   /**
@@ -444,7 +445,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 112</i>
    */
-  int tessResultRendererGetOutput(PointerByReference renderer,
+  int TessResultRendererGetOutput(PointerByReference renderer,
       PointerByReference data, IntByReference data_len);
 
   /**
@@ -453,18 +454,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 114</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererTypename(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererTypename(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessResultRendererTypename(Pointer renderer);
+  String TessResultRendererTypename(Pointer renderer);
 
   /**
    * Original signature :
    * <code>char* TessResultRendererTypename(TessResultRenderer*)</code><br>
    * <i>native declaration : line 114</i>
    */
-  String tessResultRendererTypename(PointerByReference renderer);
+  String TessResultRendererTypename(PointerByReference renderer);
 
   /**
    * Original signature :
@@ -472,18 +473,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 115</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererExtention(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererExtention(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessResultRendererExtention(Pointer renderer);
+  String TessResultRendererExtention(Pointer renderer);
 
   /**
    * Original signature :
    * <code>char* TessResultRendererExtention(TessResultRenderer*)</code><br>
    * <i>native declaration : line 115</i>
    */
-  String tessResultRendererExtention(PointerByReference renderer);
+  String TessResultRendererExtention(PointerByReference renderer);
 
   /**
    * Original signature :
@@ -491,18 +492,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 116</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererTitle(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererTitle(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessResultRendererTitle(Pointer renderer);
+  String TessResultRendererTitle(Pointer renderer);
 
   /**
    * Original signature :
    * <code>char* TessResultRendererTitle(TessResultRenderer*)</code><br>
    * <i>native declaration : line 116</i>
    */
-  String tessResultRendererTitle(PointerByReference renderer);
+  String TessResultRendererTitle(PointerByReference renderer);
 
   /**
    * Original signature :
@@ -510,41 +511,41 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 117</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultRendererImageNum(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultRendererImageNum(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultRendererImageNum(Pointer renderer);
+  int TessResultRendererImageNum(Pointer renderer);
 
   /**
    * Original signature :
    * <code>int TessResultRendererImageNum(TessResultRenderer*)</code><br>
    * <i>native declaration : line 117</i>
    */
-  int tessResultRendererImageNum(PointerByReference renderer);
+  int TessResultRendererImageNum(PointerByReference renderer);
 
   /**
    * Original signature : <code>TessBaseAPI* TessBaseAPICreate()</code><br>
    * <i>native declaration : line 121</i>
    */
-  PointerByReference tessBaseAPICreate();
+  PointerByReference TessBaseAPICreate();
 
   /**
    * Original signature : <code>void TessBaseAPIDelete(TessBaseAPI*)</code><br>
    * <i>native declaration : line 123</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIDelete(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIDelete(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIDelete(Pointer handle);
+  void TessBaseAPIDelete(Pointer handle);
 
   /**
    * Original signature : <code>void TessBaseAPIDelete(TessBaseAPI*)</code><br>
    * <i>native declaration : line 123</i>
    */
-  void tessBaseAPIDelete(PointerByReference handle);
+  void TessBaseAPIDelete(PointerByReference handle);
 
   /**
    * Original signature :
@@ -552,18 +553,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 125</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetOpenCLDevice(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetOpenCLDevice(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  SizeT tessBaseAPIGetOpenCLDevice(Pointer handle, PointerByReference device);
+  SizeT TessBaseAPIGetOpenCLDevice(Pointer handle, PointerByReference device);
 
   /**
    * Original signature :
    * <code>size_t TessBaseAPIGetOpenCLDevice(TessBaseAPI*, void**)</code><br>
    * <i>native declaration : line 125</i>
    */
-  SizeT tessBaseAPIGetOpenCLDevice(PointerByReference handle,
+  SizeT TessBaseAPIGetOpenCLDevice(PointerByReference handle,
       PointerByReference device);
 
   /**
@@ -572,27 +573,27 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 127</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPISetInputName(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPISetInputName(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPISetInputName(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPISetInputName(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetInputName(Pointer handle, Pointer name);
+  void TessBaseAPISetInputName(Pointer handle, Pointer name);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetInputName(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 127</i>
    */
-  void tessBaseAPISetInputName(PointerByReference handle, String name);
+  void TessBaseAPISetInputName(PointerByReference handle, String name);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetInputName(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 127</i>
    */
-  void tessBaseAPISetInputName(PointerByReference handle, Pointer name);
+  void TessBaseAPISetInputName(PointerByReference handle, Pointer name);
 
   /**
    * Original signature :
@@ -600,18 +601,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 128</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetInputName(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetInputName(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetInputName(Pointer handle);
+  String TessBaseAPIGetInputName(Pointer handle);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetInputName(TessBaseAPI*)</code><br>
    * <i>native declaration : line 128</i>
    */
-  String tessBaseAPIGetInputName(PointerByReference handle);
+  String TessBaseAPIGetInputName(PointerByReference handle);
 
   /**
    * Original signature :
@@ -619,18 +620,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 130</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPISetInputImage(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pix)}
+   *             {@link #TessBaseAPISetInputImage(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pix)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetInputImage(Pointer handle, TesseractLibrary.Pix pix);
+  void TessBaseAPISetInputImage(Pointer handle, TesseractLibrary.Pix pix);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetInputImage(TessBaseAPI*, Pix*)</code><br>
    * <i>native declaration : line 130</i>
    */
-  void tessBaseAPISetInputImage(PointerByReference handle,
+  void TessBaseAPISetInputImage(PointerByReference handle,
       TesseractLibrary.Pix pix);
 
   /**
@@ -639,18 +640,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 131</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetInputImage(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetInputImage(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Pix tessBaseAPIGetInputImage(Pointer handle);
+  TesseractLibrary.Pix TessBaseAPIGetInputImage(Pointer handle);
 
   /**
    * Original signature :
    * <code>Pix* TessBaseAPIGetInputImage(TessBaseAPI*)</code><br>
    * <i>native declaration : line 131</i>
    */
-  TesseractLibrary.Pix tessBaseAPIGetInputImage(PointerByReference handle);
+  TesseractLibrary.Pix TessBaseAPIGetInputImage(PointerByReference handle);
 
   /**
    * Original signature :
@@ -658,18 +659,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 133</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetSourceYResolution(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetSourceYResolution(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIGetSourceYResolution(Pointer handle);
+  int TessBaseAPIGetSourceYResolution(Pointer handle);
 
   /**
    * Original signature :
    * <code>int TessBaseAPIGetSourceYResolution(TessBaseAPI*)</code><br>
    * <i>native declaration : line 133</i>
    */
-  int tessBaseAPIGetSourceYResolution(PointerByReference handle);
+  int TessBaseAPIGetSourceYResolution(PointerByReference handle);
 
   /**
    * Original signature :
@@ -677,18 +678,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 134</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetDatapath(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetDatapath(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetDatapath(Pointer handle);
+  String TessBaseAPIGetDatapath(Pointer handle);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetDatapath(TessBaseAPI*)</code><br>
    * <i>native declaration : line 134</i>
    */
-  String tessBaseAPIGetDatapath(PointerByReference handle);
+  String TessBaseAPIGetDatapath(PointerByReference handle);
 
   /**
    * Original signature :
@@ -696,27 +697,27 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 136</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPISetOutputName(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPISetOutputName(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPISetOutputName(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPISetOutputName(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetOutputName(Pointer handle, Pointer name);
+  void TessBaseAPISetOutputName(Pointer handle, Pointer name);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetOutputName(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 136</i>
    */
-  void tessBaseAPISetOutputName(PointerByReference handle, String name);
+  void TessBaseAPISetOutputName(PointerByReference handle, String name);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetOutputName(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 136</i>
    */
-  void tessBaseAPISetOutputName(PointerByReference handle, Pointer name);
+  void TessBaseAPISetOutputName(PointerByReference handle, Pointer name);
 
   /**
    * Original signature :
@@ -725,13 +726,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 138</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPISetVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
+   *             {@link #TessBaseAPISetVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPISetVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPISetVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPISetVariable(Pointer handle, Pointer name, Pointer value);
+  int TessBaseAPISetVariable(Pointer handle, Pointer name, Pointer value);
 
   /**
    * Original signature :
@@ -739,7 +740,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 138</i>
    */
-  int tessBaseAPISetVariable(PointerByReference handle, String name,
+  int TessBaseAPISetVariable(PointerByReference handle, String name,
       String value);
 
   /**
@@ -748,7 +749,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 138</i>
    */
-  int tessBaseAPISetVariable(PointerByReference handle, Pointer name,
+  int TessBaseAPISetVariable(PointerByReference handle, Pointer name,
       Pointer value);
 
   /**
@@ -758,13 +759,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 139</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPISetDebugVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
+   *             {@link #TessBaseAPISetDebugVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPISetDebugVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPISetDebugVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPISetDebugVariable(Pointer handle, Pointer name, Pointer value);
+  int TessBaseAPISetDebugVariable(Pointer handle, Pointer name, Pointer value);
 
   /**
    * Original signature :
@@ -772,7 +773,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 139</i>
    */
-  int tessBaseAPISetDebugVariable(PointerByReference handle, String name,
+  int TessBaseAPISetDebugVariable(PointerByReference handle, String name,
       String value);
 
   /**
@@ -781,7 +782,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 139</i>
    */
-  int tessBaseAPISetDebugVariable(PointerByReference handle, Pointer name,
+  int TessBaseAPISetDebugVariable(PointerByReference handle, Pointer name,
       Pointer value);
 
   /**
@@ -791,13 +792,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 141</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIGetIntVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.nio.IntBuffer)}
+   *             {@link #TessBaseAPIGetIntVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.nio.IntBuffer)}
    *             and
-   *             {@link #tessBaseAPIGetIntVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessBaseAPIGetIntVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIGetIntVariable(Pointer handle, Pointer name,
+  int TessBaseAPIGetIntVariable(Pointer handle, Pointer name,
       IntByReference value);
 
   /**
@@ -806,7 +807,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 141</i>
    */
-  int tessBaseAPIGetIntVariable(PointerByReference handle, String name,
+  int TessBaseAPIGetIntVariable(PointerByReference handle, String name,
       IntBuffer value);
 
   /**
@@ -815,7 +816,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 141</i>
    */
-  int tessBaseAPIGetIntVariable(PointerByReference handle, Pointer name,
+  int TessBaseAPIGetIntVariable(PointerByReference handle, Pointer name,
       IntByReference value);
 
   /**
@@ -825,13 +826,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 142</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIGetBoolVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.nio.IntBuffer)}
+   *             {@link #TessBaseAPIGetBoolVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.nio.IntBuffer)}
    *             and
-   *             {@link #tessBaseAPIGetBoolVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessBaseAPIGetBoolVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIGetBoolVariable(Pointer handle, Pointer name,
+  int TessBaseAPIGetBoolVariable(Pointer handle, Pointer name,
       IntByReference value);
 
   /**
@@ -840,7 +841,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 142</i>
    */
-  int tessBaseAPIGetBoolVariable(PointerByReference handle, String name,
+  int TessBaseAPIGetBoolVariable(PointerByReference handle, String name,
       IntBuffer value);
 
   /**
@@ -849,7 +850,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 142</i>
    */
-  int tessBaseAPIGetBoolVariable(PointerByReference handle, Pointer name,
+  int TessBaseAPIGetBoolVariable(PointerByReference handle, Pointer name,
       IntByReference value);
 
   /**
@@ -859,13 +860,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 143</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIGetDoubleVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.nio.DoubleBuffer)}
+   *             {@link #TessBaseAPIGetDoubleVariable(com.sun.jna.ptr.PointerByReference, java.lang.String, java.nio.DoubleBuffer)}
    *             and
-   *             {@link #tessBaseAPIGetDoubleVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.ptr.DoubleByReference)}
+   *             {@link #TessBaseAPIGetDoubleVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.ptr.DoubleByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIGetDoubleVariable(Pointer handle, Pointer name,
+  int TessBaseAPIGetDoubleVariable(Pointer handle, Pointer name,
       DoubleByReference value);
 
   /**
@@ -874,7 +875,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 143</i>
    */
-  int tessBaseAPIGetDoubleVariable(PointerByReference handle, String name,
+  int TessBaseAPIGetDoubleVariable(PointerByReference handle, String name,
       DoubleBuffer value);
 
   /**
@@ -883,7 +884,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 143</i>
    */
-  int tessBaseAPIGetDoubleVariable(PointerByReference handle, Pointer name,
+  int TessBaseAPIGetDoubleVariable(PointerByReference handle, Pointer name,
       DoubleByReference value);
 
   /**
@@ -893,13 +894,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 144</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIGetStringVariable(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPIGetStringVariable(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIGetStringVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIGetStringVariable(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetStringVariable(Pointer handle, Pointer name);
+  String TessBaseAPIGetStringVariable(Pointer handle, Pointer name);
 
   /**
    * Original signature :
@@ -907,7 +908,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 144</i>
    */
-  String tessBaseAPIGetStringVariable(PointerByReference handle, String name);
+  String TessBaseAPIGetStringVariable(PointerByReference handle, String name);
 
   /**
    * Original signature :
@@ -915,7 +916,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 144</i>
    */
-  String tessBaseAPIGetStringVariable(PointerByReference handle, Pointer name);
+  String TessBaseAPIGetStringVariable(PointerByReference handle, Pointer name);
 
   /**
    * Original signature :
@@ -923,18 +924,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 147</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIPrintVariables(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.FILE)}
+   *             {@link #TessBaseAPIPrintVariables(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.FILE)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIPrintVariables(Pointer handle, TesseractLibrary.FILE fp);
+  void TessBaseAPIPrintVariables(Pointer handle, TesseractLibrary.FILE fp);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIPrintVariables(const TessBaseAPI*, FILE*)</code><br>
    * <i>native declaration : line 147</i>
    */
-  void tessBaseAPIPrintVariables(PointerByReference handle,
+  void TessBaseAPIPrintVariables(PointerByReference handle,
       TesseractLibrary.FILE fp);
 
   /**
@@ -944,13 +945,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 148</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIPrintVariablesToFile(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPIPrintVariablesToFile(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIPrintVariablesToFile(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIPrintVariablesToFile(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIPrintVariablesToFile(Pointer handle, Pointer filename);
+  int TessBaseAPIPrintVariablesToFile(Pointer handle, Pointer filename);
 
   /**
    * Original signature :
@@ -958,7 +959,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 148</i>
    */
-  int tessBaseAPIPrintVariablesToFile(PointerByReference handle, String filename);
+  int TessBaseAPIPrintVariablesToFile(PointerByReference handle, String filename);
 
   /**
    * Original signature :
@@ -966,7 +967,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 148</i>
    */
-  int tessBaseAPIPrintVariablesToFile(PointerByReference handle,
+  int TessBaseAPIPrintVariablesToFile(PointerByReference handle,
       Pointer filename);
 
   /**
@@ -976,13 +977,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 159</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIInit1(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int, java.lang.String[], int)}
+   *             {@link #TessBaseAPIInit1(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int, java.lang.String[], int)}
    *             and
-   *             {@link #tessBaseAPIInit1(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessBaseAPIInit1(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIInit1(Pointer handle, Pointer datapath, Pointer language,
+  int TessBaseAPIInit1(Pointer handle, Pointer datapath, Pointer language,
       int oem, PointerByReference configs, int configs_size);
 
   /**
@@ -991,7 +992,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 159</i>
    */
-  int tessBaseAPIInit1(PointerByReference handle, String datapath,
+  int TessBaseAPIInit1(PointerByReference handle, String datapath,
       String language, int oem, String configs[], int configs_size);
 
   /**
@@ -1000,7 +1001,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 159</i>
    */
-  int tessBaseAPIInit1(PointerByReference handle, Pointer datapath,
+  int TessBaseAPIInit1(PointerByReference handle, Pointer datapath,
       Pointer language, int oem, PointerByReference configs, int configs_size);
 
   /**
@@ -1010,13 +1011,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 161</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIInit2(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int)}
+   *             {@link #TessBaseAPIInit2(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int)}
    *             and
-   *             {@link #tessBaseAPIInit2(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int)}
+   *             {@link #TessBaseAPIInit2(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIInit2(Pointer handle, Pointer datapath, Pointer language,
+  int TessBaseAPIInit2(Pointer handle, Pointer datapath, Pointer language,
       int oem);
 
   /**
@@ -1025,7 +1026,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 161</i>
    */
-  int tessBaseAPIInit2(PointerByReference handle, String datapath,
+  int TessBaseAPIInit2(PointerByReference handle, String datapath,
       String language, int oem);
 
   /**
@@ -1034,7 +1035,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 161</i>
    */
-  int tessBaseAPIInit2(PointerByReference handle, Pointer datapath,
+  int TessBaseAPIInit2(PointerByReference handle, Pointer datapath,
       Pointer language, int oem);
 
   /**
@@ -1043,20 +1044,20 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 162</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIInit3(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
+   *             {@link #TessBaseAPIInit3(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIInit3(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIInit3(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIInit3(Pointer handle, Pointer datapath, Pointer language);
+  int TessBaseAPIInit3(Pointer handle, Pointer datapath, Pointer language);
 
   /**
    * Original signature :
    * <code>int TessBaseAPIInit3(TessBaseAPI*, const char*, const char*)</code><br>
    * <i>native declaration : line 162</i>
    */
-  int tessBaseAPIInit3(PointerByReference handle, String datapath,
+  int TessBaseAPIInit3(PointerByReference handle, String datapath,
       String language);
 
   /**
@@ -1064,7 +1065,7 @@ public interface TesseractLibrary extends Library {
    * <code>int TessBaseAPIInit3(TessBaseAPI*, const char*, const char*)</code><br>
    * <i>native declaration : line 162</i>
    */
-  int tessBaseAPIInit3(PointerByReference handle, Pointer datapath,
+  int TessBaseAPIInit3(PointerByReference handle, Pointer datapath,
       Pointer language);
 
   /**
@@ -1074,13 +1075,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 164</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIInit4(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int, java.lang.String[], int, java.lang.String[], java.lang.String[], com.ochafik.lang.jnaerator.runtime.NativeSize, int)}
+   *             {@link #TessBaseAPIInit4(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int, java.lang.String[], int, java.lang.String[], java.lang.String[], com.ochafik.lang.jnaerator.runtime.NativeSize, int)}
    *             and
-   *             {@link #tessBaseAPIInit4(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference, int, com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference, com.ochafik.lang.jnaerator.runtime.NativeSize, int)}
+   *             {@link #TessBaseAPIInit4(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference, int, com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference, com.ochafik.lang.jnaerator.runtime.NativeSize, int)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIInit4(Pointer handle, Pointer datapath, Pointer language,
+  int TessBaseAPIInit4(Pointer handle, Pointer datapath, Pointer language,
       int mode, PointerByReference configs, int configs_size,
       PointerByReference vars_vec, PointerByReference vars_values,
       SizeT vars_vec_size, int set_only_non_debug_params);
@@ -1091,7 +1092,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 164</i>
    */
-  int tessBaseAPIInit4(PointerByReference handle, String datapath,
+  int TessBaseAPIInit4(PointerByReference handle, String datapath,
       String language, int mode, String configs[], int configs_size,
       String vars_vec[], String vars_values[], SizeT vars_vec_size,
       int set_only_non_debug_params);
@@ -1102,7 +1103,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 164</i>
    */
-  int tessBaseAPIInit4(PointerByReference handle, Pointer datapath,
+  int TessBaseAPIInit4(PointerByReference handle, Pointer datapath,
       Pointer language, int mode, PointerByReference configs, int configs_size,
       PointerByReference vars_vec, PointerByReference vars_values,
       SizeT vars_vec_size, int set_only_non_debug_params);
@@ -1113,18 +1114,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 169</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetInitLanguagesAsString(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetInitLanguagesAsString(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetInitLanguagesAsString(Pointer handle);
+  String TessBaseAPIGetInitLanguagesAsString(Pointer handle);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetInitLanguagesAsString(const TessBaseAPI*)</code><br>
    * <i>native declaration : line 169</i>
    */
-  String tessBaseAPIGetInitLanguagesAsString(PointerByReference handle);
+  String TessBaseAPIGetInitLanguagesAsString(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1133,11 +1134,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 171</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetLoadedLanguagesAsVector(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetLoadedLanguagesAsVector(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessBaseAPIGetLoadedLanguagesAsVector(Pointer handle);
+  PointerByReference TessBaseAPIGetLoadedLanguagesAsVector(Pointer handle);
 
   /**
    * Original signature :
@@ -1145,7 +1146,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 171</i>
    */
-  PointerByReference tessBaseAPIGetLoadedLanguagesAsVector(
+  PointerByReference TessBaseAPIGetLoadedLanguagesAsVector(
       PointerByReference handle);
 
   /**
@@ -1155,11 +1156,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 173</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetAvailableLanguagesAsVector(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetAvailableLanguagesAsVector(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessBaseAPIGetAvailableLanguagesAsVector(Pointer handle);
+  PointerByReference TessBaseAPIGetAvailableLanguagesAsVector(Pointer handle);
 
   /**
    * Original signature :
@@ -1167,7 +1168,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 173</i>
    */
-  PointerByReference tessBaseAPIGetAvailableLanguagesAsVector(
+  PointerByReference TessBaseAPIGetAvailableLanguagesAsVector(
       PointerByReference handle);
 
   /**
@@ -1177,13 +1178,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 176</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIInitLangMod(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
+   *             {@link #TessBaseAPIInitLangMod(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIInitLangMod(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIInitLangMod(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIInitLangMod(Pointer handle, Pointer datapath, Pointer language);
+  int TessBaseAPIInitLangMod(Pointer handle, Pointer datapath, Pointer language);
 
   /**
    * Original signature :
@@ -1191,7 +1192,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 176</i>
    */
-  int tessBaseAPIInitLangMod(PointerByReference handle, String datapath,
+  int TessBaseAPIInitLangMod(PointerByReference handle, String datapath,
       String language);
 
   /**
@@ -1200,7 +1201,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 176</i>
    */
-  int tessBaseAPIInitLangMod(PointerByReference handle, Pointer datapath,
+  int TessBaseAPIInitLangMod(PointerByReference handle, Pointer datapath,
       Pointer language);
 
   /**
@@ -1209,18 +1210,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 177</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIInitForAnalysePage(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIInitForAnalysePage(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIInitForAnalysePage(Pointer handle);
+  void TessBaseAPIInitForAnalysePage(Pointer handle);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIInitForAnalysePage(TessBaseAPI*)</code><br>
    * <i>native declaration : line 177</i>
    */
-  void tessBaseAPIInitForAnalysePage(PointerByReference handle);
+  void TessBaseAPIInitForAnalysePage(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1228,27 +1229,27 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 179</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIReadConfigFile(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPIReadConfigFile(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIReadConfigFile(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIReadConfigFile(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIReadConfigFile(Pointer handle, Pointer filename);
+  void TessBaseAPIReadConfigFile(Pointer handle, String filename);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIReadConfigFile(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 179</i>
    */
-  void tessBaseAPIReadConfigFile(PointerByReference handle, String filename);
+  void TessBaseAPIReadConfigFile(PointerByReference handle, String filename);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIReadConfigFile(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 179</i>
    */
-  void tessBaseAPIReadConfigFile(PointerByReference handle, Pointer filename);
+  void TessBaseAPIReadConfigFile(PointerByReference handle, Pointer filename);
 
   /**
    * Original signature :
@@ -1256,27 +1257,27 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 180</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIReadDebugConfigFile(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPIReadDebugConfigFile(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIReadDebugConfigFile(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIReadDebugConfigFile(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIReadDebugConfigFile(Pointer handle, Pointer filename);
+  void TessBaseAPIReadDebugConfigFile(Pointer handle, String filename);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIReadDebugConfigFile(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 180</i>
    */
-  void tessBaseAPIReadDebugConfigFile(PointerByReference handle, String filename);
+  void TessBaseAPIReadDebugConfigFile(PointerByReference handle, String filename);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIReadDebugConfigFile(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 180</i>
    */
-  void tessBaseAPIReadDebugConfigFile(PointerByReference handle,
+  void TessBaseAPIReadDebugConfigFile(PointerByReference handle,
       Pointer filename);
 
   /**
@@ -1285,18 +1286,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 182</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPISetPageSegMode(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessBaseAPISetPageSegMode(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetPageSegMode(Pointer handle, int mode);
+  void TessBaseAPISetPageSegMode(Pointer handle, int mode);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetPageSegMode(TessBaseAPI*, TessPageSegMode)</code><br>
    * <i>native declaration : line 182</i>
    */
-  void tessBaseAPISetPageSegMode(PointerByReference handle, int mode);
+  void TessBaseAPISetPageSegMode(PointerByReference handle, int mode);
 
   /**
    * Original signature :
@@ -1304,18 +1305,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 183</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetPageSegMode(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetPageSegMode(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIGetPageSegMode(Pointer handle);
+  int TessBaseAPIGetPageSegMode(Pointer handle);
 
   /**
    * Original signature :
    * <code>TessPageSegMode TessBaseAPIGetPageSegMode(const TessBaseAPI*)</code><br>
    * <i>native declaration : line 183</i>
    */
-  int tessBaseAPIGetPageSegMode(PointerByReference handle);
+  int TessBaseAPIGetPageSegMode(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1324,13 +1325,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 186</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIRect(com.sun.jna.ptr.PointerByReference, byte[], int, int, int, int, int, int)}
+   *             {@link #TessBaseAPIRect(com.sun.jna.ptr.PointerByReference, byte[], int, int, int, int, int, int)}
    *             and
-   *             {@link #tessBaseAPIRect(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, int, int, int, int, int, int)}
+   *             {@link #TessBaseAPIRect(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, int, int, int, int, int, int)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIRect(Pointer handle, Pointer imagedata,
+  String TessBaseAPIRect(Pointer handle, ByteBuffer imagedata,
       int bytes_per_pixel, int bytes_per_line, int left, int top, int width,
       int height);
 
@@ -1340,7 +1341,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 186</i>
    */
-  String tessBaseAPIRect(PointerByReference handle, byte imagedata[],
+  String TessBaseAPIRect(PointerByReference handle, byte imagedata[],
       int bytes_per_pixel, int bytes_per_line, int left, int top, int width,
       int height);
 
@@ -1350,7 +1351,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 186</i>
    */
-  String tessBaseAPIRect(PointerByReference handle, Pointer imagedata,
+  String TessBaseAPIRect(PointerByReference handle, ByteBuffer imagedata,
       int bytes_per_pixel, int bytes_per_line, int left, int top, int width,
       int height);
 
@@ -1360,18 +1361,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 190</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIClearAdaptiveClassifier(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIClearAdaptiveClassifier(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIClearAdaptiveClassifier(Pointer handle);
+  void TessBaseAPIClearAdaptiveClassifier(Pointer handle);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIClearAdaptiveClassifier(TessBaseAPI*)</code><br>
    * <i>native declaration : line 190</i>
    */
-  void tessBaseAPIClearAdaptiveClassifier(PointerByReference handle);
+  void TessBaseAPIClearAdaptiveClassifier(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1380,13 +1381,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 192</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPISetImage(com.sun.jna.ptr.PointerByReference, byte[], int, int, int, int)}
+   *             {@link #TessBaseAPISetImage(com.sun.jna.ptr.PointerByReference, byte[], int, int, int, int)}
    *             and
-   *             {@link #tessBaseAPISetImage(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, int, int, int, int)}
+   *             {@link #TessBaseAPISetImage(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, int, int, int, int)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetImage(Pointer handle, Pointer imagedata, int width,
+  void TessBaseAPISetImage(Pointer handle, ByteBuffer imagedata, int width,
       int height, int bytes_per_pixel, int bytes_per_line);
 
   /**
@@ -1395,7 +1396,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 192</i>
    */
-  void tessBaseAPISetImage(PointerByReference handle, byte imagedata[],
+  void TessBaseAPISetImage(PointerByReference handle, byte imagedata[],
       int width, int height, int bytes_per_pixel, int bytes_per_line);
 
   /**
@@ -1404,7 +1405,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 192</i>
    */
-  void tessBaseAPISetImage(PointerByReference handle, Pointer imagedata,
+  void TessBaseAPISetImage(PointerByReference handle, ByteBuffer imagedata,
       int width, int height, int bytes_per_pixel, int bytes_per_line);
 
   /**
@@ -1413,18 +1414,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 194</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPISetImage2(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pix)}
+   *             {@link #TessBaseAPISetImage2(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pix)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetImage2(Pointer handle, TesseractLibrary.Pix pix);
+  void TessBaseAPISetImage2(Pointer handle, TesseractLibrary.Pix pix);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetImage2(TessBaseAPI*, Pix*)</code><br>
    * <i>native declaration : line 194</i>
    */
-  void tessBaseAPISetImage2(PointerByReference handle, TesseractLibrary.Pix pix);
+  void TessBaseAPISetImage2(PointerByReference handle, TesseractLibrary.Pix pix);
 
   /**
    * Original signature :
@@ -1432,18 +1433,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 196</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPISetSourceResolution(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessBaseAPISetSourceResolution(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetSourceResolution(Pointer handle, int ppi);
+  void TessBaseAPISetSourceResolution(Pointer handle, int ppi);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetSourceResolution(TessBaseAPI*, int)</code><br>
    * <i>native declaration : line 196</i>
    */
-  void tessBaseAPISetSourceResolution(PointerByReference handle, int ppi);
+  void TessBaseAPISetSourceResolution(PointerByReference handle, int ppi);
 
   /**
    * Original signature :
@@ -1451,11 +1452,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 198</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPISetRectangle(com.sun.jna.ptr.PointerByReference, int, int, int, int)}
+   *             {@link #TessBaseAPISetRectangle(com.sun.jna.ptr.PointerByReference, int, int, int, int)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetRectangle(Pointer handle, int left, int top, int width,
+  void TessBaseAPISetRectangle(Pointer handle, int left, int top, int width,
       int height);
 
   /**
@@ -1463,7 +1464,7 @@ public interface TesseractLibrary extends Library {
    * <code>void TessBaseAPISetRectangle(TessBaseAPI*, int, int, int, int)</code><br>
    * <i>native declaration : line 198</i>
    */
-  void tessBaseAPISetRectangle(PointerByReference handle, int left, int top,
+  void TessBaseAPISetRectangle(PointerByReference handle, int left, int top,
       int width, int height);
 
   /**
@@ -1472,18 +1473,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 204</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetThresholdedImage(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetThresholdedImage(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Pix tessBaseAPIGetThresholdedImage(Pointer handle);
+  TesseractLibrary.Pix TessBaseAPIGetThresholdedImage(Pointer handle);
 
   /**
    * Original signature :
    * <code>Pix* TessBaseAPIGetThresholdedImage(TessBaseAPI*)</code><br>
    * <i>native declaration : line 204</i>
    */
-  TesseractLibrary.Pix tessBaseAPIGetThresholdedImage(PointerByReference handle);
+  TesseractLibrary.Pix TessBaseAPIGetThresholdedImage(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1491,13 +1492,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 206</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIGetRegions(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetRegions(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             and
-   *             {@link #tessBaseAPIGetRegions(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pixa[])}
+   *             {@link #TessBaseAPIGetRegions(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pixa[])}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetRegions(Pointer handle,
+  TesseractLibrary.Boxa TessBaseAPIGetRegions(Pointer handle,
       PointerByReference pixa);
 
   /**
@@ -1505,7 +1506,7 @@ public interface TesseractLibrary extends Library {
    * <code>Boxa* TessBaseAPIGetRegions(TessBaseAPI*, Pixa**)</code><br>
    * <i>native declaration : line 206</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetRegions(PointerByReference handle,
+  TesseractLibrary.Boxa TessBaseAPIGetRegions(PointerByReference handle,
       PointerByReference pixa);
 
   /**
@@ -1513,7 +1514,7 @@ public interface TesseractLibrary extends Library {
    * <code>Boxa* TessBaseAPIGetRegions(TessBaseAPI*, Pixa**)</code><br>
    * <i>native declaration : line 206</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetRegions(PointerByReference handle,
+  TesseractLibrary.Boxa TessBaseAPIGetRegions(PointerByReference handle,
       TesseractLibrary.Pixa pixa[]);
 
   /**
@@ -1522,11 +1523,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 208</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetTextlines(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetTextlines(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetTextlines(Pointer handle,
+  TesseractLibrary.Boxa TessBaseAPIGetTextlines(Pointer handle,
       PointerByReference pixa, PointerByReference blockids);
 
   /**
@@ -1534,7 +1535,7 @@ public interface TesseractLibrary extends Library {
    * <code>Boxa* TessBaseAPIGetTextlines(TessBaseAPI*, Pixa**, int**)</code><br>
    * <i>native declaration : line 208</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetTextlines(PointerByReference handle,
+  TesseractLibrary.Boxa TessBaseAPIGetTextlines(PointerByReference handle,
       TesseractLibrary.Pixa pixa[], PointerByReference blockids);
 
   /**
@@ -1544,11 +1545,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 210</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetTextlines1(com.sun.jna.ptr.PointerByReference, int, int, tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetTextlines1(com.sun.jna.ptr.PointerByReference, int, int, Tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetTextlines1(Pointer handle, int raw_image,
+  TesseractLibrary.Boxa TessBaseAPIGetTextlines1(Pointer handle, int raw_image,
       int raw_padding, PointerByReference pixa, PointerByReference blockids,
       PointerByReference paraids);
 
@@ -1558,7 +1559,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 210</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetTextlines1(PointerByReference handle,
+  TesseractLibrary.Boxa TessBaseAPIGetTextlines1(PointerByReference handle,
       int raw_image, int raw_padding, TesseractLibrary.Pixa pixa[],
       PointerByReference blockids, PointerByReference paraids);
 
@@ -1568,11 +1569,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 213</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetStrips(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetStrips(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetStrips(Pointer handle,
+  TesseractLibrary.Boxa TessBaseAPIGetStrips(Pointer handle,
       PointerByReference pixa, PointerByReference blockids);
 
   /**
@@ -1580,7 +1581,7 @@ public interface TesseractLibrary extends Library {
    * <code>Boxa* TessBaseAPIGetStrips(TessBaseAPI*, Pixa**, int**)</code><br>
    * <i>native declaration : line 213</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetStrips(PointerByReference handle,
+  TesseractLibrary.Boxa TessBaseAPIGetStrips(PointerByReference handle,
       TesseractLibrary.Pixa pixa[], PointerByReference blockids);
 
   /**
@@ -1589,11 +1590,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 215</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetWords(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pixa[])}
+   *             {@link #TessBaseAPIGetWords(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pixa[])}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetWords(Pointer handle,
+  TesseractLibrary.Boxa TessBaseAPIGetWords(Pointer handle,
       PointerByReference pixa);
 
   /**
@@ -1601,7 +1602,7 @@ public interface TesseractLibrary extends Library {
    * <code>Boxa* TessBaseAPIGetWords(TessBaseAPI*, Pixa**)</code><br>
    * <i>native declaration : line 215</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetWords(PointerByReference handle,
+  TesseractLibrary.Boxa TessBaseAPIGetWords(PointerByReference handle,
       TesseractLibrary.Pixa pixa[]);
 
   /**
@@ -1610,11 +1611,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 217</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetConnectedComponents(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pixa[])}
+   *             {@link #TessBaseAPIGetConnectedComponents(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pixa[])}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetConnectedComponents(Pointer handle,
+  TesseractLibrary.Boxa TessBaseAPIGetConnectedComponents(Pointer handle,
       PointerByReference cc);
 
   /**
@@ -1622,7 +1623,7 @@ public interface TesseractLibrary extends Library {
    * <code>Boxa* TessBaseAPIGetConnectedComponents(TessBaseAPI*, Pixa**)</code><br>
    * <i>native declaration : line 217</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetConnectedComponents(
+  TesseractLibrary.Boxa TessBaseAPIGetConnectedComponents(
       PointerByReference handle, TesseractLibrary.Pixa cc[]);
 
   /**
@@ -1632,11 +1633,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 219</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetComponentImages(com.sun.jna.ptr.PointerByReference, int, int, tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetComponentImages(com.sun.jna.ptr.PointerByReference, int, int, Tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetComponentImages(Pointer handle,
+  TesseractLibrary.Boxa TessBaseAPIGetComponentImages(Pointer handle,
       int level, int text_only, PointerByReference pixa,
       PointerByReference blockids);
 
@@ -1646,7 +1647,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 219</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetComponentImages(
+  TesseractLibrary.Boxa TessBaseAPIGetComponentImages(
       PointerByReference handle, int level, int text_only,
       TesseractLibrary.Pixa pixa[], PointerByReference blockids);
 
@@ -1657,11 +1658,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 222</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetComponentImages1(com.sun.jna.ptr.PointerByReference, int, int, int, int, tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetComponentImages1(com.sun.jna.ptr.PointerByReference, int, int, int, int, Tesseract.TesseractLibrary.Pixa[], com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Boxa tessBaseAPIGetComponentImages1(Pointer handle,
+  TesseractLibrary.Boxa TessBaseAPIGetComponentImages1(Pointer handle,
       int level, int text_only, int raw_image, int raw_padding,
       PointerByReference pixa, PointerByReference blockids,
       PointerByReference paraids);
@@ -1672,7 +1673,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 222</i>
    */
-  TesseractLibrary.Boxa tessBaseAPIGetComponentImages1(
+  TesseractLibrary.Boxa TessBaseAPIGetComponentImages1(
       PointerByReference handle, int level, int text_only, int raw_image,
       int raw_padding, TesseractLibrary.Pixa pixa[],
       PointerByReference blockids, PointerByReference paraids);
@@ -1684,11 +1685,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 227</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetThresholdedImageScaleFactor(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetThresholdedImageScaleFactor(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIGetThresholdedImageScaleFactor(Pointer handle);
+  int TessBaseAPIGetThresholdedImageScaleFactor(Pointer handle);
 
   /**
    * Original signature :
@@ -1696,7 +1697,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 227</i>
    */
-  int tessBaseAPIGetThresholdedImageScaleFactor(PointerByReference handle);
+  int TessBaseAPIGetThresholdedImageScaleFactor(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1704,27 +1705,27 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 229</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIDumpPGM(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPIDumpPGM(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIDumpPGM(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIDumpPGM(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIDumpPGM(Pointer handle, Pointer filename);
+  void TessBaseAPIDumpPGM(Pointer handle, Pointer filename);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIDumpPGM(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 229</i>
    */
-  void tessBaseAPIDumpPGM(PointerByReference handle, String filename);
+  void TessBaseAPIDumpPGM(PointerByReference handle, String filename);
 
   /**
    * Original signature :
    * <code>void TessBaseAPIDumpPGM(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 229</i>
    */
-  void tessBaseAPIDumpPGM(PointerByReference handle, Pointer filename);
+  void TessBaseAPIDumpPGM(PointerByReference handle, Pointer filename);
 
   /**
    * Original signature :
@@ -1732,18 +1733,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 231</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIAnalyseLayout(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIAnalyseLayout(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessBaseAPIAnalyseLayout(Pointer handle);
+  PointerByReference TessBaseAPIAnalyseLayout(Pointer handle);
 
   /**
    * Original signature :
    * <code>TessPageIterator* TessBaseAPIAnalyseLayout(TessBaseAPI*)</code><br>
    * <i>native declaration : line 231</i>
    */
-  PointerByReference tessBaseAPIAnalyseLayout(PointerByReference handle);
+  PointerByReference TessBaseAPIAnalyseLayout(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1751,18 +1752,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 234</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIRecognize(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIRecognize(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIRecognize(Pointer handle, Pointer monitor);
+  int TessBaseAPIRecognize(Pointer handle, Pointer monitor);
 
   /**
    * Original signature :
    * <code>int TessBaseAPIRecognize(TessBaseAPI*, ETEXT_DESC*)</code><br>
    * <i>native declaration : line 234</i>
    */
-  int tessBaseAPIRecognize(PointerByReference handle, PointerByReference monitor);
+  int TessBaseAPIRecognize(PointerByReference handle, PointerByReference monitor);
 
   /**
    * Original signature :
@@ -1770,18 +1771,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 235</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIRecognizeForChopTest(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIRecognizeForChopTest(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIRecognizeForChopTest(Pointer handle, Pointer monitor);
+  int TessBaseAPIRecognizeForChopTest(Pointer handle, Pointer monitor);
 
   /**
    * Original signature :
    * <code>int TessBaseAPIRecognizeForChopTest(TessBaseAPI*, ETEXT_DESC*)</code><br>
    * <i>native declaration : line 235</i>
    */
-  int tessBaseAPIRecognizeForChopTest(PointerByReference handle,
+  int TessBaseAPIRecognizeForChopTest(PointerByReference handle,
       PointerByReference monitor);
 
   /**
@@ -1791,13 +1792,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 236</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIProcessPages(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int)}
+   *             {@link #TessBaseAPIProcessPages(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int)}
    *             and
-   *             {@link #tessBaseAPIProcessPages(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int)}
+   *             {@link #TessBaseAPIProcessPages(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIProcessPages(Pointer handle, Pointer filename,
+  String TessBaseAPIProcessPages(Pointer handle, Pointer filename,
       Pointer retry_config, int timeout_millisec);
 
   /**
@@ -1806,7 +1807,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 236</i>
    */
-  String tessBaseAPIProcessPages(PointerByReference handle, String filename,
+  String TessBaseAPIProcessPages(PointerByReference handle, String filename,
       String retry_config, int timeout_millisec);
 
   /**
@@ -1815,7 +1816,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 236</i>
    */
-  String tessBaseAPIProcessPages(PointerByReference handle, Pointer filename,
+  String TessBaseAPIProcessPages(PointerByReference handle, Pointer filename,
       Pointer retry_config, int timeout_millisec);
 
   /**
@@ -1825,13 +1826,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 238</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIProcessPages1(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIProcessPages1(com.sun.jna.ptr.PointerByReference, java.lang.String, java.lang.String, int, com.sun.jna.ptr.PointerByReference)}
    *             and
-   *             {@link #tessBaseAPIProcessPages1(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIProcessPages1(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIProcessPages1(Pointer handle, Pointer filename,
+  int TessBaseAPIProcessPages1(Pointer handle, Pointer filename,
       Pointer retry_config, int timeout_millisec, Pointer renderer);
 
   /**
@@ -1840,7 +1841,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 238</i>
    */
-  int tessBaseAPIProcessPages1(PointerByReference handle, String filename,
+  int TessBaseAPIProcessPages1(PointerByReference handle, String filename,
       String retry_config, int timeout_millisec, PointerByReference renderer);
 
   /**
@@ -1849,7 +1850,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 238</i>
    */
-  int tessBaseAPIProcessPages1(PointerByReference handle, Pointer filename,
+  int TessBaseAPIProcessPages1(PointerByReference handle, Pointer filename,
       Pointer retry_config, int timeout_millisec, PointerByReference renderer);
 
   /**
@@ -1859,13 +1860,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 240</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIProcessPage(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pix, int, java.lang.String, java.lang.String, int)}
+   *             {@link #TessBaseAPIProcessPage(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pix, int, java.lang.String, java.lang.String, int)}
    *             and
-   *             {@link #tessBaseAPIProcessPage(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pix, int, com.sun.jna.Pointer, com.sun.jna.Pointer, int)}
+   *             {@link #TessBaseAPIProcessPage(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pix, int, com.sun.jna.Pointer, com.sun.jna.Pointer, int)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIProcessPage(Pointer handle, TesseractLibrary.Pix pix,
+  String TessBaseAPIProcessPage(Pointer handle, TesseractLibrary.Pix pix,
       int page_index, Pointer filename, Pointer retry_config,
       int timeout_millisec);
 
@@ -1875,7 +1876,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 240</i>
    */
-  String tessBaseAPIProcessPage(PointerByReference handle,
+  String TessBaseAPIProcessPage(PointerByReference handle,
       TesseractLibrary.Pix pix, int page_index, String filename,
       String retry_config, int timeout_millisec);
 
@@ -1885,7 +1886,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 240</i>
    */
-  String tessBaseAPIProcessPage(PointerByReference handle,
+  String TessBaseAPIProcessPage(PointerByReference handle,
       TesseractLibrary.Pix pix, int page_index, Pointer filename,
       Pointer retry_config, int timeout_millisec);
 
@@ -1896,13 +1897,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 242</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIProcessPage1(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pix, int, java.lang.String, java.lang.String, int, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIProcessPage1(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pix, int, java.lang.String, java.lang.String, int, com.sun.jna.ptr.PointerByReference)}
    *             and
-   *             {@link #tessBaseAPIProcessPage1(com.sun.jna.ptr.PointerByReference, tesseract.TesseractLibrary.Pix, int, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIProcessPage1(com.sun.jna.ptr.PointerByReference, Tesseract.TesseractLibrary.Pix, int, com.sun.jna.Pointer, com.sun.jna.Pointer, int, com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIProcessPage1(Pointer handle, TesseractLibrary.Pix pix,
+  int TessBaseAPIProcessPage1(Pointer handle, TesseractLibrary.Pix pix,
       int page_index, Pointer filename, Pointer retry_config,
       int timeout_millisec, Pointer renderer);
 
@@ -1912,7 +1913,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 242</i>
    */
-  int tessBaseAPIProcessPage1(PointerByReference handle,
+  int TessBaseAPIProcessPage1(PointerByReference handle,
       TesseractLibrary.Pix pix, int page_index, String filename,
       String retry_config, int timeout_millisec, PointerByReference renderer);
 
@@ -1922,7 +1923,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 242</i>
    */
-  int tessBaseAPIProcessPage1(PointerByReference handle,
+  int TessBaseAPIProcessPage1(PointerByReference handle,
       TesseractLibrary.Pix pix, int page_index, Pointer filename,
       Pointer retry_config, int timeout_millisec, PointerByReference renderer);
 
@@ -1932,18 +1933,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 245</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetIterator(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetIterator(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessBaseAPIGetIterator(Pointer handle);
+  PointerByReference TessBaseAPIGetIterator(Pointer handle);
 
   /**
    * Original signature :
    * <code>TessResultIterator* TessBaseAPIGetIterator(TessBaseAPI*)</code><br>
    * <i>native declaration : line 245</i>
    */
-  PointerByReference tessBaseAPIGetIterator(PointerByReference handle);
+  PointerByReference TessBaseAPIGetIterator(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1952,11 +1953,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 247</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetMutableIterator(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetMutableIterator(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessBaseAPIGetMutableIterator(Pointer handle);
+  PointerByReference TessBaseAPIGetMutableIterator(Pointer handle);
 
   /**
    * Original signature :
@@ -1964,7 +1965,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 247</i>
    */
-  PointerByReference tessBaseAPIGetMutableIterator(PointerByReference handle);
+  PointerByReference TessBaseAPIGetMutableIterator(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1972,18 +1973,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 250</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetUTF8Text(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetUTF8Text(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetUTF8Text(Pointer handle);
+  String TessBaseAPIGetUTF8Text(Pointer handle);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetUTF8Text(TessBaseAPI*)</code><br>
    * <i>native declaration : line 250</i>
    */
-  String tessBaseAPIGetUTF8Text(PointerByReference handle);
+  String TessBaseAPIGetUTF8Text(PointerByReference handle);
 
   /**
    * Original signature :
@@ -1991,18 +1992,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 251</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetHOCRText(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessBaseAPIGetHOCRText(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetHOCRText(Pointer handle, int page_number);
+  String TessBaseAPIGetHOCRText(Pointer handle, int page_number);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetHOCRText(TessBaseAPI*, int)</code><br>
    * <i>native declaration : line 251</i>
    */
-  String tessBaseAPIGetHOCRText(PointerByReference handle, int page_number);
+  String TessBaseAPIGetHOCRText(PointerByReference handle, int page_number);
 
   /**
    * Original signature :
@@ -2010,18 +2011,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 252</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetBoxText(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessBaseAPIGetBoxText(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetBoxText(Pointer handle, int page_number);
+  String TessBaseAPIGetBoxText(Pointer handle, int page_number);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetBoxText(TessBaseAPI*, int)</code><br>
    * <i>native declaration : line 252</i>
    */
-  String tessBaseAPIGetBoxText(PointerByReference handle, int page_number);
+  String TessBaseAPIGetBoxText(PointerByReference handle, int page_number);
 
   /**
    * Original signature :
@@ -2029,35 +2030,35 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 253</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetUNLVText(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIGetUNLVText(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetUNLVText(Pointer handle);
+  String TessBaseAPIGetUNLVText(Pointer handle);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetUNLVText(TessBaseAPI*)</code><br>
    * <i>native declaration : line 253</i>
    */
-  String tessBaseAPIGetUNLVText(PointerByReference handle);
+  String TessBaseAPIGetUNLVText(PointerByReference handle);
 
   /**
    * Original signature : <code>int TessBaseAPIMeanTextConf(TessBaseAPI*)</code><br>
    * <i>native declaration : line 254</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIMeanTextConf(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIMeanTextConf(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIMeanTextConf(Pointer handle);
+  int TessBaseAPIMeanTextConf(Pointer handle);
 
   /**
    * Original signature : <code>int TessBaseAPIMeanTextConf(TessBaseAPI*)</code><br>
    * <i>native declaration : line 254</i>
    */
-  int tessBaseAPIMeanTextConf(PointerByReference handle);
+  int TessBaseAPIMeanTextConf(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2065,18 +2066,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 255</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIAllWordConfidences(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIAllWordConfidences(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  IntByReference tessBaseAPIAllWordConfidences(Pointer handle);
+  IntByReference TessBaseAPIAllWordConfidences(Pointer handle);
 
   /**
    * Original signature :
    * <code>int* TessBaseAPIAllWordConfidences(TessBaseAPI*)</code><br>
    * <i>native declaration : line 255</i>
    */
-  IntByReference tessBaseAPIAllWordConfidences(PointerByReference handle);
+  IntByReference TessBaseAPIAllWordConfidences(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2085,13 +2086,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 256</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIAdaptToWordStr(com.sun.jna.ptr.PointerByReference, int, java.lang.String)}
+   *             {@link #TessBaseAPIAdaptToWordStr(com.sun.jna.ptr.PointerByReference, int, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIAdaptToWordStr(com.sun.jna.ptr.PointerByReference, int, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIAdaptToWordStr(com.sun.jna.ptr.PointerByReference, int, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIAdaptToWordStr(Pointer handle, int mode, Pointer wordstr);
+  int TessBaseAPIAdaptToWordStr(Pointer handle, int mode, Pointer wordstr);
 
   /**
    * Original signature :
@@ -2099,7 +2100,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 256</i>
    */
-  int tessBaseAPIAdaptToWordStr(PointerByReference handle, int mode,
+  int TessBaseAPIAdaptToWordStr(PointerByReference handle, int mode,
       String wordstr);
 
   /**
@@ -2108,7 +2109,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 256</i>
    */
-  int tessBaseAPIAdaptToWordStr(PointerByReference handle, int mode,
+  int TessBaseAPIAdaptToWordStr(PointerByReference handle, int mode,
       Pointer wordstr);
 
   /**
@@ -2116,34 +2117,34 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 258</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIClear(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIClear(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIClear(Pointer handle);
+  void TessBaseAPIClear(Pointer handle);
 
   /**
    * Original signature : <code>void TessBaseAPIClear(TessBaseAPI*)</code><br>
    * <i>native declaration : line 258</i>
    */
-  void tessBaseAPIClear(PointerByReference handle);
+  void TessBaseAPIClear(PointerByReference handle);
 
   /**
    * Original signature : <code>void TessBaseAPIEnd(TessBaseAPI*)</code><br>
    * <i>native declaration : line 259</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIEnd(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessBaseAPIEnd(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPIEnd(Pointer handle);
+  void TessBaseAPIEnd(Pointer handle);
 
   /**
    * Original signature : <code>void TessBaseAPIEnd(TessBaseAPI*)</code><br>
    * <i>native declaration : line 259</i>
    */
-  void tessBaseAPIEnd(PointerByReference handle);
+  void TessBaseAPIEnd(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2151,27 +2152,27 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 261</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIIsValidWord(com.sun.jna.ptr.PointerByReference, java.lang.String)}
+   *             {@link #TessBaseAPIIsValidWord(com.sun.jna.ptr.PointerByReference, java.lang.String)}
    *             and
-   *             {@link #tessBaseAPIIsValidWord(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
+   *             {@link #TessBaseAPIIsValidWord(com.sun.jna.ptr.PointerByReference, com.sun.jna.Pointer)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIIsValidWord(Pointer handle, Pointer word);
+  int TessBaseAPIIsValidWord(Pointer handle, Pointer word);
 
   /**
    * Original signature :
    * <code>int TessBaseAPIIsValidWord(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 261</i>
    */
-  int tessBaseAPIIsValidWord(PointerByReference handle, String word);
+  int TessBaseAPIIsValidWord(PointerByReference handle, String word);
 
   /**
    * Original signature :
    * <code>int TessBaseAPIIsValidWord(TessBaseAPI*, const char*)</code><br>
    * <i>native declaration : line 261</i>
    */
-  int tessBaseAPIIsValidWord(PointerByReference handle, Pointer word);
+  int TessBaseAPIIsValidWord(PointerByReference handle, Pointer word);
 
   /**
    * Original signature :
@@ -2179,13 +2180,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 262</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessBaseAPIGetTextDirection(com.sun.jna.ptr.PointerByReference, java.nio.IntBuffer, java.nio.FloatBuffer)}
+   *             {@link #TessBaseAPIGetTextDirection(com.sun.jna.ptr.PointerByReference, java.nio.IntBuffer, java.nio.FloatBuffer)}
    *             and
-   *             {@link #tessBaseAPIGetTextDirection(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.FloatByReference)}
+   *             {@link #TessBaseAPIGetTextDirection(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.FloatByReference)}
    *             instead
    */
   @Deprecated
-  int tessBaseAPIGetTextDirection(Pointer handle, IntByReference out_offset,
+  int TessBaseAPIGetTextDirection(Pointer handle, IntByReference out_offset,
       FloatByReference out_slope);
 
   /**
@@ -2193,7 +2194,7 @@ public interface TesseractLibrary extends Library {
    * <code>int TessBaseAPIGetTextDirection(TessBaseAPI*, int*, float*)</code><br>
    * <i>native declaration : line 262</i>
    */
-  int tessBaseAPIGetTextDirection(PointerByReference handle,
+  int TessBaseAPIGetTextDirection(PointerByReference handle,
       IntBuffer out_offset, FloatBuffer out_slope);
 
   /**
@@ -2201,7 +2202,7 @@ public interface TesseractLibrary extends Library {
    * <code>int TessBaseAPIGetTextDirection(TessBaseAPI*, int*, float*)</code><br>
    * <i>native declaration : line 262</i>
    */
-  int tessBaseAPIGetTextDirection(PointerByReference handle,
+  int TessBaseAPIGetTextDirection(PointerByReference handle,
       IntByReference out_offset, FloatByReference out_slope);
 
   /**
@@ -2210,18 +2211,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 280</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPIGetUnichar(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessBaseAPIGetUnichar(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  String tessBaseAPIGetUnichar(Pointer handle, int unichar_id);
+  String TessBaseAPIGetUnichar(Pointer handle, int unichar_id);
 
   /**
    * Original signature :
    * <code>char* TessBaseAPIGetUnichar(TessBaseAPI*, int)</code><br>
    * <i>native declaration : line 280</i>
    */
-  String tessBaseAPIGetUnichar(PointerByReference handle, int unichar_id);
+  String TessBaseAPIGetUnichar(PointerByReference handle, int unichar_id);
 
   /**
    * Original signature :
@@ -2229,18 +2230,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 303</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessBaseAPISetMinOrientationMargin(com.sun.jna.ptr.PointerByReference, double)}
+   *             {@link #TessBaseAPISetMinOrientationMargin(com.sun.jna.ptr.PointerByReference, double)}
    *             instead
    */
   @Deprecated
-  void tessBaseAPISetMinOrientationMargin(Pointer handle, double margin);
+  void TessBaseAPISetMinOrientationMargin(Pointer handle, double margin);
 
   /**
    * Original signature :
    * <code>void TessBaseAPISetMinOrientationMargin(TessBaseAPI*, double)</code><br>
    * <i>native declaration : line 303</i>
    */
-  void tessBaseAPISetMinOrientationMargin(PointerByReference handle,
+  void TessBaseAPISetMinOrientationMargin(PointerByReference handle,
       double margin);
 
   /**
@@ -2249,18 +2250,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 313</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorDelete(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessPageIteratorDelete(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessPageIteratorDelete(Pointer handle);
+  void TessPageIteratorDelete(Pointer handle);
 
   /**
    * Original signature :
    * <code>void TessPageIteratorDelete(TessPageIterator*)</code><br>
    * <i>native declaration : line 313</i>
    */
-  void tessPageIteratorDelete(PointerByReference handle);
+  void TessPageIteratorDelete(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2269,11 +2270,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 314</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorCopy(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessPageIteratorCopy(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessPageIteratorCopy(Pointer handle);
+  PointerByReference TessPageIteratorCopy(Pointer handle);
 
   /**
    * Original signature :
@@ -2281,7 +2282,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 314</i>
    */
-  PointerByReference tessPageIteratorCopy(PointerByReference handle);
+  PointerByReference TessPageIteratorCopy(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2289,18 +2290,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 317</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorBegin(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessPageIteratorBegin(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessPageIteratorBegin(Pointer handle);
+  void TessPageIteratorBegin(Pointer handle);
 
   /**
    * Original signature :
    * <code>void TessPageIteratorBegin(TessPageIterator*)</code><br>
    * <i>native declaration : line 317</i>
    */
-  void tessPageIteratorBegin(PointerByReference handle);
+  void TessPageIteratorBegin(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2309,11 +2310,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 318</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorNext(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessPageIteratorNext(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  int tessPageIteratorNext(Pointer handle, int level);
+  int TessPageIteratorNext(Pointer handle, int level);
 
   /**
    * Original signature :
@@ -2321,7 +2322,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 318</i>
    */
-  int tessPageIteratorNext(PointerByReference handle, int level);
+  int TessPageIteratorNext(PointerByReference handle, int level);
 
   /**
    * Original signature :
@@ -2330,11 +2331,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 319</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorIsAtBeginningOf(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessPageIteratorIsAtBeginningOf(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  int tessPageIteratorIsAtBeginningOf(Pointer handle, int level);
+  int TessPageIteratorIsAtBeginningOf(Pointer handle, int level);
 
   /**
    * Original signature :
@@ -2342,7 +2343,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 319</i>
    */
-  int tessPageIteratorIsAtBeginningOf(PointerByReference handle, int level);
+  int TessPageIteratorIsAtBeginningOf(PointerByReference handle, int level);
 
   /**
    * Original signature :
@@ -2351,11 +2352,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 320</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorIsAtFinalElement(com.sun.jna.ptr.PointerByReference, int, int)}
+   *             {@link #TessPageIteratorIsAtFinalElement(com.sun.jna.ptr.PointerByReference, int, int)}
    *             instead
    */
   @Deprecated
-  int tessPageIteratorIsAtFinalElement(Pointer handle, int level, int element);
+  int TessPageIteratorIsAtFinalElement(Pointer handle, int level, int element);
 
   /**
    * Original signature :
@@ -2363,7 +2364,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 320</i>
    */
-  int tessPageIteratorIsAtFinalElement(PointerByReference handle, int level,
+  int TessPageIteratorIsAtFinalElement(PointerByReference handle, int level,
       int element);
 
   /**
@@ -2373,13 +2374,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 323</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessPageIteratorBoundingBox(com.sun.jna.ptr.PointerByReference, int, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer)}
+   *             {@link #TessPageIteratorBoundingBox(com.sun.jna.ptr.PointerByReference, int, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer)}
    *             and
-   *             {@link #tessPageIteratorBoundingBox(com.sun.jna.ptr.PointerByReference, int, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessPageIteratorBoundingBox(com.sun.jna.ptr.PointerByReference, int, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  int tessPageIteratorBoundingBox(Pointer handle, int level,
+  int TessPageIteratorBoundingBox(Pointer handle, int level,
       IntByReference left, IntByReference top, IntByReference right,
       IntByReference bottom);
 
@@ -2389,7 +2390,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 323</i>
    */
-  int tessPageIteratorBoundingBox(PointerByReference handle, int level,
+  int TessPageIteratorBoundingBox(PointerByReference handle, int level,
       IntBuffer left, IntBuffer top, IntBuffer right, IntBuffer bottom);
 
   /**
@@ -2398,7 +2399,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 323</i>
    */
-  int tessPageIteratorBoundingBox(PointerByReference handle, int level,
+  int TessPageIteratorBoundingBox(PointerByReference handle, int level,
       IntByReference left, IntByReference top, IntByReference right,
       IntByReference bottom);
 
@@ -2409,11 +2410,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 325</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorBlockType(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessPageIteratorBlockType(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessPageIteratorBlockType(Pointer handle);
+  int TessPageIteratorBlockType(Pointer handle);
 
   /**
    * Original signature :
@@ -2421,7 +2422,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 325</i>
    */
-  int tessPageIteratorBlockType(PointerByReference handle);
+  int TessPageIteratorBlockType(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2430,11 +2431,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 328</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessPageIteratorGetBinaryImage(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessPageIteratorGetBinaryImage(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Pix tessPageIteratorGetBinaryImage(Pointer handle, int level);
+  TesseractLibrary.Pix TessPageIteratorGetBinaryImage(Pointer handle, int level);
 
   /**
    * Original signature :
@@ -2442,7 +2443,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 328</i>
    */
-  TesseractLibrary.Pix tessPageIteratorGetBinaryImage(
+  TesseractLibrary.Pix TessPageIteratorGetBinaryImage(
       PointerByReference handle, int level);
 
   /**
@@ -2452,13 +2453,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 330</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessPageIteratorGetImage(com.sun.jna.ptr.PointerByReference, int, int, java.nio.IntBuffer, java.nio.IntBuffer)}
+   *             {@link #TessPageIteratorGetImage(com.sun.jna.ptr.PointerByReference, int, int, java.nio.IntBuffer, java.nio.IntBuffer)}
    *             and
-   *             {@link #tessPageIteratorGetImage(com.sun.jna.ptr.PointerByReference, int, int, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessPageIteratorGetImage(com.sun.jna.ptr.PointerByReference, int, int, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  TesseractLibrary.Pix tessPageIteratorGetImage(Pointer handle, int level,
+  TesseractLibrary.Pix TessPageIteratorGetImage(Pointer handle, int level,
       int padding, IntByReference left, IntByReference top);
 
   /**
@@ -2467,7 +2468,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 330</i>
    */
-  TesseractLibrary.Pix tessPageIteratorGetImage(PointerByReference handle,
+  TesseractLibrary.Pix TessPageIteratorGetImage(PointerByReference handle,
       int level, int padding, IntBuffer left, IntBuffer top);
 
   /**
@@ -2476,7 +2477,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 330</i>
    */
-  TesseractLibrary.Pix tessPageIteratorGetImage(PointerByReference handle,
+  TesseractLibrary.Pix TessPageIteratorGetImage(PointerByReference handle,
       int level, int padding, IntByReference left, IntByReference top);
 
   /**
@@ -2486,13 +2487,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 334</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessPageIteratorBaseline(com.sun.jna.ptr.PointerByReference, int, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer)}
+   *             {@link #TessPageIteratorBaseline(com.sun.jna.ptr.PointerByReference, int, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer)}
    *             and
-   *             {@link #tessPageIteratorBaseline(com.sun.jna.ptr.PointerByReference, int, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessPageIteratorBaseline(com.sun.jna.ptr.PointerByReference, int, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  int tessPageIteratorBaseline(Pointer handle, int level, IntByReference x1,
+  int TessPageIteratorBaseline(Pointer handle, int level, IntByReference x1,
       IntByReference y1, IntByReference x2, IntByReference y2);
 
   /**
@@ -2501,7 +2502,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 334</i>
    */
-  int tessPageIteratorBaseline(PointerByReference handle, int level,
+  int TessPageIteratorBaseline(PointerByReference handle, int level,
       IntBuffer x1, IntBuffer y1, IntBuffer x2, IntBuffer y2);
 
   /**
@@ -2510,7 +2511,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 334</i>
    */
-  int tessPageIteratorBaseline(PointerByReference handle, int level,
+  int TessPageIteratorBaseline(PointerByReference handle, int level,
       IntByReference x1, IntByReference y1, IntByReference x2, IntByReference y2);
 
   /**
@@ -2520,13 +2521,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 337</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessPageIteratorOrientation(com.sun.jna.ptr.PointerByReference, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.FloatBuffer)}
+   *             {@link #TessPageIteratorOrientation(com.sun.jna.ptr.PointerByReference, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.FloatBuffer)}
    *             and
-   *             {@link #tessPageIteratorOrientation(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.FloatByReference)}
+   *             {@link #TessPageIteratorOrientation(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.FloatByReference)}
    *             instead
    */
   @Deprecated
-  void tessPageIteratorOrientation(Pointer handle, IntByReference orientation,
+  void TessPageIteratorOrientation(Pointer handle, IntByReference orientation,
       IntByReference writing_direction, IntByReference textline_order,
       FloatByReference deskew_angle);
 
@@ -2536,7 +2537,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 337</i>
    */
-  void tessPageIteratorOrientation(PointerByReference handle,
+  void TessPageIteratorOrientation(PointerByReference handle,
       IntBuffer orientation, IntBuffer writing_direction,
       IntBuffer textline_order, FloatBuffer deskew_angle);
 
@@ -2546,7 +2547,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 337</i>
    */
-  void tessPageIteratorOrientation(PointerByReference handle,
+  void TessPageIteratorOrientation(PointerByReference handle,
       IntByReference orientation, IntByReference writing_direction,
       IntByReference textline_order, FloatByReference deskew_angle);
 
@@ -2556,18 +2557,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 343</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorDelete(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorDelete(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  void tessResultIteratorDelete(Pointer handle);
+  void TessResultIteratorDelete(Pointer handle);
 
   /**
    * Original signature :
    * <code>void TessResultIteratorDelete(TessResultIterator*)</code><br>
    * <i>native declaration : line 343</i>
    */
-  void tessResultIteratorDelete(PointerByReference handle);
+  void TessResultIteratorDelete(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2576,11 +2577,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 344</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorCopy(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorCopy(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessResultIteratorCopy(Pointer handle);
+  PointerByReference TessResultIteratorCopy(Pointer handle);
 
   /**
    * Original signature :
@@ -2588,7 +2589,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 344</i>
    */
-  PointerByReference tessResultIteratorCopy(PointerByReference handle);
+  PointerByReference TessResultIteratorCopy(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2597,11 +2598,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 346</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorGetPageIterator(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorGetPageIterator(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessResultIteratorGetPageIterator(Pointer handle);
+  PointerByReference TessResultIteratorGetPageIterator(Pointer handle);
 
   /**
    * Original signature :
@@ -2609,7 +2610,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 346</i>
    */
-  PointerByReference tessResultIteratorGetPageIterator(PointerByReference handle);
+  PointerByReference TessResultIteratorGetPageIterator(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2618,11 +2619,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 348</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorGetPageIteratorConst(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorGetPageIteratorConst(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  PointerByReference tessResultIteratorGetPageIteratorConst(Pointer handle);
+  PointerByReference TessResultIteratorGetPageIteratorConst(Pointer handle);
 
   /**
    * Original signature :
@@ -2630,7 +2631,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 348</i>
    */
-  PointerByReference tessResultIteratorGetPageIteratorConst(
+  PointerByReference TessResultIteratorGetPageIteratorConst(
       PointerByReference handle);
 
   /**
@@ -2640,11 +2641,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 351</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorGetUTF8Text(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessResultIteratorGetUTF8Text(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  String tessResultIteratorGetUTF8Text(Pointer handle, int level);
+  String TessResultIteratorGetUTF8Text(Pointer handle, int level);
 
   /**
    * Original signature :
@@ -2652,7 +2653,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 351</i>
    */
-  String tessResultIteratorGetUTF8Text(PointerByReference handle, int level);
+  String TessResultIteratorGetUTF8Text(PointerByReference handle, int level);
 
   /**
    * Original signature :
@@ -2661,11 +2662,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 352</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorConfidence(com.sun.jna.ptr.PointerByReference, int)}
+   *             {@link #TessResultIteratorConfidence(com.sun.jna.ptr.PointerByReference, int)}
    *             instead
    */
   @Deprecated
-  float tessResultIteratorConfidence(Pointer handle, int level);
+  float TessResultIteratorConfidence(Pointer handle, int level);
 
   /**
    * Original signature :
@@ -2673,7 +2674,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 352</i>
    */
-  float tessResultIteratorConfidence(PointerByReference handle, int level);
+  float TessResultIteratorConfidence(PointerByReference handle, int level);
 
   /**
    * Original signature :
@@ -2682,13 +2683,13 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 354</i><br>
    * 
    * @deprecated use the safer methods
-   *             {@link #tessResultIteratorWordFontAttributes(com.sun.jna.ptr.PointerByReference, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer)}
+   *             {@link #TessResultIteratorWordFontAttributes(com.sun.jna.ptr.PointerByReference, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer, java.nio.IntBuffer)}
    *             and
-   *             {@link #tessResultIteratorWordFontAttributes(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
+   *             {@link #TessResultIteratorWordFontAttributes(com.sun.jna.ptr.PointerByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference, com.sun.jna.ptr.IntByReference)}
    *             instead
    */
   @Deprecated
-  String tessResultIteratorWordFontAttributes(Pointer handle,
+  String TessResultIteratorWordFontAttributes(Pointer handle,
       IntByReference is_bold, IntByReference is_italic,
       IntByReference is_underlined, IntByReference is_monospace,
       IntByReference is_serif, IntByReference is_smallcaps,
@@ -2700,7 +2701,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 354</i>
    */
-  String tessResultIteratorWordFontAttributes(PointerByReference handle,
+  String TessResultIteratorWordFontAttributes(PointerByReference handle,
       IntBuffer is_bold, IntBuffer is_italic, IntBuffer is_underlined,
       IntBuffer is_monospace, IntBuffer is_serif, IntBuffer is_smallcaps,
       IntBuffer pointsize, IntBuffer font_id);
@@ -2711,7 +2712,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 354</i>
    */
-  String tessResultIteratorWordFontAttributes(PointerByReference handle,
+  String TessResultIteratorWordFontAttributes(PointerByReference handle,
       IntByReference is_bold, IntByReference is_italic,
       IntByReference is_underlined, IntByReference is_monospace,
       IntByReference is_serif, IntByReference is_smallcaps,
@@ -2724,11 +2725,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 359</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorWordIsFromDictionary(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorWordIsFromDictionary(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultIteratorWordIsFromDictionary(Pointer handle);
+  int TessResultIteratorWordIsFromDictionary(Pointer handle);
 
   /**
    * Original signature :
@@ -2736,7 +2737,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 359</i>
    */
-  int tessResultIteratorWordIsFromDictionary(PointerByReference handle);
+  int TessResultIteratorWordIsFromDictionary(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2744,18 +2745,18 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 360</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorWordIsNumeric(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorWordIsNumeric(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultIteratorWordIsNumeric(Pointer handle);
+  int TessResultIteratorWordIsNumeric(Pointer handle);
 
   /**
    * Original signature :
    * <code>int TessResultIteratorWordIsNumeric(const TessResultIterator*)</code><br>
    * <i>native declaration : line 360</i>
    */
-  int tessResultIteratorWordIsNumeric(PointerByReference handle);
+  int TessResultIteratorWordIsNumeric(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2764,11 +2765,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 361</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorSymbolIsSuperscript(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorSymbolIsSuperscript(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultIteratorSymbolIsSuperscript(Pointer handle);
+  int TessResultIteratorSymbolIsSuperscript(Pointer handle);
 
   /**
    * Original signature :
@@ -2776,7 +2777,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 361</i>
    */
-  int tessResultIteratorSymbolIsSuperscript(PointerByReference handle);
+  int TessResultIteratorSymbolIsSuperscript(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2785,11 +2786,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 362</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorSymbolIsSubscript(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorSymbolIsSubscript(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultIteratorSymbolIsSubscript(Pointer handle);
+  int TessResultIteratorSymbolIsSubscript(Pointer handle);
 
   /**
    * Original signature :
@@ -2797,7 +2798,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 362</i>
    */
-  int tessResultIteratorSymbolIsSubscript(PointerByReference handle);
+  int TessResultIteratorSymbolIsSubscript(PointerByReference handle);
 
   /**
    * Original signature :
@@ -2806,11 +2807,11 @@ public interface TesseractLibrary extends Library {
    * <i>native declaration : line 363</i><br>
    * 
    * @deprecated use the safer method
-   *             {@link #tessResultIteratorSymbolIsDropcap(com.sun.jna.ptr.PointerByReference)}
+   *             {@link #TessResultIteratorSymbolIsDropcap(com.sun.jna.ptr.PointerByReference)}
    *             instead
    */
   @Deprecated
-  int tessResultIteratorSymbolIsDropcap(Pointer handle);
+  int TessResultIteratorSymbolIsDropcap(Pointer handle);
 
   /**
    * Original signature :
@@ -2818,7 +2819,7 @@ public interface TesseractLibrary extends Library {
    * <br>
    * <i>native declaration : line 363</i>
    */
-  int tessResultIteratorSymbolIsDropcap(PointerByReference handle);
+  int TessResultIteratorSymbolIsDropcap(PointerByReference handle);
 
   public static class Boxa extends PointerType {
     public Boxa(Pointer address) {
