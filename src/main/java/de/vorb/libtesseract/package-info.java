@@ -5,5 +5,5 @@
  * 
  * @version 3.02
  */
-package de.vorb.jtesseract;
+package de.vorb.libtesseract;
 
