@@ -1,9 +1,9 @@
 /**
- * Java JNA binding for libtesseract.
+ * JNA binding for libtesseract.
+ * 
+ * @version 3.03
  * 
  * @author Paul Vorbach
- * 
- * @version 3.02
  */
 package de.vorb.libtesseract;
 

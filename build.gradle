@@ -20,6 +20,7 @@ repositories {
 // include all JAR files in lib
 dependencies {
   compile 'net.java.dev.jna:jna:4.1.0'
+  compile 'com.nativelibs4java:bridj:0.6.2'
 }
 
 // Assume UTF-8 source code
