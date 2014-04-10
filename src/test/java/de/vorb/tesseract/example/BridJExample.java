@@ -1,4 +1,4 @@
-package de.vorb.libtesseract.example;
+package de.vorb.tesseract.example;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
 
 import org.bridj.BridJ;
 import org.bridj.Pointer;
-import org.bridj.ann.Library;
 
 import de.vorb.tesseract.bridj.Tesseract;
 import de.vorb.tesseract.bridj.Tesseract.TessBaseAPI;
@@ -27,7 +26,8 @@ public class BridJExample {
     final Pointer<TessBaseAPI> handle = Tesseract.TessBaseAPICreate();
 
     // init Tesseract with data path, language and OCR engine mode
-    Tesseract.TessBaseAPIInit2(handle, Pointer.pointerToCString("tessdata"),
+    Tesseract.TessBaseAPIInit2(handle,
+        Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
         Pointer.pointerToCString("deu-frak"), TessOcrEngineMode.OEM_DEFAULT);
 
     // set page segmentation mode

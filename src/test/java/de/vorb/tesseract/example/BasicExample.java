@@ -1,4 +1,4 @@
-package de.vorb.libtesseract.example;
+package de.vorb.tesseract.example;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
@@ -16,19 +16,19 @@ import de.vorb.tesseract.jna.Tesseract;
 public class BasicExample {
   public static void main(String[] args) throws IOException {
     long start = System.currentTimeMillis();
-
+    
     final String libraryName = "libtesseract303";
 
     // load the library
-    final Tesseract lib = (Tesseract) Native.loadLibrary(libraryName,
-        Tesseract.class);
+    final Tesseract lib = (Tesseract) Native.loadLibrary(
+        libraryName, Tesseract.class);
 
     // create a reference to an execution handle
     final PointerByReference handle = lib.TessBaseAPICreate();
 
     // init Tesseract with data path, language and OCR engine mode
-    lib.TessBaseAPIInit2(handle, "tessdata", "deu-frak",
-        Tesseract.TessOcrEngineMode.OEM_DEFAULT);
+    lib.TessBaseAPIInit2(handle, "E:\\Masterarbeit\\Ressourcen\\tessdata",
+        "deu-frak", Tesseract.TessOcrEngineMode.OEM_DEFAULT);
 
     // set page segmentation mode
     lib.TessBaseAPISetPageSegMode(handle, Tesseract.TessPageSegMode.PSM_AUTO);
