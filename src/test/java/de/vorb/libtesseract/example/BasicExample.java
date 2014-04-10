@@ -26,8 +26,8 @@ public class BasicExample {
     final PointerByReference handle = lib.TessBaseAPICreate();
 
     // init Tesseract with data path, language and OCR engine mode
-    lib.TessBaseAPIInit2(handle, "E:\\Masterarbeit\\Ressourcen\\tessdata",
-        "deu-frak", LibTesseract.TessOcrEngineMode.OEM_DEFAULT);
+    lib.TessBaseAPIInit2(handle, "tessdata",
+        "eng", LibTesseract.TessOcrEngineMode.OEM_DEFAULT);
 
     // set page segmentation mode
     lib.TessBaseAPISetPageSegMode(handle, LibTesseract.TessPageSegMode.PSM_AUTO);
