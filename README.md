@@ -11,7 +11,7 @@ The following lines show how to use this library to recognize text in a PNG
 image file.
 
 ~~~ java
-package de.vorb.libtesseract.example;
+package de.vorb.tesseract.example;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
