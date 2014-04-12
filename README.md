@@ -2,7 +2,12 @@
 
 A Java library that can be used to access Tesseract's C API from Java through
 either BridJ or JNA. Therefore, this library provides interfaces that cover all
-of Tesseract's C API.
+of Tesseract's C API. BridJ and JNA classes were generated automatically by
+using [JNAerator](https://code.google.com/p/jnaerator/) on Tesseract's `capi.h`.
+
+This library does only cover the C API. If you are looking for a more convenient
+way to use Tesseract from Java, have a look at
+[Tess4J](http://tess4j.sourceforge.net/). It only supports
 
 
 ## Usage example
