@@ -49,7 +49,8 @@ public class BridJPDFExample {
       final byte[] imageData = ((DataBufferByte) imageBuffer).getData();
 
       // image properties
-      final int width = inputImage.getWidth(), height = inputImage.getHeight();
+      final int width = inputImage.getWidth();
+      final int height = inputImage.getHeight();
       final int bitsPerPixel = inputImage.getColorModel().getPixelSize();
       final int bytesPerPixel = bitsPerPixel / 8;
       final int bytesPerLine = (int) Math.ceil(width * bitsPerPixel / 8.0);
