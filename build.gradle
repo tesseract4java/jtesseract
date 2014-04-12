@@ -1,10 +1,35 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+apply plugin: 'maven'
+apply plugin: 'signing'
+
 group = 'de.vorb'
 
 version = '0.0.1'
 sourceCompatibility = 1.7
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'net.java.dev.jna:jna:4.1.0'
+  compile 'com.nativelibs4java:bridj:0.6.2'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+// assume UTF-8 source code
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 jar {
   manifest {
@@ -13,22 +38,53 @@ jar {
   }
 }
 
-repositories {
-  mavenCentral()
+artifacts {
+  archives jar
+
+  archives javadocJar
+  archives sourcesJar
 }
 
-// include all JAR files in lib
-dependencies {
-  compile 'net.java.dev.jna:jna:4.1.0'
-  compile 'com.nativelibs4java:bridj:0.6.2'
+signing {
+  sign configurations.archives
 }
 
-// Assume UTF-8 source code
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-// custom javadoc generation task
-// will include res/overview.html
-task doc(type: Javadoc) {
-  source = sourceSets.main.allSource
-  classpath = sourceSets.main.compileClasspath
+      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+        authentication(userName: sonatypeUsername, password: sonatypePassword)
+      }
+
+      pom.project {
+         name 'jtesseract'
+         packaging 'jar'
+         description 'jtesseract provides Java wrappers (JNA and BridJ) for Tesseract OCR'
+         url 'https://github.com/pvorb/jtesseract'
+
+         scm {
+             url 'scm:git@github.com:pvorb/jtesseract.git'
+             connection 'scm:git@github.com:GradleFx/GradleFx.git'
+             developerConnection 'scm:git@github.com:GradleFx/GradleFx.git'
+         }
+
+         licenses {
+             license {
+                 name 'The Apache Software License, Version 2.0'
+                 url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                 distribution 'repo'
+             }
+         }
+
+        developers {
+          developer {
+            id 'pvorb'
+            name 'Paul Vorbach'
+          }
+        }
+      }
+    }
+  }
 }
