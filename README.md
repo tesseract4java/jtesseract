@@ -7,8 +7,8 @@ using [JNAerator](https://code.google.com/p/jnaerator/) on Tesseract's `capi.h`.
 
 This library does only cover the C API. If you are looking for a more convenient
 way to use Tesseract from Java, have a look at
-[Tess4J](http://tess4j.sourceforge.net/). It only supports
-
+[Tess4J](http://tess4j.sourceforge.net/). Tess4J only supports Tesseract 3.02 at
+the Moment.
 
 ## Usage example
 
