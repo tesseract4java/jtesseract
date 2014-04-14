@@ -15,6 +15,7 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+@Deprecated
 public interface Tesseract extends Library {
   public static class SizeT extends IntegerType {
     private static final long serialVersionUID = 1L;
