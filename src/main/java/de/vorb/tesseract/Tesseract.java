@@ -1,4 +1,4 @@
-package de.vorb.tesseract.bridj;
+package de.vorb.tesseract;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -24,13 +24,13 @@ public class Tesseract {
     }
 
     /** enum values */
-    public enum TessOcrEngineMode implements IntValuedEnum<TessOcrEngineMode> {
+    public enum OcrEngineMode implements IntValuedEnum<OcrEngineMode> {
         OEM_TESSERACT_ONLY(0),
         OEM_CUBE_ONLY(1),
         OEM_TESSERACT_CUBE_COMBINED(2),
         OEM_DEFAULT(3);
 
-        TessOcrEngineMode(long value) {
+        OcrEngineMode(long value) {
             this.value = value;
         }
 
@@ -40,17 +40,17 @@ public class Tesseract {
             return this.value;
         }
 
-        public Iterator<TessOcrEngineMode> iterator() {
+        public Iterator<OcrEngineMode> iterator() {
             return Collections.singleton(this).iterator();
         }
 
-        public static IntValuedEnum<TessOcrEngineMode> fromValue(int value) {
+        public static IntValuedEnum<OcrEngineMode> fromValue(int value) {
             return FlagSet.fromValue(value, values());
         }
     }
 
     /** enum values */
-    public enum TessPageSegMode implements IntValuedEnum<TessPageSegMode> {
+    public enum PageSegMode implements IntValuedEnum<PageSegMode> {
         PSM_OSD_ONLY(0),
         PSM_AUTO_OSD(1),
         PSM_AUTO_ONLY(2),
@@ -66,7 +66,7 @@ public class Tesseract {
         PSM_SPARSE_TEXT_OSD(12),
         PSM_COUNT(13);
 
-        TessPageSegMode(long value) {
+        PageSegMode(long value) {
             this.value = value;
         }
 
@@ -76,25 +76,25 @@ public class Tesseract {
             return this.value;
         }
 
-        public Iterator<TessPageSegMode> iterator() {
+        public Iterator<PageSegMode> iterator() {
             return Collections.singleton(this).iterator();
         }
 
-        public static IntValuedEnum<TessPageSegMode> fromValue(int value) {
+        public static IntValuedEnum<PageSegMode> fromValue(int value) {
             return FlagSet.fromValue(value, values());
         }
     }
 
     /** enum values */
-    public enum TessPageIteratorLevel implements
-            IntValuedEnum<TessPageIteratorLevel> {
+    public enum PageIteratorLevel implements
+            IntValuedEnum<PageIteratorLevel> {
         RIL_BLOCK(0),
         RIL_PARA(1),
         RIL_TEXTLINE(2),
         RIL_WORD(3),
         RIL_SYMBOL(4);
 
-        TessPageIteratorLevel(long value) {
+        PageIteratorLevel(long value) {
             this.value = value;
         }
 
@@ -104,17 +104,17 @@ public class Tesseract {
             return this.value;
         }
 
-        public Iterator<TessPageIteratorLevel> iterator() {
+        public Iterator<PageIteratorLevel> iterator() {
             return Collections.singleton(this).iterator();
         }
 
-        public static IntValuedEnum<TessPageIteratorLevel> fromValue(int value) {
+        public static IntValuedEnum<PageIteratorLevel> fromValue(int value) {
             return FlagSet.fromValue(value, values());
         }
     }
 
     /** enum values */
-    public enum TessPolyBlockType implements IntValuedEnum<TessPolyBlockType> {
+    public enum PolyBlockType implements IntValuedEnum<PolyBlockType> {
         PT_UNKNOWN(0),
         PT_FLOWING_TEXT(1),
         PT_HEADING_TEXT(2),
@@ -130,7 +130,7 @@ public class Tesseract {
         PT_NOISE(12),
         PT_COUNT(13);
 
-        TessPolyBlockType(long value) {
+        PolyBlockType(long value) {
             this.value = value;
         }
 
@@ -140,23 +140,23 @@ public class Tesseract {
             return this.value;
         }
 
-        public Iterator<TessPolyBlockType> iterator() {
+        public Iterator<PolyBlockType> iterator() {
             return Collections.singleton(this).iterator();
         }
 
-        public static IntValuedEnum<TessPolyBlockType> fromValue(int value) {
+        public static IntValuedEnum<PolyBlockType> fromValue(int value) {
             return FlagSet.fromValue(value, values());
         }
     }
 
     /** enum values */
-    public enum TessOrientation implements IntValuedEnum<TessOrientation> {
+    public enum Orientation implements IntValuedEnum<Orientation> {
         ORIENTATION_PAGE_UP(0),
         ORIENTATION_PAGE_RIGHT(1),
         ORIENTATION_PAGE_DOWN(2),
         ORIENTATION_PAGE_LEFT(3);
 
-        TessOrientation(long value) {
+        Orientation(long value) {
             this.value = value;
         }
 
@@ -166,23 +166,23 @@ public class Tesseract {
             return this.value;
         }
 
-        public Iterator<TessOrientation> iterator() {
+        public Iterator<Orientation> iterator() {
             return Collections.singleton(this).iterator();
         }
 
-        public static IntValuedEnum<TessOrientation> fromValue(int value) {
+        public static IntValuedEnum<Orientation> fromValue(int value) {
             return FlagSet.fromValue(value, values());
         }
     }
 
     /** enum values */
-    public enum TessWritingDirection implements
-            IntValuedEnum<TessWritingDirection> {
+    public enum WritingDirection implements
+            IntValuedEnum<WritingDirection> {
         WRITING_DIRECTION_LEFT_TO_RIGHT(0),
         WRITING_DIRECTION_RIGHT_TO_LEFT(1),
         WRITING_DIRECTION_TOP_TO_BOTTOM(2);
 
-        TessWritingDirection(long value) {
+        WritingDirection(long value) {
             this.value = value;
         }
 
@@ -192,22 +192,22 @@ public class Tesseract {
             return this.value;
         }
 
-        public Iterator<TessWritingDirection> iterator() {
+        public Iterator<WritingDirection> iterator() {
             return Collections.singleton(this).iterator();
         }
 
-        public static IntValuedEnum<TessWritingDirection> fromValue(int value) {
+        public static IntValuedEnum<WritingDirection> fromValue(int value) {
             return FlagSet.fromValue(value, values());
         }
     }
 
     /** enum values */
-    public enum TessTextlineOrder implements IntValuedEnum<TessTextlineOrder> {
+    public enum TextlineOrder implements IntValuedEnum<TextlineOrder> {
         TEXTLINE_ORDER_LEFT_TO_RIGHT(0),
         TEXTLINE_ORDER_RIGHT_TO_LEFT(1),
         TEXTLINE_ORDER_TOP_TO_BOTTOM(2);
 
-        TessTextlineOrder(long value) {
+        TextlineOrder(long value) {
             this.value = value;
         }
 
@@ -217,11 +217,11 @@ public class Tesseract {
             return this.value;
         }
 
-        public Iterator<TessTextlineOrder> iterator() {
+        public Iterator<TextlineOrder> iterator() {
             return Collections.singleton(this).iterator();
         }
 
-        public static IntValuedEnum<TessTextlineOrder> fromValue(int value) {
+        public static IntValuedEnum<TextlineOrder> fromValue(int value) {
             return FlagSet.fromValue(value, values());
         }
     }
@@ -598,7 +598,7 @@ public class Tesseract {
     public native static int TessBaseAPIInit1(
             Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
             Pointer<Byte> language,
-            IntValuedEnum<Tesseract.TessOcrEngineMode> oem,
+            IntValuedEnum<Tesseract.OcrEngineMode> oem,
             Pointer<Pointer<Byte>> configs, int configs_size);
 
     /**
@@ -611,7 +611,7 @@ public class Tesseract {
     public native static int TessBaseAPIInit2(
             Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
             Pointer<Byte> language,
-            IntValuedEnum<Tesseract.TessOcrEngineMode> oem);
+            IntValuedEnum<Tesseract.OcrEngineMode> oem);
 
     /**
      * Original signature :
@@ -633,7 +633,7 @@ public class Tesseract {
     public native static int TessBaseAPIInit4(
             Pointer<Tesseract.TessBaseAPI> handle, Pointer<Byte> datapath,
             Pointer<Byte> language,
-            IntValuedEnum<Tesseract.TessOcrEngineMode> mode,
+            IntValuedEnum<Tesseract.OcrEngineMode> mode,
             Pointer<Pointer<Byte>> configs, int configs_size,
             Pointer<Pointer<Byte>> vars_vec,
             Pointer<Pointer<Byte>> vars_values,
@@ -717,7 +717,7 @@ public class Tesseract {
     @Name("TessBaseAPISetPageSegMode")
     public native static void TessBaseAPISetPageSegMode(
             Pointer<Tesseract.TessBaseAPI> handle,
-            IntValuedEnum<Tesseract.TessPageSegMode> mode);
+            IntValuedEnum<Tesseract.PageSegMode> mode);
 
     /**
      * Original signature :
@@ -726,7 +726,7 @@ public class Tesseract {
      * <i>native declaration : line 183</i>
      */
     @Name("TessBaseAPIGetPageSegMode")
-    public native static IntValuedEnum<Tesseract.TessPageSegMode> TessBaseAPIGetPageSegMode(
+    public native static IntValuedEnum<Tesseract.PageSegMode> TessBaseAPIGetPageSegMode(
             Pointer<Tesseract.TessBaseAPI> handle);
 
     /**
@@ -877,7 +877,7 @@ public class Tesseract {
     @Name("TessBaseAPIGetComponentImages")
     public native static Pointer<Tesseract.Boxa> TessBaseAPIGetComponentImages(
             Pointer<Tesseract.TessBaseAPI> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
+            IntValuedEnum<Tesseract.PageIteratorLevel> level,
             int text_only,
             Pointer<Pointer<Tesseract.Pixa>> pixa,
             Pointer<Pointer<Integer>> blockids);
@@ -891,7 +891,7 @@ public class Tesseract {
     @Name("TessBaseAPIGetComponentImages1")
     public native static Pointer<Tesseract.Boxa> TessBaseAPIGetComponentImages1(
             Pointer<Tesseract.TessBaseAPI> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
+            IntValuedEnum<Tesseract.PageIteratorLevel> level,
             int text_only,
             int raw_image, int raw_padding,
             Pointer<Pointer<Tesseract.Pixa>> pixa,
@@ -1076,7 +1076,7 @@ public class Tesseract {
     @Name("TessBaseAPIAdaptToWordStr")
     public native static int TessBaseAPIAdaptToWordStr(
             Pointer<Tesseract.TessBaseAPI> handle,
-            IntValuedEnum<Tesseract.TessPageSegMode> mode, Pointer<Byte> wordstr);
+            IntValuedEnum<Tesseract.PageSegMode> mode, Pointer<Byte> wordstr);
 
     /**
      * Original signature : <code>void TessBaseAPIClear(TessBaseAPI*)</code><br>
@@ -1169,7 +1169,7 @@ public class Tesseract {
     @Name("TessPageIteratorNext")
     public native static int TessPageIteratorNext(
             Pointer<Tesseract.TessPageIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
+            IntValuedEnum<Tesseract.PageIteratorLevel> level);
 
     /**
      * Original signature :
@@ -1180,7 +1180,7 @@ public class Tesseract {
     @Name("TessPageIteratorIsAtBeginningOf")
     public native static int TessPageIteratorIsAtBeginningOf(
             Pointer<Tesseract.TessPageIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
+            IntValuedEnum<Tesseract.PageIteratorLevel> level);
 
     /**
      * Original signature :
@@ -1191,8 +1191,8 @@ public class Tesseract {
     @Name("TessPageIteratorIsAtFinalElement")
     public native static int TessPageIteratorIsAtFinalElement(
             Pointer<Tesseract.TessPageIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> element);
+            IntValuedEnum<Tesseract.PageIteratorLevel> level,
+            IntValuedEnum<Tesseract.PageIteratorLevel> element);
 
     /**
      * Original signature :
@@ -1203,7 +1203,7 @@ public class Tesseract {
     @Name("TessPageIteratorBoundingBox")
     public native static int TessPageIteratorBoundingBox(
             Pointer<Tesseract.TessPageIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
+            IntValuedEnum<Tesseract.PageIteratorLevel> level,
             Pointer<Integer> left, Pointer<Integer> top,
             Pointer<Integer> right,
             Pointer<Integer> bottom);
@@ -1215,7 +1215,7 @@ public class Tesseract {
      * <i>native declaration : line 325</i>
      */
     @Name("TessPageIteratorBlockType")
-    public native static IntValuedEnum<Tesseract.TessPolyBlockType> TessPageIteratorBlockType(
+    public native static IntValuedEnum<Tesseract.PolyBlockType> TessPageIteratorBlockType(
             Pointer<Tesseract.TessPageIterator> handle);
 
     /**
@@ -1227,7 +1227,7 @@ public class Tesseract {
     @Name("TessPageIteratorGetBinaryImage")
     public native static Pointer<Tesseract.Pix> TessPageIteratorGetBinaryImage(
             Pointer<Tesseract.TessPageIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
+            IntValuedEnum<Tesseract.PageIteratorLevel> level);
 
     /**
      * Original signature :
@@ -1238,7 +1238,7 @@ public class Tesseract {
     @Name("TessPageIteratorGetImage")
     public native static Pointer<Tesseract.Pix> TessPageIteratorGetImage(
             Pointer<Tesseract.TessPageIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level, int padding,
+            IntValuedEnum<Tesseract.PageIteratorLevel> level, int padding,
             Pointer<Integer> left, Pointer<Integer> top);
 
     /**
@@ -1250,7 +1250,7 @@ public class Tesseract {
     @Name("TessPageIteratorBaseline")
     public native static int TessPageIteratorBaseline(
             Pointer<Tesseract.TessPageIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level,
+            IntValuedEnum<Tesseract.PageIteratorLevel> level,
             Pointer<Integer> x1, Pointer<Integer> y1, Pointer<Integer> x2,
             Pointer<Integer> y2);
 
@@ -1263,9 +1263,9 @@ public class Tesseract {
     @Name("TessPageIteratorOrientation")
     public native static void TessPageIteratorOrientation(
             Pointer<Tesseract.TessPageIterator> handle,
-            Pointer<IntValuedEnum<Tesseract.TessOrientation>> orientation,
-            Pointer<IntValuedEnum<Tesseract.TessWritingDirection>> writing_direction,
-            Pointer<IntValuedEnum<Tesseract.TessTextlineOrder>> textline_order,
+            Pointer<IntValuedEnum<Tesseract.Orientation>> orientation,
+            Pointer<IntValuedEnum<Tesseract.WritingDirection>> writing_direction,
+            Pointer<IntValuedEnum<Tesseract.TextlineOrder>> textline_order,
             Pointer<Float> deskew_angle);
 
     /**
@@ -1324,7 +1324,7 @@ public class Tesseract {
     @Name("TessResultIteratorGetUTF8Text")
     public native static Pointer<Byte> TessResultIteratorGetUTF8Text(
             Pointer<Tesseract.TessResultIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
+            IntValuedEnum<Tesseract.PageIteratorLevel> level);
 
     /**
      * Original signature :
@@ -1335,7 +1335,7 @@ public class Tesseract {
     @Name("TessResultIteratorConfidence")
     public native static float TessResultIteratorConfidence(
             Pointer<Tesseract.TessResultIterator> handle,
-            IntValuedEnum<Tesseract.TessPageIteratorLevel> level);
+            IntValuedEnum<Tesseract.PageIteratorLevel> level);
 
     /**
      * Original signature :
