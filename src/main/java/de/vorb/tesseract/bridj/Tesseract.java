@@ -1270,7 +1270,7 @@ public class Tesseract {
     @Name("TessResultIteratorGetPageIteratorConst")
     native public static Pointer<Tesseract.TessPageIterator> TessResultIteratorGetPageIteratorConst(
             Pointer<Tesseract.TessResultIterator> handle);
-    
+
     /**
      * Original signature :
      * <code>TessPageIterator* TessResultIteratorGetChoiceIterator(const TessResultIterator*)</code>
@@ -1364,6 +1364,22 @@ public class Tesseract {
     @Name("TessResultIteratorSymbolIsDropcap")
     native public static int TessResultIteratorSymbolIsDropcap(
             Pointer<Tesseract.TessResultIterator> handle);
+    
+    @Name("TessChoiceIteratorDelete")
+    native public static void TessChoiceIteratorDelete(
+            Pointer<Tesseract.TessChoiceIterator> handle);
+
+    @Name("TessChoiceIteratorNext")
+    native public static int TessChoiceIteratorNext(
+            Pointer<Tesseract.TessChoiceIterator> handle);
+
+    @Name("TessChoiceIteratorConfidence")
+    native public static Pointer<Byte> TessChoiceIteratorGetUTF8Text(
+            Pointer<Tesseract.TessChoiceIterator> handle);
+
+    @Name("TessChoiceIteratorConfidence")
+    native public static float TessChoiceIteratorConfidence(
+            Pointer<Tesseract.TessChoiceIterator> handle);
 
     /** Undefined type */
     public static interface Boxa {
