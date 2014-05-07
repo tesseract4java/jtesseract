@@ -223,22 +223,22 @@ public class TessJNA implements Library {
     public static native int TessResultRendererImageNum(
             PointerByReference renderer);
 
-    public static native PointerByReference TessBaseAPICreate();
+    public static native TessBaseAPI TessBaseAPICreate();
 
     @Deprecated
-    public static native void TessBaseAPIDelete(Pointer handle);
+    public static native void TessBaseAPIDelete(TessBaseAPI handle);
 
     public static native void TessBaseAPIDelete(PointerByReference handle);
 
     @Deprecated
-    public static native SizeT TessBaseAPIGetOpenCLDevice(Pointer handle,
+    public static native SizeT TessBaseAPIGetOpenCLDevice(TessBaseAPI handle,
             PointerByReference device);
 
     public static native SizeT TessBaseAPIGetOpenCLDevice(
             PointerByReference handle, PointerByReference device);
 
     @Deprecated
-    public static native void TessBaseAPISetInputName(Pointer handle,
+    public static native void TessBaseAPISetInputName(TessBaseAPI handle,
             Pointer name);
 
     public static native void TessBaseAPISetInputName(
@@ -248,13 +248,13 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer name);
 
     @Deprecated
-    public static native String TessBaseAPIGetInputName(Pointer handle);
+    public static native String TessBaseAPIGetInputName(TessBaseAPI handle);
 
     public static native String TessBaseAPIGetInputName(
             PointerByReference handle);
 
     @Deprecated
-    public static native void TessBaseAPISetInputImage(Pointer handle,
+    public static native void TessBaseAPISetInputImage(TessBaseAPI handle,
             TessJNA.Pix pix);
 
     public static native void TessBaseAPISetInputImage(
@@ -262,24 +262,24 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native TessJNA.Pix TessBaseAPIGetInputImage(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native TessJNA.Pix TessBaseAPIGetInputImage(
             PointerByReference handle);
 
     @Deprecated
-    public static native int TessBaseAPIGetSourceYResolution(Pointer handle);
+    public static native int TessBaseAPIGetSourceYResolution(TessBaseAPI handle);
 
     public static native int TessBaseAPIGetSourceYResolution(
             PointerByReference handle);
 
     @Deprecated
-    public static native String TessBaseAPIGetDatapath(Pointer handle);
+    public static native String TessBaseAPIGetDatapath(TessBaseAPI handle);
 
     public static native String TessBaseAPIGetDatapath(PointerByReference handle);
 
     @Deprecated
-    public static native void TessBaseAPISetOutputName(Pointer handle,
+    public static native void TessBaseAPISetOutputName(TessBaseAPI handle,
             Pointer name);
 
     public static native void TessBaseAPISetOutputName(
@@ -289,7 +289,7 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer name);
 
     @Deprecated
-    public static native int TessBaseAPISetVariable(Pointer handle,
+    public static native int TessBaseAPISetVariable(TessBaseAPI handle,
             Pointer name, Pointer value);
 
     public static native int TessBaseAPISetVariable(PointerByReference handle,
@@ -299,7 +299,7 @@ public class TessJNA implements Library {
             Pointer name, Pointer value);
 
     @Deprecated
-    public static native int TessBaseAPISetDebugVariable(Pointer handle,
+    public static native int TessBaseAPISetDebugVariable(TessBaseAPI handle,
             Pointer name, Pointer value);
 
     public static native int TessBaseAPISetDebugVariable(
@@ -309,7 +309,7 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer name, Pointer value);
 
     @Deprecated
-    public static native int TessBaseAPIGetIntVariable(Pointer handle,
+    public static native int TessBaseAPIGetIntVariable(TessBaseAPI handle,
             Pointer name, IntByReference value);
 
     public static native int TessBaseAPIGetIntVariable(
@@ -319,7 +319,7 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer name, IntByReference value);
 
     @Deprecated
-    public static native int TessBaseAPIGetBoolVariable(Pointer handle,
+    public static native int TessBaseAPIGetBoolVariable(TessBaseAPI handle,
             Pointer name, IntByReference value);
 
     public static native int TessBaseAPIGetBoolVariable(
@@ -329,7 +329,7 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer name, IntByReference value);
 
     @Deprecated
-    public static native int TessBaseAPIGetDoubleVariable(Pointer handle,
+    public static native int TessBaseAPIGetDoubleVariable(TessBaseAPI handle,
             Pointer name, DoubleByReference value);
 
     public static native int TessBaseAPIGetDoubleVariable(
@@ -339,7 +339,8 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer name, DoubleByReference value);
 
     @Deprecated
-    public static native String TessBaseAPIGetStringVariable(Pointer handle,
+    public static native String TessBaseAPIGetStringVariable(
+            TessBaseAPI handle,
             Pointer name);
 
     public static native String TessBaseAPIGetStringVariable(
@@ -349,14 +350,15 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer name);
 
     @Deprecated
-    public static native void TessBaseAPIPrintVariables(Pointer handle,
+    public static native void TessBaseAPIPrintVariables(TessBaseAPI handle,
             TessJNA.FILE fp);
 
     public static native void TessBaseAPIPrintVariables(
             PointerByReference handle, TessJNA.FILE fp);
 
     @Deprecated
-    public static native int TessBaseAPIPrintVariablesToFile(Pointer handle,
+    public static native int TessBaseAPIPrintVariablesToFile(
+            TessBaseAPI handle,
             Pointer filename);
 
     public static native int TessBaseAPIPrintVariablesToFile(
@@ -366,7 +368,8 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer filename);
 
     @Deprecated
-    public static native int TessBaseAPIInit1(Pointer handle, Pointer datapath,
+    public static native int TessBaseAPIInit1(TessBaseAPI handle,
+            Pointer datapath,
             Pointer language, int oem, PointerByReference configs,
             int configs_size);
 
@@ -379,7 +382,8 @@ public class TessJNA implements Library {
             PointerByReference configs, int configs_size);
 
     @Deprecated
-    public static native int TessBaseAPIInit2(Pointer handle, Pointer datapath,
+    public static native int TessBaseAPIInit2(TessBaseAPI handle,
+            Pointer datapath,
             Pointer language, int oem);
 
     public static native int TessBaseAPIInit2(PointerByReference handle,
@@ -388,18 +392,13 @@ public class TessJNA implements Library {
     public static native int TessBaseAPIInit2(PointerByReference handle,
             Pointer datapath, Pointer language, int oem);
 
-    @Deprecated
-    public static native int TessBaseAPIInit3(Pointer handle, Pointer datapath,
-            Pointer language);
-
-    public static native int TessBaseAPIInit3(PointerByReference handle,
-            String datapath, String language);
-
-    public static native int TessBaseAPIInit3(PointerByReference handle,
-            Pointer datapath, Pointer language);
+    public static native int TessBaseAPIInit3(TessBaseAPI handle,
+            String datapath,
+            String language);
 
     @Deprecated
-    public static native int TessBaseAPIInit4(Pointer handle, Pointer datapath,
+    public static native int TessBaseAPIInit4(TessBaseAPI handle,
+            Pointer datapath,
             Pointer language, int mode, PointerByReference configs,
             int configs_size, PointerByReference vars_vec,
             PointerByReference vars_values, SizeT vars_vec_size,
@@ -418,27 +417,27 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native String TessBaseAPIGetInitLanguagesAsString(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native String TessBaseAPIGetInitLanguagesAsString(
             PointerByReference handle);
 
     @Deprecated
     public static native PointerByReference TessBaseAPIGetLoadedLanguagesAsVector(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native PointerByReference TessBaseAPIGetLoadedLanguagesAsVector(
             PointerByReference handle);
 
     @Deprecated
     public static native PointerByReference TessBaseAPIGetAvailableLanguagesAsVector(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native PointerByReference TessBaseAPIGetAvailableLanguagesAsVector(
             PointerByReference handle);
 
     @Deprecated
-    public static native int TessBaseAPIInitLangMod(Pointer handle,
+    public static native int TessBaseAPIInitLangMod(TessBaseAPI handle,
             Pointer datapath, Pointer language);
 
     public static native int TessBaseAPIInitLangMod(PointerByReference handle,
@@ -448,13 +447,13 @@ public class TessJNA implements Library {
             Pointer datapath, Pointer language);
 
     @Deprecated
-    public static native void TessBaseAPIInitForAnalysePage(Pointer handle);
+    public static native void TessBaseAPIInitForAnalysePage(TessBaseAPI handle);
 
     public static native void TessBaseAPIInitForAnalysePage(
             PointerByReference handle);
 
     @Deprecated
-    public static native void TessBaseAPIReadConfigFile(Pointer handle,
+    public static native void TessBaseAPIReadConfigFile(TessBaseAPI handle,
             Pointer filename);
 
     public static native void TessBaseAPIReadConfigFile(
@@ -464,7 +463,8 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer filename);
 
     @Deprecated
-    public static native void TessBaseAPIReadDebugConfigFile(Pointer handle,
+    public static native void TessBaseAPIReadDebugConfigFile(
+            TessBaseAPI handle,
             Pointer filename);
 
     public static native void TessBaseAPIReadDebugConfigFile(
@@ -474,18 +474,19 @@ public class TessJNA implements Library {
             PointerByReference handle, Pointer filename);
 
     @Deprecated
-    public static native void TessBaseAPISetPageSegMode(Pointer handle, int mode);
+    public static native void TessBaseAPISetPageSegMode(TessBaseAPI handle,
+            int mode);
 
     public static native void TessBaseAPISetPageSegMode(
             PointerByReference handle, int mode);
 
     @Deprecated
-    public static native int TessBaseAPIGetPageSegMode(Pointer handle);
+    public static native int TessBaseAPIGetPageSegMode(TessBaseAPI handle);
 
     public static native int TessBaseAPIGetPageSegMode(PointerByReference handle);
 
     @Deprecated
-    public static native String TessBaseAPIRect(Pointer handle,
+    public static native String TessBaseAPIRect(TessBaseAPI handle,
             Pointer imagedata, int bytes_per_pixel, int bytes_per_line,
             int left, int top, int width, int height);
 
@@ -498,13 +499,14 @@ public class TessJNA implements Library {
             int left, int top, int width, int height);
 
     @Deprecated
-    public static native void TessBaseAPIClearAdaptiveClassifier(Pointer handle);
+    public static native void TessBaseAPIClearAdaptiveClassifier(
+            TessBaseAPI handle);
 
     public static native void TessBaseAPIClearAdaptiveClassifier(
             PointerByReference handle);
 
     @Deprecated
-    public static native void TessBaseAPISetImage(Pointer handle,
+    public static native void TessBaseAPISetImage(TessBaseAPI handle,
             Pointer imagedata, int width, int height, int bytes_per_pixel,
             int bytes_per_line);
 
@@ -517,21 +519,23 @@ public class TessJNA implements Library {
             int bytes_per_line);
 
     @Deprecated
-    public static native void TessBaseAPISetImage2(Pointer handle,
+    public static native void TessBaseAPISetImage2(TessBaseAPI handle,
             TessJNA.Pix pix);
 
     public static native void TessBaseAPISetImage2(PointerByReference handle,
             TessJNA.Pix pix);
 
     @Deprecated
-    public static native void TessBaseAPISetSourceResolution(Pointer handle,
+    public static native void TessBaseAPISetSourceResolution(
+            TessBaseAPI handle,
             int ppi);
 
     public static native void TessBaseAPISetSourceResolution(
             PointerByReference handle, int ppi);
 
     @Deprecated
-    public static native void TessBaseAPISetRectangle(Pointer handle, int left,
+    public static native void TessBaseAPISetRectangle(TessBaseAPI handle,
+            int left,
             int top, int width, int height);
 
     public static native void TessBaseAPISetRectangle(
@@ -539,14 +543,14 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native TessJNA.Pix TessBaseAPIGetThresholdedImage(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native TessJNA.Pix TessBaseAPIGetThresholdedImage(
             PointerByReference handle);
 
     @Deprecated
     public static native TessJNA.Boxa TessBaseAPIGetRegions(
-            Pointer handle, PointerByReference pixa);
+            TessBaseAPI handle, PointerByReference pixa);
 
     public static native TessJNA.Boxa TessBaseAPIGetRegions(
             PointerByReference handle, PointerByReference pixa);
@@ -556,7 +560,8 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native TessJNA.Boxa TessBaseAPIGetTextlines(
-            Pointer handle, PointerByReference pixa, PointerByReference blockids);
+            TessBaseAPI handle, PointerByReference pixa,
+            PointerByReference blockids);
 
     public static native TessJNA.Boxa TessBaseAPIGetTextlines(
             PointerByReference handle, TessJNA.Pixa pixa[],
@@ -564,7 +569,7 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native TessJNA.Boxa TessBaseAPIGetTextlines1(
-            Pointer handle, int raw_image, int raw_padding,
+            TessBaseAPI handle, int raw_image, int raw_padding,
             PointerByReference pixa, PointerByReference blockids,
             PointerByReference paraids);
 
@@ -574,7 +579,7 @@ public class TessJNA implements Library {
             PointerByReference paraids);
 
     @Deprecated
-    public static native TessJNA.Boxa TessBaseAPIGetStrips(Pointer handle,
+    public static native TessJNA.Boxa TessBaseAPIGetStrips(TessBaseAPI handle,
             PointerByReference pixa, PointerByReference blockids);
 
     public static native TessJNA.Boxa TessBaseAPIGetStrips(
@@ -582,7 +587,7 @@ public class TessJNA implements Library {
             PointerByReference blockids);
 
     @Deprecated
-    public static native TessJNA.Boxa TessBaseAPIGetWords(Pointer handle,
+    public static native TessJNA.Boxa TessBaseAPIGetWords(TessBaseAPI handle,
             PointerByReference pixa);
 
     public static native TessJNA.Boxa TessBaseAPIGetWords(
@@ -590,14 +595,15 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native TessJNA.Boxa TessBaseAPIGetConnectedComponents(
-            Pointer handle, PointerByReference cc);
+            TessBaseAPI handle, PointerByReference cc);
 
     public static native TessJNA.Boxa TessBaseAPIGetConnectedComponents(
             PointerByReference handle, TessJNA.Pixa cc[]);
 
     @Deprecated
     public static native TessJNA.Boxa TessBaseAPIGetComponentImages(
-            Pointer handle, int level, int text_only, PointerByReference pixa,
+            TessBaseAPI handle, int level, int text_only,
+            PointerByReference pixa,
             PointerByReference blockids);
 
     public static native TessJNA.Boxa TessBaseAPIGetComponentImages(
@@ -606,7 +612,7 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native TessJNA.Boxa TessBaseAPIGetComponentImages1(
-            Pointer handle, int level, int text_only, int raw_image,
+            TessBaseAPI handle, int level, int text_only, int raw_image,
             int raw_padding, PointerByReference pixa,
             PointerByReference blockids, PointerByReference paraids);
 
@@ -617,13 +623,13 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native int TessBaseAPIGetThresholdedImageScaleFactor(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native int TessBaseAPIGetThresholdedImageScaleFactor(
             PointerByReference handle);
 
     @Deprecated
-    public static native void TessBaseAPIDumpPGM(Pointer handle,
+    public static native void TessBaseAPIDumpPGM(TessBaseAPI handle,
             Pointer filename);
 
     public static native void TessBaseAPIDumpPGM(PointerByReference handle,
@@ -634,27 +640,28 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native PointerByReference TessBaseAPIAnalyseLayout(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native PointerByReference TessBaseAPIAnalyseLayout(
             PointerByReference handle);
 
     @Deprecated
-    public static native int TessBaseAPIRecognize(Pointer handle,
+    public static native int TessBaseAPIRecognize(TessBaseAPI handle,
             Pointer monitor);
 
     public static native int TessBaseAPIRecognize(PointerByReference handle,
             PointerByReference monitor);
 
     @Deprecated
-    public static native int TessBaseAPIRecognizeForChopTest(Pointer handle,
+    public static native int TessBaseAPIRecognizeForChopTest(
+            TessBaseAPI handle,
             Pointer monitor);
 
     public static native int TessBaseAPIRecognizeForChopTest(
             PointerByReference handle, PointerByReference monitor);
 
     @Deprecated
-    public static native String TessBaseAPIProcessPages(Pointer handle,
+    public static native String TessBaseAPIProcessPages(TessBaseAPI handle,
             Pointer filename, Pointer retry_config, int timeout_millisec);
 
     public static native String TessBaseAPIProcessPages(
@@ -666,7 +673,7 @@ public class TessJNA implements Library {
             int timeout_millisec);
 
     @Deprecated
-    public static native int TessBaseAPIProcessPages1(Pointer handle,
+    public static native int TessBaseAPIProcessPages1(TessBaseAPI handle,
             Pointer filename, Pointer retry_config, int timeout_millisec,
             Pointer renderer);
 
@@ -679,7 +686,7 @@ public class TessJNA implements Library {
             int timeout_millisec, PointerByReference renderer);
 
     @Deprecated
-    public static native String TessBaseAPIProcessPage(Pointer handle,
+    public static native String TessBaseAPIProcessPage(TessBaseAPI handle,
             TessJNA.Pix pix, int page_index, Pointer filename,
             Pointer retry_config, int timeout_millisec);
 
@@ -692,7 +699,7 @@ public class TessJNA implements Library {
             Pointer filename, Pointer retry_config, int timeout_millisec);
 
     @Deprecated
-    public static native int TessBaseAPIProcessPage1(Pointer handle,
+    public static native int TessBaseAPIProcessPage1(TessBaseAPI handle,
             TessJNA.Pix pix, int page_index, Pointer filename,
             Pointer retry_config, int timeout_millisec, Pointer renderer);
 
@@ -708,56 +715,56 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native PointerByReference TessBaseAPIGetIterator(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native PointerByReference TessBaseAPIGetIterator(
             PointerByReference handle);
 
     @Deprecated
     public static native PointerByReference TessBaseAPIGetMutableIterator(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native PointerByReference TessBaseAPIGetMutableIterator(
             PointerByReference handle);
 
     @Deprecated
-    public static native String TessBaseAPIGetUTF8Text(Pointer handle);
+    public static native String TessBaseAPIGetUTF8Text(TessBaseAPI handle);
 
     public static native String TessBaseAPIGetUTF8Text(PointerByReference handle);
 
     @Deprecated
-    public static native String TessBaseAPIGetHOCRText(Pointer handle,
+    public static native String TessBaseAPIGetHOCRText(TessBaseAPI handle,
             int page_number);
 
     public static native String TessBaseAPIGetHOCRText(
             PointerByReference handle, int page_number);
 
     @Deprecated
-    public static native String TessBaseAPIGetBoxText(Pointer handle,
+    public static native String TessBaseAPIGetBoxText(TessBaseAPI handle,
             int page_number);
 
     public static native String TessBaseAPIGetBoxText(
             PointerByReference handle, int page_number);
 
     @Deprecated
-    public static native String TessBaseAPIGetUNLVText(Pointer handle);
+    public static native String TessBaseAPIGetUNLVText(TessBaseAPI handle);
 
     public static native String TessBaseAPIGetUNLVText(PointerByReference handle);
 
     @Deprecated
-    public static native int TessBaseAPIMeanTextConf(Pointer handle);
+    public static native int TessBaseAPIMeanTextConf(TessBaseAPI handle);
 
     public static native int TessBaseAPIMeanTextConf(PointerByReference handle);
 
     @Deprecated
     public static native IntByReference TessBaseAPIAllWordConfidences(
-            Pointer handle);
+            TessBaseAPI handle);
 
     public static native IntByReference TessBaseAPIAllWordConfidences(
             PointerByReference handle);
 
     @Deprecated
-    public static native int TessBaseAPIAdaptToWordStr(Pointer handle,
+    public static native int TessBaseAPIAdaptToWordStr(TessBaseAPI handle,
             int mode, Pointer wordstr);
 
     public static native int TessBaseAPIAdaptToWordStr(
@@ -767,17 +774,18 @@ public class TessJNA implements Library {
             PointerByReference handle, int mode, Pointer wordstr);
 
     @Deprecated
-    public static native void TessBaseAPIClear(Pointer handle);
+    public static native void TessBaseAPIClear(TessBaseAPI handle);
 
     public static native void TessBaseAPIClear(PointerByReference handle);
 
     @Deprecated
-    public static native void TessBaseAPIEnd(Pointer handle);
+    public static native void TessBaseAPIEnd(TessBaseAPI handle);
 
     public static native void TessBaseAPIEnd(PointerByReference handle);
 
     @Deprecated
-    public static native int TessBaseAPIIsValidWord(Pointer handle, Pointer word);
+    public static native int TessBaseAPIIsValidWord(TessBaseAPI handle,
+            Pointer word);
 
     public static native int TessBaseAPIIsValidWord(PointerByReference handle,
             String word);
@@ -786,7 +794,7 @@ public class TessJNA implements Library {
             Pointer word);
 
     @Deprecated
-    public static native int TessBaseAPIGetTextDirection(Pointer handle,
+    public static native int TessBaseAPIGetTextDirection(TessBaseAPI handle,
             IntByReference out_offset, FloatByReference out_slope);
 
     public static native int TessBaseAPIGetTextDirection(
@@ -798,7 +806,7 @@ public class TessJNA implements Library {
             FloatByReference out_slope);
 
     @Deprecated
-    public static native String TessBaseAPIGetUnichar(Pointer handle,
+    public static native String TessBaseAPIGetUnichar(TessBaseAPI handle,
             int unichar_id);
 
     public static native String TessBaseAPIGetUnichar(
@@ -806,7 +814,7 @@ public class TessJNA implements Library {
 
     @Deprecated
     public static native void TessBaseAPISetMinOrientationMargin(
-            Pointer handle, double margin);
+            TessBaseAPI handle, double margin);
 
     public static native void TessBaseAPISetMinOrientationMargin(
             PointerByReference handle, double margin);
@@ -1060,17 +1068,6 @@ public class TessJNA implements Library {
         }
     };
 
-    /** Pointer to unknown (opaque) type */
-    public static class TessBaseAPI extends PointerType {
-        public TessBaseAPI(Pointer address) {
-            super(address);
-        }
-
-        public TessBaseAPI() {
-            super();
-        }
-    };
-
     public static class Pix extends Structure {
         /** width in pixels */
         public int w;
@@ -1103,7 +1100,7 @@ public class TessJNA implements Library {
         /** colormap (may be null) */
         public PixColormap.ByReference colormap;
         /** the image data */
-        public IntByReference data;
+        public Pointer data;
 
         public Pix() {
             super();
@@ -1125,6 +1122,47 @@ public class TessJNA implements Library {
         };
 
         public static class ByValue extends Pix implements Structure.ByValue {
+
+        };
+    }
+
+    public static class PixColormap extends Structure {
+        /** colormap table (array of RGBA_QUAD) */
+        public Pointer array;
+        /** of pix (1, 2, 4 or 8 bpp) */
+        public int depth;
+        /** number of color entries allocated */
+        public int nalloc;
+        /** number of color entries used */
+        public int n;
+
+        public PixColormap() {
+            super();
+        }
+
+        protected List<?> getFieldOrder() {
+            return Arrays.asList("array", "depth", "nalloc", "n");
+        }
+
+        public PixColormap(Pointer array, int depth, int nalloc, int n) {
+            super();
+            this.array = array;
+            this.depth = depth;
+            this.nalloc = nalloc;
+            this.n = n;
+        }
+
+        public PixColormap(Pointer peer) {
+            super(peer);
+        }
+
+        public static class ByReference extends PixColormap implements
+                Structure.ByReference {
+
+        };
+
+        public static class ByValue extends PixColormap implements
+                Structure.ByValue {
 
         };
     }
