@@ -32,7 +32,7 @@ public class Utils {
      * @param bufferedImage
      * @return
      */
-    public static Pix bufferedImageToPix(BufferedImage bufferedImage) {
+    public static Pointer<Pix> bufferedImageToPix(BufferedImage bufferedImage) {
         final Pix pix = new Pix();
 
         final int width = bufferedImage.getWidth();
@@ -83,7 +83,7 @@ public class Utils {
 
         pix.data(data);
 
-        return pix;
+        return Pointer.pointerTo(pix);
     }
 
     // TODO optimize for speed
@@ -173,7 +173,9 @@ public class Utils {
      *            Pix
      * @return BufferedImage
      */
-    public static BufferedImage pixToBufferedImage(Pix pix) {
+    public static BufferedImage pixToBufferedImage(Pointer<Pix> ppix) {
+        final Pix pix = ppix.get();
+
         final byte[] buf = convertPixToBytes(pix.data(), pix.w(), pix.h(),
                 pix.d(),
                 pix.wpl());
