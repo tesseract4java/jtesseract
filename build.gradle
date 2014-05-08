@@ -6,7 +6,7 @@ apply plugin: 'signing'
 
 group = 'de.vorb'
 
-version = '0.0.1'
+version = '0.0.2'
 sourceCompatibility = 1.7
 
 repositories {
@@ -14,8 +14,8 @@ repositories {
 }
 
 dependencies {
-  compile 'net.java.dev.jna:jna:4.1.0'
   compile 'com.nativelibs4java:bridj:0.6.2'
+  compile 'de.vorb:jleptonica:0.0.1'
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
