@@ -23,6 +23,9 @@ public class BasicExample {
         BridJ.setNativeLibraryFile("tesseract",
                 Paths.get("libtesseract303.dll").toFile());
 
+        System.out.println("Tesseract version: "
+                + LibTess.Version().getCString());
+
         final Path datapath = Paths.get(System.getenv("TESSDATA_PREFIX")).resolve(
                 "tessdata");
 
@@ -40,7 +43,7 @@ public class BasicExample {
 
         Pointer<Byte> text = LibTess.TessBaseAPIGetUTF8Text(handle);
         System.out.println(text.getCString().length());
-        LibTess.TessDeleteText(text);
+        LibTess.DeleteText(text);
 
         LibTess.TessBaseAPIEnd(handle);
 

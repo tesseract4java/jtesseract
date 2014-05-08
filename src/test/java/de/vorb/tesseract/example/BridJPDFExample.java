@@ -18,10 +18,10 @@ import org.bridj.BridJ;
 import org.bridj.Pointer;
 
 import de.vorb.tesseract.LibTess;
-import de.vorb.tesseract.OCREngineMode;
 import de.vorb.tesseract.LibTess.TessBaseAPI;
-import de.vorb.tesseract.PageSegMode;
 import de.vorb.tesseract.LibTess.TessResultRenderer;
+import de.vorb.tesseract.OCREngineMode;
+import de.vorb.tesseract.PageSegMode;
 
 public class BridJPDFExample {
     public static void main(String[] args) {
@@ -33,12 +33,12 @@ public class BridJPDFExample {
         // create a reference to an execution handle
         final Pointer<TessBaseAPI> handle = LibTess.TessBaseAPICreate();
 
+        final Pointer<Byte> datadir =
+                Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata");
+
         // init Tesseract with data path, language and OCR engine mode
-        LibTess.TessBaseAPIInit2(
-                handle,
-                Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
-                Pointer.pointerToCString("deu-frak"),
-                OCREngineMode.DEFAULT);
+        LibTess.TessBaseAPIInit2(handle, datadir,
+                Pointer.pointerToCString("deu-frak"), OCREngineMode.DEFAULT);
 
         // set page segmentation mode
         LibTess.TessBaseAPISetPageSegMode(handle,
@@ -72,7 +72,7 @@ public class BridJPDFExample {
 
             // pdf creation
             final Pointer<TessResultRenderer> pdfRenderer =
-                    LibTess.TessPDFRendererCreate(Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"));
+                    LibTess.PDFRendererCreate(datadir);
             LibTess.TessResultRendererBeginDocument(pdfRenderer,
                     Pointer.pointerToCString("document"));
             LibTess.TessResultRendererAddImage(pdfRenderer, handle);

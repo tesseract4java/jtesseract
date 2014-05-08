@@ -14,10 +14,10 @@ import org.bridj.Pointer;
 
 import de.vorb.tesseract.LibTess;
 import de.vorb.tesseract.LibTess.TessBaseAPI;
-import de.vorb.tesseract.OCREngineMode;
 import de.vorb.tesseract.LibTess.TessPageIterator;
-import de.vorb.tesseract.PageIteratorLevel;
 import de.vorb.tesseract.LibTess.TessResultIterator;
+import de.vorb.tesseract.OCREngineMode;
+import de.vorb.tesseract.PageIteratorLevel;
 import de.vorb.tesseract.PageSegMode;
 
 public class BridJSymbolExample {
