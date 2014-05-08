@@ -18,9 +18,9 @@ import org.bridj.BridJ;
 import org.bridj.Pointer;
 
 import de.vorb.tesseract.LibTess;
-import de.vorb.tesseract.LibTess.TessOcrEngineMode;
+import de.vorb.tesseract.OCREngineMode;
 import de.vorb.tesseract.LibTess.TessBaseAPI;
-import de.vorb.tesseract.LibTess.TessPageSegMode;
+import de.vorb.tesseract.PageSegMode;
 import de.vorb.tesseract.LibTess.TessResultRenderer;
 
 public class BridJPDFExample {
@@ -38,11 +38,11 @@ public class BridJPDFExample {
                 handle,
                 Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
                 Pointer.pointerToCString("deu-frak"),
-                TessOcrEngineMode.OEM_DEFAULT);
+                OCREngineMode.DEFAULT);
 
         // set page segmentation mode
         LibTess.TessBaseAPISetPageSegMode(handle,
-                TessPageSegMode.PSM_AUTO);
+                PageSegMode.AUTO);
 
         try {
             // read the image into memory
@@ -69,9 +69,6 @@ public class BridJPDFExample {
             LibTess.TessBaseAPISetVariable(handle,
                     Pointer.pointerToCString("tessedit_create_pdf"),
                     Pointer.pointerToCString("T"));
-
-            // get the text result
-            final String txt = LibTess.TessBaseAPIGetUTF8Text(handle).getCString();
 
             // pdf creation
             final Pointer<TessResultRenderer> pdfRenderer =

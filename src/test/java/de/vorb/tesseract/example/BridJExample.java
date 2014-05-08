@@ -14,6 +14,8 @@ import org.bridj.Pointer;
 
 import de.vorb.tesseract.LibTess;
 import de.vorb.tesseract.LibTess.TessBaseAPI;
+import de.vorb.tesseract.OCREngineMode;
+import de.vorb.tesseract.PageSegMode;
 
 public class BridJExample {
     public static void main(String[] args) throws IOException {
@@ -29,11 +31,10 @@ public class BridJExample {
                 handle,
                 Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
                 Pointer.pointerToCString("deu-frak"),
-                LibTess.TessOcrEngineMode.OEM_DEFAULT);
+                OCREngineMode.DEFAULT);
 
         // set page segmentation mode
-        LibTess.TessBaseAPISetPageSegMode(handle,
-                LibTess.TessPageSegMode.PSM_AUTO);
+        LibTess.TessBaseAPISetPageSegMode(handle, PageSegMode.AUTO);
 
         // read the image into memory
         final BufferedImage inputImage = ImageIO.read(new File("input.png"));

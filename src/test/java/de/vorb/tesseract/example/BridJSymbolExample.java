@@ -14,10 +14,11 @@ import org.bridj.Pointer;
 
 import de.vorb.tesseract.LibTess;
 import de.vorb.tesseract.LibTess.TessBaseAPI;
-import de.vorb.tesseract.LibTess.TessOcrEngineMode;
+import de.vorb.tesseract.OCREngineMode;
 import de.vorb.tesseract.LibTess.TessPageIterator;
-import de.vorb.tesseract.LibTess.TessPageIteratorLevel;
+import de.vorb.tesseract.PageIteratorLevel;
 import de.vorb.tesseract.LibTess.TessResultIterator;
+import de.vorb.tesseract.PageSegMode;
 
 public class BridJSymbolExample {
     @SuppressWarnings("unchecked")
@@ -34,11 +35,10 @@ public class BridJSymbolExample {
                 handle,
                 Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
                 Pointer.pointerToCString("deu-frak"),
-                TessOcrEngineMode.OEM_DEFAULT);
+                OCREngineMode.DEFAULT);
 
         // set page segmentation mode
-        LibTess.TessBaseAPISetPageSegMode(handle,
-                LibTess.TessPageSegMode.PSM_AUTO);
+        LibTess.TessBaseAPISetPageSegMode(handle, PageSegMode.AUTO);
 
         // read the image into memory
         final BufferedImage inputImage = ImageIO.read(new File("input.png"));
@@ -72,8 +72,7 @@ public class BridJSymbolExample {
                 LibTess.TessResultIteratorGetPageIterator(resultIt);
 
         // iterating over symbols
-        final TessPageIteratorLevel level =
-                LibTess.TessPageIteratorLevel.RIL_SYMBOL;
+        final PageIteratorLevel level = PageIteratorLevel.SYMBOL;
 
         final Pointer<Integer> left = Pointer.allocateInt();
         final Pointer<Integer> top = Pointer.allocateInt();
@@ -82,12 +81,12 @@ public class BridJSymbolExample {
 
         do {
             if (LibTess.TessPageIteratorIsAtBeginningOf(pageIt,
-                    LibTess.TessPageIteratorLevel.RIL_BLOCK) > 0) {
+                    PageIteratorLevel.BLOCK) == LibTess.TRUE) {
             } else if (LibTess.TessPageIteratorIsAtBeginningOf(pageIt,
-                    LibTess.TessPageIteratorLevel.RIL_TEXTLINE) > 0) {
+                    PageIteratorLevel.TEXTLINE) == LibTess.TRUE) {
                 System.out.print("\n\n");
             } else if (LibTess.TessPageIteratorIsAtBeginningOf(pageIt,
-                    LibTess.TessPageIteratorLevel.RIL_WORD) > 0) {
+                    PageIteratorLevel.WORD) == LibTess.TRUE) {
                 System.out.print('\n');
             }
 
