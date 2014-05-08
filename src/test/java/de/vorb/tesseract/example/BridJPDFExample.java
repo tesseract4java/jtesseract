@@ -111,7 +111,7 @@ public class BridJPDFExample {
             // delete handle
             LibTess.TessBaseAPIDelete(handle);
         } catch (IOException e) {
-            System.err.println("Coult not read input image.");
+            System.err.println("Could not read input image.");
         }
     }
 }
