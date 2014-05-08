@@ -1,14 +1,13 @@
-# JNA and BridJ bindings for Tesseract 3.03
+# BridJ bindings for Tesseract 3.03
 
 A Java library that can be used to access Tesseract's C API from Java through
-either BridJ or JNA. Therefore, this library provides interfaces that cover all
-of Tesseract's C API. BridJ and JNA classes were generated automatically by
-using [JNAerator](https://code.google.com/p/jnaerator/) on Tesseract's `capi.h`.
+BridJ. Therefore, this library provides interfaces that cover all of Tesseract's
+C API. BridJ classes were generated automatically by using
+[JNAerator](https://code.google.com/p/jnaerator/) on Tesseract's `capi.h`.
 
 This library does only cover the C API. If you are looking for a more convenient
 way to use Tesseract from Java, have a look at
-[Tess4J](http://tess4j.sourceforge.net/). Tess4J only supports Tesseract 3.02 at
-the Moment.
+[Tess4J](http://tess4j.sourceforge.net/).
 
 ## Usage example
 
@@ -32,7 +31,8 @@ import org.bridj.Pointer;
 
 import de.vorb.tesseract.bridj.Tesseract;
 import de.vorb.tesseract.bridj.Tesseract.TessBaseAPI;
-import de.vorb.tesseract.bridj.Tesseract.TessOcrEngineMode;
+import de.vorb.tesseract.bridj.OCREngineMode;
+import de.vorb.tesseract.bridj.PageSegMode;
 
 public class BridJExample {
   public static void main(String[] args) throws IOException {
@@ -46,11 +46,10 @@ public class BridJExample {
     // init Tesseract with data path, language and OCR engine mode
     Tesseract.TessBaseAPIInit2(handle,
         Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
-        Pointer.pointerToCString("deu-frak"), TessOcrEngineMode.OEM_DEFAULT);
+        Pointer.pointerToCString("deu-frak"), OCREngineMode.DEFAULT);
 
     // set page segmentation mode
-    Tesseract.TessBaseAPISetPageSegMode(handle,
-        Tesseract.TessPageSegMode.PSM_AUTO);
+    Tesseract.TessBaseAPISetPageSegMode(handle, PageSegMode.AUTO);
 
     // read the image into memory
     final BufferedImage inputImage = ImageIO.read(new File("input.png"));
