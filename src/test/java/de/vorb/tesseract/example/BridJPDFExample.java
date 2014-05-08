@@ -17,94 +17,104 @@ import javax.imageio.ImageIO;
 import org.bridj.BridJ;
 import org.bridj.Pointer;
 
-import de.vorb.tesseract.bridj.Tesseract;
-import de.vorb.tesseract.bridj.Tesseract.TessBaseAPI;
-import de.vorb.tesseract.bridj.Tesseract.TessOcrEngineMode;
-import de.vorb.tesseract.bridj.Tesseract.TessResultRenderer;
+import de.vorb.tesseract.LibTess;
+import de.vorb.tesseract.LibTess.TessOcrEngineMode;
+import de.vorb.tesseract.LibTess.TessBaseAPI;
+import de.vorb.tesseract.LibTess.TessPageSegMode;
+import de.vorb.tesseract.LibTess.TessResultRenderer;
 
 public class BridJPDFExample {
-  public static void main(String[] args) {
-    // provide the native library file
-    BridJ.setNativeLibraryFile("tesseract", new File("libtesseract303.dll"));
+    public static void main(String[] args) {
+        // provide the native library file
+        BridJ.setNativeLibraryFile("leptonica", new File("liblept170.dll"));
+        BridJ.setNativeLibraryFile("tesseract", new File("libtesseract303.dll"));
 
-    long start = System.currentTimeMillis();
-    // create a reference to an execution handle
-    final Pointer<TessBaseAPI> handle = Tesseract.TessBaseAPICreate();
+        long start = System.currentTimeMillis();
+        // create a reference to an execution handle
+        final Pointer<TessBaseAPI> handle = LibTess.TessBaseAPICreate();
 
-    // init Tesseract with data path, language and OCR engine mode
-    Tesseract.TessBaseAPIInit2(handle,
-        Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
-        Pointer.pointerToCString("deu-frak"), TessOcrEngineMode.OEM_DEFAULT);
+        // init Tesseract with data path, language and OCR engine mode
+        LibTess.TessBaseAPIInit2(
+                handle,
+                Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
+                Pointer.pointerToCString("deu-frak"),
+                TessOcrEngineMode.OEM_DEFAULT);
 
-    // set page segmentation mode
-    Tesseract.TessBaseAPISetPageSegMode(handle,
-        Tesseract.TessPageSegMode.PSM_AUTO);
+        // set page segmentation mode
+        LibTess.TessBaseAPISetPageSegMode(handle,
+                TessPageSegMode.PSM_AUTO);
 
-    try {
-      // read the image into memory
-      final BufferedImage inputImage = ImageIO.read(new File("input.png"));
+        try {
+            // read the image into memory
+            final BufferedImage inputImage = ImageIO.read(new File("input.png"));
 
-      // get the image data
-      final DataBuffer imageBuffer = inputImage.getRaster().getDataBuffer();
-      final byte[] imageData = ((DataBufferByte) imageBuffer).getData();
+            // get the image data
+            final DataBuffer imageBuffer = inputImage.getRaster().getDataBuffer();
+            final byte[] imageData = ((DataBufferByte) imageBuffer).getData();
 
-      // image properties
-      final int width = inputImage.getWidth();
-      final int height = inputImage.getHeight();
-      final int bitsPerPixel = inputImage.getColorModel().getPixelSize();
-      final int bytesPerPixel = bitsPerPixel / 8;
-      final int bytesPerLine = (int) Math.ceil(width * bitsPerPixel / 8.0);
+            // image properties
+            final int width = inputImage.getWidth();
+            final int height = inputImage.getHeight();
+            final int bitsPerPixel = inputImage.getColorModel().getPixelSize();
+            final int bytesPerPixel = bitsPerPixel / 8;
+            final int bytesPerLine = (int) Math.ceil(width * bitsPerPixel / 8.0);
 
-      // set the image
-      Tesseract.TessBaseAPISetImage(handle,
-          Pointer.pointerToBytes(ByteBuffer.wrap(imageData)), width, height,
-          bytesPerPixel, bytesPerLine);
+            // set the image
+            LibTess.TessBaseAPISetImage(handle,
+                    Pointer.pointerToBytes(ByteBuffer.wrap(imageData)), width,
+                    height,
+                    bytesPerPixel, bytesPerLine);
 
-      // enable pdf export
-      Tesseract.TessBaseAPISetVariable(handle,
-          Pointer.pointerToCString("tessedit_create_pdf"),
-          Pointer.pointerToCString("T"));
+            // enable pdf export
+            LibTess.TessBaseAPISetVariable(handle,
+                    Pointer.pointerToCString("tessedit_create_pdf"),
+                    Pointer.pointerToCString("T"));
 
-      // get the text result
-      final String txt = Tesseract.TessBaseAPIGetUTF8Text(handle).getCString();
+            // get the text result
+            final String txt = LibTess.TessBaseAPIGetUTF8Text(handle).getCString();
 
-      // pdf creation
-      final Pointer<TessResultRenderer> pdfRenderer =
-          Tesseract.TessPDFRendererCreate(Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"));
-      Tesseract.TessResultRendererBeginDocument(pdfRenderer,
-          Pointer.pointerToCString("document"));
-      Tesseract.TessResultRendererAddImage(pdfRenderer, handle);
-      Tesseract.TessResultRendererEndDocument(pdfRenderer);
+            // pdf creation
+            final Pointer<TessResultRenderer> pdfRenderer =
+                    LibTess.TessPDFRendererCreate(Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"));
+            LibTess.TessResultRendererBeginDocument(pdfRenderer,
+                    Pointer.pointerToCString("document"));
+            LibTess.TessResultRendererAddImage(pdfRenderer, handle);
+            LibTess.TessResultRendererEndDocument(pdfRenderer);
 
-      // process the page
-      Tesseract.TessBaseAPIProcessPages1(handle,
-          Pointer.pointerToCString("input2.png"), Pointer.NULL, 0, pdfRenderer);
+            // process the page
+            LibTess.TessBaseAPIProcessPages1(handle,
+                    Pointer.pointerToCString("input2.png"), Pointer.NULL, 0,
+                    pdfRenderer);
 
-      // get the pdf data
-      final Pointer<Pointer<Byte>> data = Pointer.allocateBytes(1, 0L);
-      final Pointer<Integer> data_len = Pointer.allocateInt();
-      Tesseract.TessResultRendererGetOutput(pdfRenderer, data, data_len);
+            // get the pdf data
+            final Pointer<Pointer<Byte>> data = Pointer.allocateBytes(1, 0L);
+            final Pointer<Integer> data_len = Pointer.allocateInt();
+            LibTess.TessResultRendererGetOutput(pdfRenderer, data,
+                    data_len);
 
-      final ByteBuffer dataBuf = data.getPointerAtIndex(0).getByteBuffer(
-          data_len.getInt());
+            final ByteBuffer dataBuf = data.getPointerAtIndex(0).getByteBuffer(
+                    data_len.getInt());
 
-      // write to file
-      try (final SeekableByteChannel out = Files.newByteChannel(
-          Paths.get("out.pdf"),
-          EnumSet.of(StandardOpenOption.WRITE,
-              StandardOpenOption.TRUNCATE_EXISTING))) {
-        out.write(dataBuf);
-      } catch (IOException e) {
-        System.err.println("Could not write PDF output.");
-      }
+            // write to file
+            try (final SeekableByteChannel out = Files.newByteChannel(
+                    Paths.get("out.pdf"),
+                    EnumSet.of(StandardOpenOption.WRITE,
+                            StandardOpenOption.TRUNCATE_EXISTING))) {
+                out.write(dataBuf);
+            } catch (IOException e) {
+                System.err.println("Could not write PDF output.");
+            }
 
-      // calculate the time
-      System.out.println("time: " + (System.currentTimeMillis() - start) + "ms");
+            // calculate the time
+            System.out.println("time: " + (System.currentTimeMillis() - start)
+                    + "ms");
 
-      // delete handle
-      Tesseract.TessBaseAPIDelete(handle);
-    } catch (IOException e) {
-      System.err.println("Coult not read input image.");
+            LibTess.TessBaseAPIEnd(handle);
+
+            // delete handle
+            LibTess.TessBaseAPIDelete(handle);
+        } catch (IOException e) {
+            System.err.println("Coult not read input image.");
+        }
     }
-  }
 }

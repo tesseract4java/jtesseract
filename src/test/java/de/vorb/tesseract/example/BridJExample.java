@@ -12,57 +12,61 @@ import javax.imageio.ImageIO;
 import org.bridj.BridJ;
 import org.bridj.Pointer;
 
-import de.vorb.tesseract.bridj.Tesseract;
-import de.vorb.tesseract.bridj.Tesseract.TessBaseAPI;
-import de.vorb.tesseract.bridj.Tesseract.TessOcrEngineMode;
+import de.vorb.tesseract.LibTess;
+import de.vorb.tesseract.LibTess.TessBaseAPI;
 
 public class BridJExample {
-  public static void main(String[] args) throws IOException {
-    // provide the native library file
-    BridJ.setNativeLibraryFile("tesseract", new File("libtesseract303.dll"));
+    public static void main(String[] args) throws IOException {
+        BridJ.setNativeLibraryFile("leptonica", new File("liblept170.dll"));
+        BridJ.setNativeLibraryFile("tesseract", new File("libtesseract303.dll"));
 
-    long start = System.currentTimeMillis();
-    // create a reference to an execution handle
-    final Pointer<TessBaseAPI> handle = Tesseract.TessBaseAPICreate();
+        long start = System.currentTimeMillis();
+        // create a reference to an execution handle
+        final Pointer<TessBaseAPI> handle = LibTess.TessBaseAPICreate();
 
-    // init Tesseract with data path, language and OCR engine mode
-    Tesseract.TessBaseAPIInit2(handle,
-        Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
-        Pointer.pointerToCString("deu-frak"), TessOcrEngineMode.OEM_DEFAULT);
+        // init TesseractLibrary with data path, language and OCR engine mode
+        LibTess.TessBaseAPIInit2(
+                handle,
+                Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata"),
+                Pointer.pointerToCString("deu-frak"),
+                LibTess.TessOcrEngineMode.OEM_DEFAULT);
 
-    // set page segmentation mode
-    Tesseract.TessBaseAPISetPageSegMode(handle,
-        Tesseract.TessPageSegMode.PSM_AUTO);
+        // set page segmentation mode
+        LibTess.TessBaseAPISetPageSegMode(handle,
+                LibTess.TessPageSegMode.PSM_AUTO);
 
-    // read the image into memory
-    final BufferedImage inputImage = ImageIO.read(new File("input.png"));
+        // read the image into memory
+        final BufferedImage inputImage = ImageIO.read(new File("input.png"));
 
-    // get the image data
-    final DataBuffer imageBuffer = inputImage.getRaster().getDataBuffer();
-    final byte[] imageData = ((DataBufferByte) imageBuffer).getData();
+        // get the image data
+        final DataBuffer imageBuffer = inputImage.getRaster().getDataBuffer();
+        final byte[] imageData = ((DataBufferByte) imageBuffer).getData();
 
-    // image properties
-    final int width = inputImage.getWidth();
-    final int height = inputImage.getHeight();
-    final int bitsPerPixel = inputImage.getColorModel().getPixelSize();
-    final int bytesPerPixel = bitsPerPixel / 8;
-    final int bytesPerLine = (int) Math.ceil(width * bitsPerPixel / 8.0);
+        // image properties
+        final int width = inputImage.getWidth();
+        final int height = inputImage.getHeight();
+        final int bitsPerPixel = inputImage.getColorModel().getPixelSize();
+        final int bytesPerPixel = bitsPerPixel / 8;
+        final int bytesPerLine = (int) Math.ceil(width * bitsPerPixel / 8.0);
 
-    // set the image
-    Tesseract.TessBaseAPISetImage(handle,
-        Pointer.pointerToBytes(ByteBuffer.wrap(imageData)), width, height,
-        bytesPerPixel, bytesPerLine);
+        // set the image
+        LibTess.TessBaseAPISetImage(handle,
+                Pointer.pointerToBytes(ByteBuffer.wrap(imageData)), width,
+                height, bytesPerPixel, bytesPerLine);
 
-    // get the text result
-    final String txt = Tesseract.TessBaseAPIGetUTF8Text(handle).getCString();
+        // get the text result
+        final String txt = LibTess.TessBaseAPIGetUTF8Text(handle).getCString();
 
-    // print the result
-    System.out.println(txt);
+        // print the result
+        System.out.println(txt);
 
-    // calculate the time
-    System.out.println("time: " + (System.currentTimeMillis() - start) + "ms");
+        // calculate the time
+        System.out.println("time: " + (System.currentTimeMillis() - start)
+                + "ms");
 
-    // delete handle
-    Tesseract.TessBaseAPIDelete(handle);
-  }
+        LibTess.TessBaseAPIEnd(handle);
+
+        // delete handle
+        LibTess.TessBaseAPIDelete(handle);
+    }
 }
