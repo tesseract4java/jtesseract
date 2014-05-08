@@ -26,246 +26,12 @@ public class LibTess {
     }
 
     /**
-     * enum values<br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
-     */
-    public enum TessOcrEngineMode implements IntValuedEnum<TessOcrEngineMode> {
-        OEM_TESSERACT_ONLY(0),
-        OEM_CUBE_ONLY(1),
-        OEM_TESSERACT_CUBE_COMBINED(2),
-        OEM_DEFAULT(3);
-        TessOcrEngineMode(long value) {
-            this.value = value;
-        }
-
-        public final long value;
-
-        public long value() {
-            return this.value;
-        }
-
-        public Iterator<TessOcrEngineMode> iterator() {
-            return Collections.singleton(this).iterator();
-        }
-
-        public static IntValuedEnum<TessOcrEngineMode> fromValue(int value) {
-            return FlagSet.fromValue(value, values());
-        }
-    };
-
-    /**
-     * enum values<br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
-     */
-    public enum TessPageSegMode implements IntValuedEnum<TessPageSegMode> {
-        PSM_OSD_ONLY(0),
-        PSM_AUTO_OSD(1),
-        PSM_AUTO_ONLY(2),
-        PSM_AUTO(3),
-        PSM_SINGLE_COLUMN(4),
-        PSM_SINGLE_BLOCK_VERT_TEXT(5),
-        PSM_SINGLE_BLOCK(6),
-        PSM_SINGLE_LINE(7),
-        PSM_SINGLE_WORD(8),
-        PSM_CIRCLE_WORD(9),
-        PSM_SINGLE_CHAR(10),
-        PSM_SPARSE_TEXT(11),
-        PSM_SPARSE_TEXT_OSD(12),
-        PSM_COUNT(13);
-        TessPageSegMode(long value) {
-            this.value = value;
-        }
-
-        public final long value;
-
-        public long value() {
-            return this.value;
-        }
-
-        public Iterator<TessPageSegMode> iterator() {
-            return Collections.singleton(this).iterator();
-        }
-
-        public static IntValuedEnum<TessPageSegMode> fromValue(int value) {
-            return FlagSet.fromValue(value, values());
-        }
-    };
-
-    /**
-     * enum values<br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
-     */
-    public enum TessPageIteratorLevel implements
-            IntValuedEnum<TessPageIteratorLevel> {
-        RIL_BLOCK(0),
-        RIL_PARA(1),
-        RIL_TEXTLINE(2),
-        RIL_WORD(3),
-        RIL_SYMBOL(4);
-        TessPageIteratorLevel(long value) {
-            this.value = value;
-        }
-
-        public final long value;
-
-        public long value() {
-            return this.value;
-        }
-
-        public Iterator<TessPageIteratorLevel> iterator() {
-            return Collections.singleton(this).iterator();
-        }
-
-        public static IntValuedEnum<TessPageIteratorLevel> fromValue(int value) {
-            return FlagSet.fromValue(value, values());
-        }
-    };
-
-    /**
-     * enum values<br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
-     */
-    public enum TessPolyBlockType implements IntValuedEnum<TessPolyBlockType> {
-        PT_UNKNOWN(0),
-        PT_FLOWING_TEXT(1),
-        PT_HEADING_TEXT(2),
-        PT_PULLOUT_TEXT(3),
-        PT_TABLE(4),
-        PT_VERTICAL_TEXT(5),
-        PT_CAPTION_TEXT(6),
-        PT_FLOWING_IMAGE(7),
-        PT_HEADING_IMAGE(8),
-        PT_PULLOUT_IMAGE(9),
-        PT_HORZ_LINE(10),
-        PT_VERT_LINE(11),
-        PT_NOISE(12),
-        PT_COUNT(13);
-        TessPolyBlockType(long value) {
-            this.value = value;
-        }
-
-        public final long value;
-
-        public long value() {
-            return this.value;
-        }
-
-        public Iterator<TessPolyBlockType> iterator() {
-            return Collections.singleton(this).iterator();
-        }
-
-        public static IntValuedEnum<TessPolyBlockType> fromValue(int value) {
-            return FlagSet.fromValue(value, values());
-        }
-    };
-
-    /**
-     * enum values<br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
-     */
-    public enum TessOrientation implements IntValuedEnum<TessOrientation> {
-        ORIENTATION_PAGE_UP(0),
-        ORIENTATION_PAGE_RIGHT(1),
-        ORIENTATION_PAGE_DOWN(2),
-        ORIENTATION_PAGE_LEFT(3);
-        TessOrientation(long value) {
-            this.value = value;
-        }
-
-        public final long value;
-
-        public long value() {
-            return this.value;
-        }
-
-        public Iterator<TessOrientation> iterator() {
-            return Collections.singleton(this).iterator();
-        }
-
-        public static IntValuedEnum<TessOrientation> fromValue(int value) {
-            return FlagSet.fromValue(value, values());
-        }
-    };
-
-    /**
-     * enum values<br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
-     */
-    public enum TessWritingDirection implements
-            IntValuedEnum<TessWritingDirection> {
-        WRITING_DIRECTION_LEFT_TO_RIGHT(0),
-        WRITING_DIRECTION_RIGHT_TO_LEFT(1),
-        WRITING_DIRECTION_TOP_TO_BOTTOM(2);
-        TessWritingDirection(long value) {
-            this.value = value;
-        }
-
-        public final long value;
-
-        public long value() {
-            return this.value;
-        }
-
-        public Iterator<TessWritingDirection> iterator() {
-            return Collections.singleton(this).iterator();
-        }
-
-        public static IntValuedEnum<TessWritingDirection> fromValue(int value) {
-            return FlagSet.fromValue(value, values());
-        }
-    };
-
-    /**
-     * enum values<br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
-     */
-    public enum TessTextlineOrder implements IntValuedEnum<TessTextlineOrder> {
-        TEXTLINE_ORDER_LEFT_TO_RIGHT(0),
-        TEXTLINE_ORDER_RIGHT_TO_LEFT(1),
-        TEXTLINE_ORDER_TOP_TO_BOTTOM(2);
-        TessTextlineOrder(long value) {
-            this.value = value;
-        }
-
-        public final long value;
-
-        public long value() {
-            return this.value;
-        }
-
-        public Iterator<TessTextlineOrder> iterator() {
-            return Collections.singleton(this).iterator();
-        }
-
-        public static IntValuedEnum<TessTextlineOrder> fromValue(int value) {
-            return FlagSet.fromValue(value, values());
-        }
-    };
-
-    /**
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
+     * TRUE.
      */
     public static final int TRUE = 1;
+
     /**
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h</i>
+     * FALSE
      */
     public static final int FALSE = 0;
 
@@ -913,7 +679,7 @@ public class LibTess {
     public static int TessBaseAPIInit1(
             Pointer<LibTess.TessBaseAPI> handle,
             Pointer<Byte> datapath, Pointer<Byte> language,
-            IntValuedEnum<LibTess.TessOcrEngineMode> oem,
+            IntValuedEnum<OCREngineMode> oem,
             Pointer<Pointer<Byte>> configs, int configs_size) {
         return TessBaseAPIInit1(Pointer.getPeer(handle),
                 Pointer.getPeer(datapath), Pointer.getPeer(language),
@@ -935,7 +701,7 @@ public class LibTess {
     public static int TessBaseAPIInit2(
             Pointer<LibTess.TessBaseAPI> handle,
             Pointer<Byte> datapath, Pointer<Byte> language,
-            IntValuedEnum<LibTess.TessOcrEngineMode> oem) {
+            IntValuedEnum<OCREngineMode> oem) {
         return TessBaseAPIInit2(Pointer.getPeer(handle),
                 Pointer.getPeer(datapath), Pointer.getPeer(language),
                 (int) oem.value());
@@ -972,7 +738,7 @@ public class LibTess {
     public static int TessBaseAPIInit4(
             Pointer<LibTess.TessBaseAPI> handle,
             Pointer<Byte> datapath, Pointer<Byte> language,
-            IntValuedEnum<LibTess.TessOcrEngineMode> mode,
+            IntValuedEnum<OCREngineMode> mode,
             Pointer<Pointer<Byte>> configs, int configs_size,
             Pointer<Pointer<Byte>> vars_vec,
             Pointer<Pointer<Byte>> vars_values, @Ptr long vars_vec_size,
@@ -1122,7 +888,7 @@ public class LibTess {
      */
     public static void TessBaseAPISetPageSegMode(
             Pointer<LibTess.TessBaseAPI> handle,
-            IntValuedEnum<LibTess.TessPageSegMode> mode) {
+            IntValuedEnum<PageSegMode> mode) {
         TessBaseAPISetPageSegMode(Pointer.getPeer(handle), (int) mode.value());
     }
 
@@ -1137,11 +903,11 @@ public class LibTess {
      * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
      * \tesseract-ocr\api\capi.h:174</i>
      */
-    public static IntValuedEnum<LibTess.TessPageSegMode> TessBaseAPIGetPageSegMode(
+    public static IntValuedEnum<PageSegMode> TessBaseAPIGetPageSegMode(
             Pointer<LibTess.TessBaseAPI> handle) {
         return FlagSet.fromValue(
                 TessBaseAPIGetPageSegMode(Pointer.getPeer(handle)),
-                LibTess.TessPageSegMode.class);
+                PageSegMode.class);
     }
 
     protected native static int TessBaseAPIGetPageSegMode(@Ptr long handle);
@@ -1406,7 +1172,7 @@ public class LibTess {
      */
     public static Pointer<Boxa> TessBaseAPIGetComponentImages(
             Pointer<LibTess.TessBaseAPI> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level,
+            IntValuedEnum<PageIteratorLevel> level,
             int text_only, Pointer<Pointer<Pixa>> pixa,
             Pointer<Pointer<Integer>> blockids) {
         return (Pointer) Pointer.pointerToAddress(
@@ -1430,7 +1196,7 @@ public class LibTess {
      */
     public static Pointer<Boxa> TessBaseAPIGetComponentImages1(
             Pointer<LibTess.TessBaseAPI> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level,
+            IntValuedEnum<PageIteratorLevel> level,
             int text_only, int raw_image, int raw_padding,
             Pointer<Pointer<Pixa>> pixa,
             Pointer<Pointer<Integer>> blockids,
@@ -1770,7 +1536,7 @@ public class LibTess {
      */
     public static int TessBaseAPIAdaptToWordStr(
             Pointer<LibTess.TessBaseAPI> handle,
-            IntValuedEnum<LibTess.TessPageSegMode> mode,
+            IntValuedEnum<PageSegMode> mode,
             Pointer<Byte> wordstr) {
         return TessBaseAPIAdaptToWordStr(Pointer.getPeer(handle),
                 (int) mode.value(), Pointer.getPeer(wordstr));
@@ -1929,7 +1695,7 @@ public class LibTess {
      */
     public static int TessPageIteratorNext(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level) {
+            IntValuedEnum<PageIteratorLevel> level) {
         return TessPageIteratorNext(Pointer.getPeer(handle),
                 (int) level.value());
     }
@@ -1946,7 +1712,7 @@ public class LibTess {
      */
     public static int TessPageIteratorIsAtBeginningOf(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level) {
+            IntValuedEnum<PageIteratorLevel> level) {
         return TessPageIteratorIsAtBeginningOf(Pointer.getPeer(handle),
                 (int) level.value());
     }
@@ -1964,8 +1730,8 @@ public class LibTess {
      */
     public static int TessPageIteratorIsAtFinalElement(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> element) {
+            IntValuedEnum<PageIteratorLevel> level,
+            IntValuedEnum<PageIteratorLevel> element) {
         return TessPageIteratorIsAtFinalElement(Pointer.getPeer(handle),
                 (int) level.value(), (int) element.value());
     }
@@ -1983,7 +1749,7 @@ public class LibTess {
      */
     public static int TessPageIteratorBoundingBox(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level,
+            IntValuedEnum<PageIteratorLevel> level,
             Pointer<Integer> left, Pointer<Integer> top,
             Pointer<Integer> right, Pointer<Integer> bottom) {
         return TessPageIteratorBoundingBox(Pointer.getPeer(handle),
@@ -2004,11 +1770,11 @@ public class LibTess {
      * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
      * \tesseract-ocr\api\capi.h:316</i>
      */
-    public static IntValuedEnum<LibTess.TessPolyBlockType> TessPageIteratorBlockType(
+    public static IntValuedEnum<PolyBlockType> TessPageIteratorBlockType(
             Pointer<LibTess.TessPageIterator> handle) {
         return FlagSet.fromValue(
                 TessPageIteratorBlockType(Pointer.getPeer(handle)),
-                LibTess.TessPolyBlockType.class);
+                PolyBlockType.class);
     }
 
     protected native static int TessPageIteratorBlockType(@Ptr long handle);
@@ -2023,7 +1789,7 @@ public class LibTess {
      */
     public static Pointer<Pix> TessPageIteratorGetBinaryImage(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level) {
+            IntValuedEnum<PageIteratorLevel> level) {
         return (Pointer) Pointer.pointerToAddress(
                 TessPageIteratorGetBinaryImage(Pointer.getPeer(handle),
                         (int) level.value()), Pix.class);
@@ -2043,7 +1809,7 @@ public class LibTess {
      */
     public static Pointer<Pix> TessPageIteratorGetImage(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level,
+            IntValuedEnum<PageIteratorLevel> level,
             int padding, Pointer<Integer> left, Pointer<Integer> top) {
         return (Pointer) Pointer.pointerToAddress(
                 TessPageIteratorGetImage(Pointer.getPeer(handle),
@@ -2065,7 +1831,7 @@ public class LibTess {
      */
     public static int TessPageIteratorBaseline(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level,
+            IntValuedEnum<PageIteratorLevel> level,
             Pointer<Integer> x1, Pointer<Integer> y1, Pointer<Integer> x2,
             Pointer<Integer> y2) {
         return TessPageIteratorBaseline(Pointer.getPeer(handle),
@@ -2086,9 +1852,9 @@ public class LibTess {
      */
     public static void TessPageIteratorOrientation(
             Pointer<LibTess.TessPageIterator> handle,
-            Pointer<IntValuedEnum<LibTess.TessOrientation>> orientation,
-            Pointer<IntValuedEnum<LibTess.TessWritingDirection>> writing_direction,
-            Pointer<IntValuedEnum<LibTess.TessTextlineOrder>> textline_order,
+            Pointer<IntValuedEnum<Orientation>> orientation,
+            Pointer<IntValuedEnum<WritingDirection>> writing_direction,
+            Pointer<IntValuedEnum<TextlineOrder>> textline_order,
             Pointer<Float> deskew_angle) {
         TessPageIteratorOrientation(Pointer.getPeer(handle),
                 Pointer.getPeer(orientation),
@@ -2200,7 +1966,7 @@ public class LibTess {
      */
     public static int TessResultIteratorNext(
             Pointer<LibTess.TessResultIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level) {
+            IntValuedEnum<PageIteratorLevel> level) {
         return TessResultIteratorNext(Pointer.getPeer(handle),
                 (int) level.value());
     }
@@ -2218,7 +1984,7 @@ public class LibTess {
      */
     public static Pointer<Byte> TessResultIteratorGetUTF8Text(
             Pointer<LibTess.TessResultIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level) {
+            IntValuedEnum<PageIteratorLevel> level) {
         return (Pointer) Pointer.pointerToAddress(
                 TessResultIteratorGetUTF8Text(Pointer.getPeer(handle),
                         (int) level.value()), Byte.class);
@@ -2238,7 +2004,7 @@ public class LibTess {
      */
     public static float TessResultIteratorConfidence(
             Pointer<LibTess.TessResultIterator> handle,
-            IntValuedEnum<LibTess.TessPageIteratorLevel> level) {
+            IntValuedEnum<PageIteratorLevel> level) {
         return TessResultIteratorConfidence(Pointer.getPeer(handle),
                 (int) level.value());
     }
