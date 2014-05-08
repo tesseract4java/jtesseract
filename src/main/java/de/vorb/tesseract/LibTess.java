@@ -1,8 +1,5 @@
 package de.vorb.tesseract;
 
-import java.util.Collections;
-import java.util.Iterator;
-
 import org.bridj.BridJ;
 import org.bridj.CRuntime;
 import org.bridj.FlagSet;
@@ -36,148 +33,109 @@ public class LibTess {
     public static final int FALSE = 0;
 
     /**
-     * General free functions<br>
-     * Original signature : <code>char* TessVersion()</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:79</i>
+     * @return Tesseract version string
      */
-    public static Pointer<Byte> TessVersion() {
-        return (Pointer) Pointer.pointerToAddress(TessVersion$2(), Byte.class);
+    public static Pointer<Byte> Version() {
+        return (Pointer) Pointer.pointerToAddress(TessVersion(), Byte.class);
     }
 
     @Ptr
     @Name("TessVersion")
-    protected native static long TessVersion$2();
+    protected native static long TessVersion();
 
     /**
-     * Original signature : <code>void TessDeleteText(char*)</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:81</i>
+     * Deletes the given text string.
      */
-    public static void TessDeleteText(Pointer<Byte> text) {
+    public static void DeleteText(Pointer<Byte> text) {
         TessDeleteText(Pointer.getPeer(text));
     }
 
     protected native static void TessDeleteText(@Ptr long text);
 
     /**
-     * Original signature : <code>void TessDeleteTextArray(char**)</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:82</i>
+     * Deletes the given text string array.
      */
-    public static void TessDeleteTextArray(Pointer<Pointer<Byte>> arr) {
+    public static void DeleteTextArray(Pointer<Pointer<Byte>> arr) {
         TessDeleteTextArray(Pointer.getPeer(arr));
     }
 
     protected native static void TessDeleteTextArray(@Ptr long arr);
 
     /**
-     * Original signature : <code>void TessDeleteIntArray(int*)</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:83</i>
+     * Deletes the given int array.
      */
-    public static void TessDeleteIntArray(Pointer<Integer> arr) {
+    public static void DeleteIntArray(Pointer<Integer> arr) {
         TessDeleteIntArray(Pointer.getPeer(arr));
     }
 
     protected native static void TessDeleteIntArray(@Ptr long arr);
 
     /**
-     * Renderer API<br>
-     * Original signature :
-     * <code>TessResultRenderer* TessTextRendererCreate()</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:89</i>
+     * Creates a new TextRenderer.
      */
-    public static Pointer<LibTess.TessResultRenderer> TessTextRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessTextRendererCreate$2(),
-                LibTess.TessResultRenderer.class);
+    public static Pointer<TessResultRenderer> TextRendererCreate() {
+        return (Pointer) Pointer.pointerToAddress(TessTextRendererCreate(),
+                TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessTextRendererCreate")
-    protected native static long TessTextRendererCreate$2();
+    protected native static long TessTextRendererCreate();
 
     /**
-     * Original signature :
-     * <code>TessResultRenderer* TessHOcrRendererCreate()</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:90</i>
+     * Creates a new HOcrRenderer.
      */
-    public static Pointer<LibTess.TessResultRenderer> TessHOcrRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessHOcrRendererCreate$2(),
-                LibTess.TessResultRenderer.class);
+    public static Pointer<TessResultRenderer> HOcrRendererCreate() {
+        return (Pointer) Pointer.pointerToAddress(TessHOcrRendererCreate(),
+                TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessHOcrRendererCreate")
-    protected native static long TessHOcrRendererCreate$2();
+    protected native static long TessHOcrRendererCreate();
 
     /**
-     * Original signature :
-     * <code>TessResultRenderer* TessPDFRendererCreate(const char*)</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:91</i>
+     * Creates a new PDFRenderer.
      */
-    public static Pointer<LibTess.TessResultRenderer> TessPDFRendererCreate(
+    public static Pointer<TessResultRenderer> PDFRendererCreate(
             Pointer<Byte> datadir) {
         return (Pointer) Pointer.pointerToAddress(
                 TessPDFRendererCreate(Pointer.getPeer(datadir)),
-                LibTess.TessResultRenderer.class);
+                TessResultRenderer.class);
     }
 
     @Ptr
     protected native static long TessPDFRendererCreate(@Ptr long datadir);
 
     /**
-     * Original signature :
-     * <code>TessResultRenderer* TessUnlvRendererCreate()</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:92</i>
+     * Creates a new UNLVRenderer.
      */
-    public static Pointer<LibTess.TessResultRenderer> TessUnlvRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessUnlvRendererCreate$2(),
-                LibTess.TessResultRenderer.class);
+    public static Pointer<TessResultRenderer> UnlvRendererCreate() {
+        return (Pointer) Pointer.pointerToAddress(TessUnlvRendererCreate(),
+                TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessUnlvRendererCreate")
-    protected native static long TessUnlvRendererCreate$2();
+    protected native static long TessUnlvRendererCreate();
 
     /**
-     * Original signature :
-     * <code>TessResultRenderer* TessBoxTextRendererCreate()</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:93</i>
+     * Creates a new BoxTextRenderer.
      */
-    public static Pointer<LibTess.TessResultRenderer> TessBoxTextRendererCreate() {
+    public static Pointer<TessResultRenderer> BoxTextRendererCreate() {
         return (Pointer) Pointer.pointerToAddress(
-                TessBoxTextRendererCreate$2(),
-                LibTess.TessResultRenderer.class);
+                TessBoxTextRendererCreate(),
+                TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessBoxTextRendererCreate")
-    protected native static long TessBoxTextRendererCreate$2();
+    protected native static long TessBoxTextRendererCreate();
 
     /**
-     * Original signature :
-     * <code>void TessDeleteResultRenderer(TessResultRenderer*)</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:95</i>
+     * Deletes a ResultRenderer.
      */
-    public static void TessDeleteResultRenderer(
-            Pointer<LibTess.TessResultRenderer> renderer) {
+    public static void deleteResultRenderer(Pointer<TessResultRenderer> renderer) {
         TessDeleteResultRenderer(Pointer.getPeer(renderer));
     }
 
@@ -192,8 +150,8 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:96</i>
      */
     public static void TessResultRendererInsert(
-            Pointer<LibTess.TessResultRenderer> renderer,
-            Pointer<LibTess.TessResultRenderer> next) {
+            Pointer<TessResultRenderer> renderer,
+            Pointer<TessResultRenderer> next) {
         TessResultRendererInsert(Pointer.getPeer(renderer),
                 Pointer.getPeer(next));
     }
@@ -209,11 +167,11 @@ public class LibTess {
      * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
      * \tesseract-ocr\api\capi.h:97</i>
      */
-    public static Pointer<LibTess.TessResultRenderer> TessResultRendererNext(
-            Pointer<LibTess.TessResultRenderer> renderer) {
+    public static Pointer<TessResultRenderer> TessResultRendererNext(
+            Pointer<TessResultRenderer> renderer) {
         return (Pointer) Pointer.pointerToAddress(
                 TessResultRendererNext(Pointer.getPeer(renderer)),
-                LibTess.TessResultRenderer.class);
+                TessResultRenderer.class);
     }
 
     @Ptr
@@ -228,7 +186,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:99</i>
      */
     public static int TessResultRendererBeginDocument(
-            Pointer<LibTess.TessResultRenderer> renderer,
+            Pointer<TessResultRenderer> renderer,
             Pointer<Byte> title) {
         return TessResultRendererBeginDocument(Pointer.getPeer(renderer),
                 Pointer.getPeer(title));
@@ -246,7 +204,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:100</i>
      */
     public static int TessResultRendererAddImage(
-            Pointer<LibTess.TessResultRenderer> renderer,
+            Pointer<TessResultRenderer> renderer,
             Pointer<LibTess.TessBaseAPI> api) {
         return TessResultRendererAddImage(Pointer.getPeer(renderer),
                 Pointer.getPeer(api));
@@ -264,7 +222,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:101</i>
      */
     public static int TessResultRendererAddError(
-            Pointer<LibTess.TessResultRenderer> renderer,
+            Pointer<TessResultRenderer> renderer,
             Pointer<LibTess.TessBaseAPI> api) {
         return TessResultRendererAddError(Pointer.getPeer(renderer),
                 Pointer.getPeer(api));
@@ -281,7 +239,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:102</i>
      */
     public static int TessResultRendererEndDocument(
-            Pointer<LibTess.TessResultRenderer> renderer) {
+            Pointer<TessResultRenderer> renderer) {
         return TessResultRendererEndDocument(Pointer.getPeer(renderer));
     }
 
@@ -296,7 +254,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:103</i>
      */
     public static int TessResultRendererGetOutput(
-            Pointer<LibTess.TessResultRenderer> renderer,
+            Pointer<TessResultRenderer> renderer,
             Pointer<Pointer<Byte>> data, Pointer<Integer> data_len) {
         return TessResultRendererGetOutput(Pointer.getPeer(renderer),
                 Pointer.getPeer(data), Pointer.getPeer(data_len));
@@ -313,7 +271,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:105</i>
      */
     public static Pointer<Byte> TessResultRendererTypename(
-            Pointer<LibTess.TessResultRenderer> renderer) {
+            Pointer<TessResultRenderer> renderer) {
         return (Pointer) Pointer.pointerToAddress(
                 TessResultRendererTypename(Pointer.getPeer(renderer)),
                 Byte.class);
@@ -330,7 +288,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:106</i>
      */
     public static Pointer<Byte> TessResultRendererExtention(
-            Pointer<LibTess.TessResultRenderer> renderer) {
+            Pointer<TessResultRenderer> renderer) {
         return (Pointer) Pointer.pointerToAddress(
                 TessResultRendererExtention(Pointer.getPeer(renderer)),
                 Byte.class);
@@ -347,7 +305,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:107</i>
      */
     public static Pointer<Byte> TessResultRendererTitle(
-            Pointer<LibTess.TessResultRenderer> renderer) {
+            Pointer<TessResultRenderer> renderer) {
         return (Pointer) Pointer.pointerToAddress(
                 TessResultRendererTitle(Pointer.getPeer(renderer)), Byte.class);
     }
@@ -363,7 +321,7 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:108</i>
      */
     public static int TessResultRendererImageNum(
-            Pointer<LibTess.TessResultRenderer> renderer) {
+            Pointer<TessResultRenderer> renderer) {
         return TessResultRendererImageNum(Pointer.getPeer(renderer));
     }
 
@@ -1332,7 +1290,7 @@ public class LibTess {
             Pointer<LibTess.TessBaseAPI> handle,
             Pointer<Byte> filename, Pointer<Byte> retry_config,
             int timeout_millisec,
-            Pointer<LibTess.TessResultRenderer> renderer) {
+            Pointer<TessResultRenderer> renderer) {
         return TessBaseAPIProcessPages1(Pointer.getPeer(handle),
                 Pointer.getPeer(filename), Pointer.getPeer(retry_config),
                 timeout_millisec, Pointer.getPeer(renderer));
@@ -1381,7 +1339,7 @@ public class LibTess {
             Pointer<Pix> pix, int page_index,
             Pointer<Byte> filename, Pointer<Byte> retry_config,
             int timeout_millisec,
-            Pointer<LibTess.TessResultRenderer> renderer) {
+            Pointer<TessResultRenderer> renderer) {
         return TessBaseAPIProcessPage1(Pointer.getPeer(handle),
                 Pointer.getPeer(pix), page_index, Pointer.getPeer(filename),
                 Pointer.getPeer(retry_config), timeout_millisec,
