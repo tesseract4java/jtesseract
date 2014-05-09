@@ -1,8 +1,6 @@
 package de.vorb.tesseract.example;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBuffer;
-import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -35,8 +33,8 @@ public class BridJPDFExample {
         // create a reference to an execution handle
         final Pointer<TessBaseAPI> handle = LibTess.TessBaseAPICreate();
 
-        final Pointer<Byte> datadir =
-                Pointer.pointerToCString("E:\\Masterarbeit\\Ressourcen\\tessdata");
+        final Pointer<Byte> datadir = Pointer.pointerToCString(Paths.get(
+                System.getenv("TESSDATA_PREFIX")).resolve("tessdata").toString());
 
         // init Tesseract with data path, language and OCR engine mode
         LibTess.TessBaseAPIInit2(handle, datadir,
@@ -73,7 +71,8 @@ public class BridJPDFExample {
                     pdfRenderer);
 
             // get the pdf data
-            final Pointer<Pointer<Byte>> data = Pointer.allocateBytes(1, 0L);
+            final Pointer<Pointer<Byte>> data = Pointer.allocateBytes(1,
+                    1024L * 1024L * 10L); // reserve 10M
             final Pointer<Integer> data_len = Pointer.allocateInt();
             LibTess.TessResultRendererGetOutput(pdfRenderer, data,
                     data_len);
