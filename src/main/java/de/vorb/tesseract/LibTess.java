@@ -35,13 +35,13 @@ public class LibTess {
     /**
      * @return Tesseract version string
      */
-    public static Pointer<Byte> Version() {
-        return (Pointer) Pointer.pointerToAddress(TessVersion(), Byte.class);
+    public static Pointer<Byte> TessVersion() {
+        return (Pointer) Pointer.pointerToAddress(TessVersion_(), Byte.class);
     }
 
     @Ptr
     @Name("TessVersion")
-    protected native static long TessVersion();
+    protected native static long TessVersion_();
 
     /**
      * Deletes the given text string.
@@ -73,31 +73,31 @@ public class LibTess {
     /**
      * Creates a new TextRenderer.
      */
-    public static Pointer<TessResultRenderer> TextRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessTextRendererCreate(),
+    public static Pointer<TessResultRenderer> TessTextRendererCreate() {
+        return (Pointer) Pointer.pointerToAddress(TessTextRendererCreate_(),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessTextRendererCreate")
-    protected native static long TessTextRendererCreate();
+    protected native static long TessTextRendererCreate_();
 
     /**
      * Creates a new HOcrRenderer.
      */
-    public static Pointer<TessResultRenderer> HOcrRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessHOcrRendererCreate(),
+    public static Pointer<TessResultRenderer> TessHOcrRendererCreate() {
+        return (Pointer) Pointer.pointerToAddress(TessHOcrRendererCreate_(),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessHOcrRendererCreate")
-    protected native static long TessHOcrRendererCreate();
+    protected native static long TessHOcrRendererCreate_();
 
     /**
      * Creates a new PDFRenderer.
      */
-    public static Pointer<TessResultRenderer> PDFRendererCreate(
+    public static Pointer<TessResultRenderer> TessPDFRendererCreate(
             Pointer<Byte> datadir) {
         return (Pointer) Pointer.pointerToAddress(
                 TessPDFRendererCreate(Pointer.getPeer(datadir)),
@@ -110,32 +110,33 @@ public class LibTess {
     /**
      * Creates a new UNLVRenderer.
      */
-    public static Pointer<TessResultRenderer> UnlvRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessUnlvRendererCreate(),
+    public static Pointer<TessResultRenderer> TessUnlvRendererCreate() {
+        return (Pointer) Pointer.pointerToAddress(TessUnlvRendererCreate_(),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessUnlvRendererCreate")
-    protected native static long TessUnlvRendererCreate();
+    protected native static long TessUnlvRendererCreate_();
 
     /**
      * Creates a new BoxTextRenderer.
      */
-    public static Pointer<TessResultRenderer> BoxTextRendererCreate() {
+    public static Pointer<TessResultRenderer> TessBoxTextRendererCreate() {
         return (Pointer) Pointer.pointerToAddress(
-                TessBoxTextRendererCreate(),
+                TessBoxTextRendererCreate_(),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessBoxTextRendererCreate")
-    protected native static long TessBoxTextRendererCreate();
+    protected native static long TessBoxTextRendererCreate_();
 
     /**
      * Deletes a ResultRenderer.
      */
-    public static void deleteResultRenderer(Pointer<TessResultRenderer> renderer) {
+    public static void TessResultRendererDelete(
+            Pointer<TessResultRenderer> renderer) {
         TessDeleteResultRenderer(Pointer.getPeer(renderer));
     }
 
