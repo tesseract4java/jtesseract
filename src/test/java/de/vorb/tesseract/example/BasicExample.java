@@ -43,7 +43,7 @@ public class BasicExample {
 
         Pointer<Byte> text = LibTess.TessBaseAPIGetUTF8Text(handle);
         System.out.println(text.getCString().length());
-        LibTess.DeleteText(text);
+        LibTess.TessDeleteText(text);
 
         LibTess.TessBaseAPIEnd(handle);
 

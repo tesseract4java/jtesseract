@@ -86,6 +86,7 @@ public class BridJPDFExample {
                     EnumSet.of(StandardOpenOption.WRITE,
                             StandardOpenOption.TRUNCATE_EXISTING))) {
                 out.write(dataBuf);
+                System.out.println("Wrote PDF file.");
             } catch (IOException e) {
                 System.err.println("Could not write PDF output.");
             }
