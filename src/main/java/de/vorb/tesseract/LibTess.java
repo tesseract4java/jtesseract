@@ -46,7 +46,7 @@ public class LibTess {
     /**
      * Deletes the given text string.
      */
-    public static void DeleteText(Pointer<Byte> text) {
+    public static void TessDeleteText(Pointer<Byte> text) {
         TessDeleteText(Pointer.getPeer(text));
     }
 
@@ -55,7 +55,7 @@ public class LibTess {
     /**
      * Deletes the given text string array.
      */
-    public static void DeleteTextArray(Pointer<Pointer<Byte>> arr) {
+    public static void TessDeleteTextArray(Pointer<Pointer<Byte>> arr) {
         TessDeleteTextArray(Pointer.getPeer(arr));
     }
 
@@ -64,7 +64,7 @@ public class LibTess {
     /**
      * Deletes the given int array.
      */
-    public static void DeleteIntArray(Pointer<Integer> arr) {
+    public static void TessDeleteIntArray(Pointer<Integer> arr) {
         TessDeleteIntArray(Pointer.getPeer(arr));
     }
 
