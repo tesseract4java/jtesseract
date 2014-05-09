@@ -24,7 +24,7 @@ public class BasicExample {
                 Paths.get("libtesseract303.dll").toFile());
 
         System.out.println("Tesseract version: "
-                + LibTess.Version().getCString());
+                + LibTess.TessVersion().getCString());
 
         final Path datapath = Paths.get(System.getenv("TESSDATA_PREFIX")).resolve(
                 "tessdata");

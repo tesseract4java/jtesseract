@@ -17,6 +17,8 @@ import javax.imageio.ImageIO;
 import org.bridj.BridJ;
 import org.bridj.Pointer;
 
+import de.vorb.leptonica.Pix;
+import de.vorb.leptonica.util.PixConversions;
 import de.vorb.tesseract.LibTess;
 import de.vorb.tesseract.LibTess.TessBaseAPI;
 import de.vorb.tesseract.LibTess.TessResultRenderer;
@@ -46,24 +48,11 @@ public class BridJPDFExample {
 
         try {
             // read the image into memory
-            final BufferedImage inputImage = ImageIO.read(new File("input.png"));
-
-            // get the image data
-            final DataBuffer imageBuffer = inputImage.getRaster().getDataBuffer();
-            final byte[] imageData = ((DataBufferByte) imageBuffer).getData();
-
-            // image properties
-            final int width = inputImage.getWidth();
-            final int height = inputImage.getHeight();
-            final int bitsPerPixel = inputImage.getColorModel().getPixelSize();
-            final int bytesPerPixel = bitsPerPixel / 8;
-            final int bytesPerLine = (int) Math.ceil(width * bitsPerPixel / 8.0);
+            final BufferedImage img = ImageIO.read(new File("input.png"));
+            final Pointer<Pix> pix = PixConversions.img2pix(img);
 
             // set the image
-            LibTess.TessBaseAPISetImage(handle,
-                    Pointer.pointerToBytes(ByteBuffer.wrap(imageData)), width,
-                    height,
-                    bytesPerPixel, bytesPerLine);
+            LibTess.TessBaseAPISetImage2(handle, pix);
 
             // enable pdf export
             LibTess.TessBaseAPISetVariable(handle,
@@ -72,7 +61,7 @@ public class BridJPDFExample {
 
             // pdf creation
             final Pointer<TessResultRenderer> pdfRenderer =
-                    LibTess.PDFRendererCreate(datadir);
+                    LibTess.TessPDFRendererCreate(datadir);
             LibTess.TessResultRendererBeginDocument(pdfRenderer,
                     Pointer.pointerToCString("document"));
             LibTess.TessResultRendererAddImage(pdfRenderer, handle);
