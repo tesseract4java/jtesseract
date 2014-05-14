@@ -4,6 +4,7 @@ import org.bridj.BridJ;
 import org.bridj.CRuntime;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
+import org.bridj.LastError;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Name;
@@ -41,7 +42,7 @@ public class LibTess {
 
     @Ptr
     @Name("TessVersion")
-    protected native static long TessVersion_();
+    protected native static long TessVersion_() throws LastError;
 
     /**
      * Deletes the given text string.
@@ -50,7 +51,8 @@ public class LibTess {
         TessDeleteText(Pointer.getPeer(text));
     }
 
-    protected native static void TessDeleteText(@Ptr long text);
+    protected native static void TessDeleteText(@Ptr long text)
+            throws LastError;
 
     /**
      * Deletes the given text string array.
@@ -59,7 +61,8 @@ public class LibTess {
         TessDeleteTextArray(Pointer.getPeer(arr));
     }
 
-    protected native static void TessDeleteTextArray(@Ptr long arr);
+    protected native static void TessDeleteTextArray(@Ptr long arr)
+            throws LastError;
 
     /**
      * Deletes the given int array.
@@ -68,7 +71,8 @@ public class LibTess {
         TessDeleteIntArray(Pointer.getPeer(arr));
     }
 
-    protected native static void TessDeleteIntArray(@Ptr long arr);
+    protected native static void TessDeleteIntArray(@Ptr long arr)
+            throws LastError;
 
     /**
      * Creates a new TextRenderer.
@@ -80,7 +84,7 @@ public class LibTess {
 
     @Ptr
     @Name("TessTextRendererCreate")
-    protected native static long TessTextRendererCreate_();
+    protected native static long TessTextRendererCreate_() throws LastError;
 
     /**
      * Creates a new HOcrRenderer.
@@ -92,7 +96,7 @@ public class LibTess {
 
     @Ptr
     @Name("TessHOcrRendererCreate")
-    protected native static long TessHOcrRendererCreate_();
+    protected native static long TessHOcrRendererCreate_() throws LastError;
 
     /**
      * Creates a new PDFRenderer.
@@ -105,7 +109,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessPDFRendererCreate(@Ptr long datadir);
+    protected native static long TessPDFRendererCreate(@Ptr long datadir)
+            throws LastError;
 
     /**
      * Creates a new UNLVRenderer.
@@ -117,7 +122,7 @@ public class LibTess {
 
     @Ptr
     @Name("TessUnlvRendererCreate")
-    protected native static long TessUnlvRendererCreate_();
+    protected native static long TessUnlvRendererCreate_() throws LastError;
 
     /**
      * Creates a new BoxTextRenderer.
@@ -130,7 +135,7 @@ public class LibTess {
 
     @Ptr
     @Name("TessBoxTextRendererCreate")
-    protected native static long TessBoxTextRendererCreate_();
+    protected native static long TessBoxTextRendererCreate_() throws LastError;
 
     /**
      * Deletes a ResultRenderer.
@@ -140,7 +145,8 @@ public class LibTess {
         TessDeleteResultRenderer(Pointer.getPeer(renderer));
     }
 
-    protected native static void TessDeleteResultRenderer(@Ptr long renderer);
+    protected native static void TessDeleteResultRenderer(@Ptr long renderer)
+            throws LastError;
 
     /**
      * Original signature :
@@ -158,7 +164,7 @@ public class LibTess {
     }
 
     protected native static void TessResultRendererInsert(@Ptr long renderer,
-            @Ptr long next);
+            @Ptr long next) throws LastError;
 
     /**
      * Original signature :
@@ -176,7 +182,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessResultRendererNext(@Ptr long renderer);
+    protected native static long TessResultRendererNext(@Ptr long renderer)
+            throws LastError;
 
     /**
      * Original signature :
@@ -194,7 +201,7 @@ public class LibTess {
     }
 
     protected native static int TessResultRendererBeginDocument(
-            @Ptr long renderer, @Ptr long title);
+            @Ptr long renderer, @Ptr long title) throws LastError;
 
     /**
      * Original signature :
@@ -212,7 +219,7 @@ public class LibTess {
     }
 
     protected native static int TessResultRendererAddImage(@Ptr long renderer,
-            @Ptr long api);
+            @Ptr long api) throws LastError;
 
     /**
      * Original signature :
@@ -230,7 +237,7 @@ public class LibTess {
     }
 
     protected native static int TessResultRendererAddError(@Ptr long renderer,
-            @Ptr long api);
+            @Ptr long api) throws LastError;
 
     /**
      * Original signature :
@@ -244,7 +251,8 @@ public class LibTess {
         return TessResultRendererEndDocument(Pointer.getPeer(renderer));
     }
 
-    protected native static int TessResultRendererEndDocument(@Ptr long renderer);
+    protected native static int TessResultRendererEndDocument(@Ptr long renderer)
+            throws LastError;
 
     /**
      * Original signature :
@@ -262,7 +270,7 @@ public class LibTess {
     }
 
     protected native static int TessResultRendererGetOutput(@Ptr long renderer,
-            @Ptr long data, @Ptr long data_len);
+            @Ptr long data, @Ptr long data_len) throws LastError;
 
     /**
      * Original signature :
@@ -279,7 +287,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessResultRendererTypename(@Ptr long renderer);
+    protected native static long TessResultRendererTypename(@Ptr long renderer)
+            throws LastError;
 
     /**
      * Original signature :
@@ -296,7 +305,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessResultRendererExtention(@Ptr long renderer);
+    protected native static long TessResultRendererExtention(@Ptr long renderer)
+            throws LastError;
 
     /**
      * Original signature :
@@ -312,7 +322,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessResultRendererTitle(@Ptr long renderer);
+    protected native static long TessResultRendererTitle(@Ptr long renderer)
+            throws LastError;
 
     /**
      * Original signature :
@@ -326,7 +337,8 @@ public class LibTess {
         return TessResultRendererImageNum(Pointer.getPeer(renderer));
     }
 
-    protected native static int TessResultRendererImageNum(@Ptr long renderer);
+    protected native static int TessResultRendererImageNum(@Ptr long renderer)
+            throws LastError;
 
     /**
      * Base API<br>
@@ -336,13 +348,13 @@ public class LibTess {
      * \tesseract-ocr\api\capi.h:112</i>
      */
     public static Pointer<LibTess.TessBaseAPI> TessBaseAPICreate() {
-        return (Pointer) Pointer.pointerToAddress(TessBaseAPICreate$2(),
+        return (Pointer) Pointer.pointerToAddress(TessBaseAPICreate_(),
                 LibTess.TessBaseAPI.class);
     }
 
     @Ptr
     @Name("TessBaseAPICreate")
-    protected native static long TessBaseAPICreate$2();
+    protected native static long TessBaseAPICreate_() throws LastError;
 
     /**
      * Original signature : <code>void TessBaseAPIDelete(TessBaseAPI*)</code><br>
@@ -355,7 +367,8 @@ public class LibTess {
         TessBaseAPIDelete(Pointer.getPeer(handle));
     }
 
-    protected native static void TessBaseAPIDelete(@Ptr long handle);
+    protected native static void TessBaseAPIDelete(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -405,7 +418,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetInputName(@Ptr long handle);
+    protected native static long TessBaseAPIGetInputName(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -438,7 +452,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetInputImage(@Ptr long handle);
+    protected native static long TessBaseAPIGetInputImage(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -452,7 +467,8 @@ public class LibTess {
         return TessBaseAPIGetSourceYResolution(Pointer.getPeer(handle));
     }
 
-    protected native static int TessBaseAPIGetSourceYResolution(@Ptr long handle);
+    protected native static int TessBaseAPIGetSourceYResolution(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -468,7 +484,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetDatapath(@Ptr long handle);
+    protected native static long TessBaseAPIGetDatapath(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -802,7 +819,8 @@ public class LibTess {
         TessBaseAPIInitForAnalysePage(Pointer.getPeer(handle));
     }
 
-    protected native static void TessBaseAPIInitForAnalysePage(@Ptr long handle);
+    protected native static void TessBaseAPIInitForAnalysePage(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -869,7 +887,8 @@ public class LibTess {
                 PageSegMode.class);
     }
 
-    protected native static int TessBaseAPIGetPageSegMode(@Ptr long handle);
+    protected native static int TessBaseAPIGetPageSegMode(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -994,7 +1013,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetThresholdedImage(@Ptr long handle);
+    protected native static long TessBaseAPIGetThresholdedImage(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1219,7 +1239,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIAnalyseLayout(@Ptr long handle);
+    protected native static long TessBaseAPIAnalyseLayout(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1366,7 +1387,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetIterator(@Ptr long handle);
+    protected native static long TessBaseAPIGetIterator(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1384,7 +1406,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetMutableIterator(@Ptr long handle);
+    protected native static long TessBaseAPIGetMutableIterator(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1400,7 +1423,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetUTF8Text(@Ptr long handle);
+    protected native static long TessBaseAPIGetUTF8Text(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1452,7 +1476,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIGetUNLVText(@Ptr long handle);
+    protected native static long TessBaseAPIGetUNLVText(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1466,7 +1491,8 @@ public class LibTess {
         return TessBaseAPIMeanTextConf(Pointer.getPeer(handle));
     }
 
-    protected native static int TessBaseAPIMeanTextConf(@Ptr long handle);
+    protected native static int TessBaseAPIMeanTextConf(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1483,7 +1509,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessBaseAPIAllWordConfidences(@Ptr long handle);
+    protected native static long TessBaseAPIAllWordConfidences(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1515,7 +1542,8 @@ public class LibTess {
         TessBaseAPIClear(Pointer.getPeer(handle));
     }
 
-    protected native static void TessBaseAPIClear(@Ptr long handle);
+    protected native static void TessBaseAPIClear(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature : <code>void TessBaseAPIEnd(TessBaseAPI*)</code><br>
@@ -1528,7 +1556,8 @@ public class LibTess {
         TessBaseAPIEnd(Pointer.getPeer(handle));
     }
 
-    protected native static void TessBaseAPIEnd(@Ptr long handle);
+    protected native static void TessBaseAPIEnd(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1610,7 +1639,8 @@ public class LibTess {
         TessPageIteratorDelete(Pointer.getPeer(handle));
     }
 
-    protected native static void TessPageIteratorDelete(@Ptr long handle);
+    protected native static void TessPageIteratorDelete(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1628,7 +1658,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessPageIteratorCopy(@Ptr long handle);
+    protected native static long TessPageIteratorCopy(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1642,7 +1673,8 @@ public class LibTess {
         TessPageIteratorBegin(Pointer.getPeer(handle));
     }
 
-    protected native static void TessPageIteratorBegin(@Ptr long handle);
+    protected native static void TessPageIteratorBegin(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1659,7 +1691,8 @@ public class LibTess {
                 (int) level.value());
     }
 
-    protected native static int TessPageIteratorNext(@Ptr long handle, int level);
+    protected native static int TessPageIteratorNext(@Ptr long handle, int level)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1736,7 +1769,8 @@ public class LibTess {
                 PolyBlockType.class);
     }
 
-    protected native static int TessPageIteratorBlockType(@Ptr long handle);
+    protected native static int TessPageIteratorBlockType(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1838,7 +1872,8 @@ public class LibTess {
         TessResultIteratorDelete(Pointer.getPeer(handle));
     }
 
-    protected native static void TessResultIteratorDelete(@Ptr long handle);
+    protected native static void TessResultIteratorDelete(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -1856,7 +1891,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessResultIteratorCopy(@Ptr long handle);
+    protected native static long TessResultIteratorCopy(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -2032,7 +2068,8 @@ public class LibTess {
         return TessResultIteratorWordIsNumeric(Pointer.getPeer(handle));
     }
 
-    protected native static int TessResultIteratorWordIsNumeric(@Ptr long handle);
+    protected native static int TessResultIteratorWordIsNumeric(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -2094,7 +2131,8 @@ public class LibTess {
         TessChoiceIteratorDelete(Pointer.getPeer(handle));
     }
 
-    protected native static void TessChoiceIteratorDelete(@Ptr long handle);
+    protected native static void TessChoiceIteratorDelete(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -2108,7 +2146,8 @@ public class LibTess {
         return TessChoiceIteratorNext(Pointer.getPeer(handle));
     }
 
-    protected native static int TessChoiceIteratorNext(@Ptr long handle);
+    protected native static int TessChoiceIteratorNext(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -2126,7 +2165,8 @@ public class LibTess {
     }
 
     @Ptr
-    protected native static long TessChoiceIteratorGetUTF8Text(@Ptr long handle);
+    protected native static long TessChoiceIteratorGetUTF8Text(@Ptr long handle)
+            throws LastError;
 
     /**
      * Original signature :
@@ -2141,7 +2181,8 @@ public class LibTess {
         return TessChoiceIteratorConfidence(Pointer.getPeer(handle));
     }
 
-    protected native static float TessChoiceIteratorConfidence(@Ptr long handle);
+    protected native static float TessChoiceIteratorConfidence(@Ptr long handle)
+            throws LastError;
 
     /** Undefined type */
     public static interface TessChoiceIterator {
