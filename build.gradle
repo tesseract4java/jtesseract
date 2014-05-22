@@ -7,7 +7,7 @@ apply plugin: 'signing'
 group = 'de.vorb'
 
 version = '0.0.3'
-sourceCompatibility = 1.7
+sourceCompatibility = 1.6
 
 repositories {
   mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
   compile 'com.nativelibs4java:bridj:0.6.2'
-  compile 'de.vorb:jleptonica:0.0.1'
+  compile 'de.vorb:jleptonica:0.0.2'
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
@@ -65,9 +65,9 @@ uploadArchives {
          url 'https://github.com/pvorb/jtesseract'
 
          scm {
-             url 'scm:git@github.com:pvorb/jtesseract.git'
-             connection 'scm:git@github.com:GradleFx/GradleFx.git'
-             developerConnection 'scm:git@github.com:GradleFx/GradleFx.git'
+             url 'https://github.com/pvorb/jtesseract'
+             connection 'scm:git://github.com/pvorb/jtesseract.git'
+             developerConnection 'scm:git@github.com:pvorb/jtesseract.git'
          }
 
          licenses {
