@@ -6,6 +6,7 @@ import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
 
@@ -24,6 +25,8 @@ public class BridJSymbolExample {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws IOException {
         // provide the native library file
+        BridJ.setNativeLibraryFile("leptonica",
+                Paths.get("liblept170.dll").toFile());
         BridJ.setNativeLibraryFile("tesseract", new File("libtesseract303.dll"));
 
         long start = System.currentTimeMillis();
