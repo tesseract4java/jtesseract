@@ -1690,7 +1690,7 @@ public class LibTess {
      */
     public static Pointer<Pix> TessPageIteratorGetBinaryImage(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<PageIteratorLevel> level) {
+            IntValuedEnum<PageIteratorLevel> level) throws LastError {
         return (Pointer) Pointer.pointerToAddress(
                 TessPageIteratorGetBinaryImage(Pointer.getPeer(handle),
                         (int) level.value()), Pix.class);
@@ -1698,7 +1698,7 @@ public class LibTess {
 
     @Ptr
     protected native static long TessPageIteratorGetBinaryImage(
-            @Ptr long handle, int level);
+            @Ptr long handle, int level) throws LastError;
 
     /**
      * Original signature :
