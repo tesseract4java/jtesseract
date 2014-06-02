@@ -77,65 +77,76 @@ public class LibTess {
     /**
      * Creates a new TextRenderer.
      */
-    public static Pointer<TessResultRenderer> TessTextRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessTextRendererCreate_(),
+    public static Pointer<TessResultRenderer> TessTextRendererCreate(
+            Pointer<Byte> outputbase) {
+        return (Pointer) Pointer.pointerToAddress(
+                TessTextRendererCreate(Pointer.getPeer(outputbase)),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessTextRendererCreate")
-    protected native static long TessTextRendererCreate_() throws LastError;
+    protected native static long TessTextRendererCreate(@Ptr long outputbase)
+            throws LastError;
 
     /**
      * Creates a new HOcrRenderer.
      */
-    public static Pointer<TessResultRenderer> TessHOcrRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessHOcrRendererCreate_(),
+    public static Pointer<TessResultRenderer> TessHOcrRendererCreate(
+            Pointer<Byte> outputbase) {
+        return (Pointer) Pointer.pointerToAddress(
+                TessHOcrRendererCreate(Pointer.getPeer(outputbase)),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessHOcrRendererCreate")
-    protected native static long TessHOcrRendererCreate_() throws LastError;
+    protected native static long TessHOcrRendererCreate(@Ptr long outputbase)
+            throws LastError;
 
     /**
      * Creates a new PDFRenderer.
      */
     public static Pointer<TessResultRenderer> TessPDFRendererCreate(
-            Pointer<Byte> datadir) {
+            Pointer<Byte> outputbase, Pointer<Byte> datadir) {
         return (Pointer) Pointer.pointerToAddress(
-                TessPDFRendererCreate(Pointer.getPeer(datadir)),
-                TessResultRenderer.class);
+                TessPDFRendererCreate(Pointer.getPeer(outputbase),
+                        Pointer.getPeer(datadir)), TessResultRenderer.class);
     }
 
     @Ptr
-    protected native static long TessPDFRendererCreate(@Ptr long datadir)
-            throws LastError;
+    protected native static long TessPDFRendererCreate(@Ptr long outputbase,
+            @Ptr long datadir) throws LastError;
 
     /**
      * Creates a new UNLVRenderer.
      */
-    public static Pointer<TessResultRenderer> TessUnlvRendererCreate() {
-        return (Pointer) Pointer.pointerToAddress(TessUnlvRendererCreate_(),
+    public static Pointer<TessResultRenderer> TessUnlvRendererCreate(
+            Pointer<Byte> outputbase) {
+        return (Pointer) Pointer.pointerToAddress(
+                TessUnlvRendererCreate(Pointer.getPeer(outputbase)),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessUnlvRendererCreate")
-    protected native static long TessUnlvRendererCreate_() throws LastError;
+    protected native static long TessUnlvRendererCreate(@Ptr long outputbase)
+            throws LastError;
 
     /**
      * Creates a new BoxTextRenderer.
      */
-    public static Pointer<TessResultRenderer> TessBoxTextRendererCreate() {
+    public static Pointer<TessResultRenderer> TessBoxTextRendererCreate(
+            Pointer<Byte> outputbase) {
         return (Pointer) Pointer.pointerToAddress(
-                TessBoxTextRendererCreate_(),
+                TessBoxTextRendererCreate(Pointer.getPeer(outputbase)),
                 TessResultRenderer.class);
     }
 
     @Ptr
     @Name("TessBoxTextRendererCreate")
-    protected native static long TessBoxTextRendererCreate_() throws LastError;
+    protected native static long TessBoxTextRendererCreate(@Ptr long outputbase)
+            throws LastError;
 
     /**
      * Deletes a ResultRenderer.
@@ -223,24 +234,6 @@ public class LibTess {
 
     /**
      * Original signature :
-     * <code>int TessResultRendererAddError(TessResultRenderer*, TessBaseAPI*)</code>
-     * <br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:101</i>
-     */
-    public static int TessResultRendererAddError(
-            Pointer<TessResultRenderer> renderer,
-            Pointer<LibTess.TessBaseAPI> api) {
-        return TessResultRendererAddError(Pointer.getPeer(renderer),
-                Pointer.getPeer(api));
-    }
-
-    protected native static int TessResultRendererAddError(@Ptr long renderer,
-            @Ptr long api) throws LastError;
-
-    /**
-     * Original signature :
      * <code>int TessResultRendererEndDocument(TessResultRenderer*)</code><br>
      * <i>native declaration :
      * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
@@ -252,42 +245,6 @@ public class LibTess {
     }
 
     protected native static int TessResultRendererEndDocument(@Ptr long renderer)
-            throws LastError;
-
-    /**
-     * Original signature :
-     * <code>int TessResultRendererGetOutput(TessResultRenderer*, const char**, int*)</code>
-     * <br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:103</i>
-     */
-    public static int TessResultRendererGetOutput(
-            Pointer<TessResultRenderer> renderer,
-            Pointer<Pointer<Byte>> data, Pointer<Integer> data_len) {
-        return TessResultRendererGetOutput(Pointer.getPeer(renderer),
-                Pointer.getPeer(data), Pointer.getPeer(data_len));
-    }
-
-    protected native static int TessResultRendererGetOutput(@Ptr long renderer,
-            @Ptr long data, @Ptr long data_len) throws LastError;
-
-    /**
-     * Original signature :
-     * <code>char* TessResultRendererTypename(TessResultRenderer*)</code><br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:105</i>
-     */
-    public static Pointer<Byte> TessResultRendererTypename(
-            Pointer<TessResultRenderer> renderer) {
-        return (Pointer) Pointer.pointerToAddress(
-                TessResultRendererTypename(Pointer.getPeer(renderer)),
-                Byte.class);
-    }
-
-    @Ptr
-    protected native static long TessResultRendererTypename(@Ptr long renderer)
             throws LastError;
 
     /**
@@ -1279,74 +1236,25 @@ public class LibTess {
 
     /**
      * Original signature :
-     * <code>char* TessBaseAPIProcessPages(TessBaseAPI*, const char*, const char*, int)</code>
-     * <br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:227</i>
-     */
-    public static Pointer<Byte> TessBaseAPIProcessPages(
-            Pointer<LibTess.TessBaseAPI> handle,
-            Pointer<Byte> filename, Pointer<Byte> retry_config,
-            int timeout_millisec) {
-        return (Pointer) Pointer.pointerToAddress(
-                TessBaseAPIProcessPages(Pointer.getPeer(handle),
-                        Pointer.getPeer(filename),
-                        Pointer.getPeer(retry_config), timeout_millisec),
-                Byte.class);
-    }
-
-    @Ptr
-    protected native static long TessBaseAPIProcessPages(@Ptr long handle,
-            @Ptr long filename, @Ptr long retry_config, int timeout_millisec);
-
-    /**
-     * Original signature :
      * <code>int TessBaseAPIProcessPages1(TessBaseAPI*, const char*, const char*, int, TessResultRenderer*)</code>
      * <br>
      * <i>native declaration :
      * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
      * \tesseract-ocr\api\capi.h:229</i>
      */
-    public static int TessBaseAPIProcessPages1(
+    public static int TessBaseAPIProcessPages(
             Pointer<LibTess.TessBaseAPI> handle,
             Pointer<Byte> filename, Pointer<Byte> retry_config,
             int timeout_millisec,
             Pointer<TessResultRenderer> renderer) {
-        return TessBaseAPIProcessPages1(Pointer.getPeer(handle),
+        return TessBaseAPIProcessPages(Pointer.getPeer(handle),
                 Pointer.getPeer(filename), Pointer.getPeer(retry_config),
                 timeout_millisec, Pointer.getPeer(renderer));
     }
 
-    protected native static int TessBaseAPIProcessPages1(@Ptr long handle,
+    protected native static int TessBaseAPIProcessPages(@Ptr long handle,
             @Ptr long filename, @Ptr long retry_config, int timeout_millisec,
             @Ptr long renderer);
-
-    /**
-     * Original signature :
-     * <code>char* TessBaseAPIProcessPage(TessBaseAPI*, Pix*, int, const char*, const char*, int)</code>
-     * <br>
-     * <i>native declaration :
-     * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
-     * \tesseract-ocr\api\capi.h:231</i>
-     */
-    public static Pointer<Byte> TessBaseAPIProcessPage(
-            Pointer<LibTess.TessBaseAPI> handle,
-            Pointer<Pix> pix, int page_index,
-            Pointer<Byte> filename, Pointer<Byte> retry_config,
-            int timeout_millisec) {
-        return (Pointer) Pointer.pointerToAddress(
-                TessBaseAPIProcessPage(Pointer.getPeer(handle),
-                        Pointer.getPeer(pix), page_index,
-                        Pointer.getPeer(filename),
-                        Pointer.getPeer(retry_config), timeout_millisec),
-                Byte.class);
-    }
-
-    @Ptr
-    protected native static long TessBaseAPIProcessPage(@Ptr long handle,
-            @Ptr long pix, int page_index, @Ptr long filename,
-            @Ptr long retry_config, int timeout_millisec);
 
     /**
      * Original signature :
@@ -1356,19 +1264,19 @@ public class LibTess {
      * C:\Users\Paul\Studium\Masterarbeit\Entwicklung\VS2013
      * \tesseract-ocr\api\capi.h:233</i>
      */
-    public static int TessBaseAPIProcessPage1(
+    public static int TessBaseAPIProcessPage(
             Pointer<LibTess.TessBaseAPI> handle,
             Pointer<Pix> pix, int page_index,
             Pointer<Byte> filename, Pointer<Byte> retry_config,
             int timeout_millisec,
             Pointer<TessResultRenderer> renderer) {
-        return TessBaseAPIProcessPage1(Pointer.getPeer(handle),
+        return TessBaseAPIProcessPage(Pointer.getPeer(handle),
                 Pointer.getPeer(pix), page_index, Pointer.getPeer(filename),
                 Pointer.getPeer(retry_config), timeout_millisec,
                 Pointer.getPeer(renderer));
     }
 
-    protected native static int TessBaseAPIProcessPage1(@Ptr long handle,
+    protected native static int TessBaseAPIProcessPage(@Ptr long handle,
             @Ptr long pix, int page_index, @Ptr long filename,
             @Ptr long retry_config, int timeout_millisec, @Ptr long renderer);
 
@@ -1802,17 +1710,20 @@ public class LibTess {
      */
     public static Pointer<Pix> TessPageIteratorGetImage(
             Pointer<LibTess.TessPageIterator> handle,
-            IntValuedEnum<PageIteratorLevel> level,
-            int padding, Pointer<Integer> left, Pointer<Integer> top) {
+            IntValuedEnum<PageIteratorLevel> level, int padding,
+            Pointer<Pix> original_image, Pointer<Integer> left,
+            Pointer<Integer> top) {
         return (Pointer) Pointer.pointerToAddress(
                 TessPageIteratorGetImage(Pointer.getPeer(handle),
-                        (int) level.value(), padding, Pointer.getPeer(left),
+                        (int) level.value(), padding,
+                        Pointer.getPeer(original_image), Pointer.getPeer(left),
                         Pointer.getPeer(top)), Pix.class);
     }
 
     @Ptr
     protected native static long TessPageIteratorGetImage(@Ptr long handle,
-            int level, int padding, @Ptr long left, @Ptr long top);
+            int level, int padding, @Ptr long original_image, @Ptr long left,
+            @Ptr long top);
 
     /**
      * Original signature :
@@ -2014,7 +1925,7 @@ public class LibTess {
     public static Pointer<Byte> TessResultIteratorWordRecognitionLanguage(
             Pointer<LibTess.TessPageIterator> handle) {
         return (Pointer<Byte>) Pointer.pointerToAddress(
-                TessResultIteratorWordRecognitionLanguage(handle.getPeer()));
+                TessResultIteratorWordRecognitionLanguage(Pointer.getPeer(handle)));
     }
 
     @Ptr
