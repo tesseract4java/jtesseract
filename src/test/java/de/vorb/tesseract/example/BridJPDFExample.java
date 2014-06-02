@@ -76,8 +76,8 @@ public class BridJPDFExample {
             final Pointer<Pointer<Byte>> data = Pointer.allocateBytes(1,
                     1024L * 1024L * 10L); // reserve 10M
             final Pointer<Integer> data_len = Pointer.allocateInt();
-            LibTess.TessResultRendererGetOutput(pdfRenderer, data,
-                    data_len);
+            // FIXME LibTess.TessResultRendererGetOutput(pdfRenderer, data,
+            // data_len);
 
             final ByteBuffer dataBuf = data.getPointerAtIndex(0).getByteBuffer(
                     data_len.getInt());
