@@ -2008,6 +2008,20 @@ public class LibTess {
             @Ptr long handle, int level);
 
     /**
+     * Original signature:
+     * <code>char* TessResultIteratorConfidence(const TessResultIterator*)</code>
+     */
+    public static Pointer<Byte> TessResultIteratorWordRecognitionLanguage(
+            Pointer<LibTess.TessPageIterator> handle) {
+        return (Pointer<Byte>) Pointer.pointerToAddress(
+                TessResultIteratorWordRecognitionLanguage(handle.getPeer()));
+    }
+
+    @Ptr
+    protected native static long TessResultIteratorWordRecognitionLanguage(
+            @Ptr long handle);
+
+    /**
      * Original signature :
      * <code>char* TessResultIteratorWordFontAttributes(const TessResultIterator*, int*, int*, int*, int*, int*, int*, int*, int*)</code>
      * <br>
