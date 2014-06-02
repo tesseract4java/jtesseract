@@ -16,16 +16,18 @@ public enum PolyBlockType implements IntValuedEnum<PolyBlockType> {
     FLOWING_TEXT(1),
     HEADING_TEXT(2),
     PULLOUT_TEXT(3),
-    TABLE(4),
-    VERTICAL_TEXT(5),
-    CAPTION_TEXT(6),
-    FLOWING_IMAGE(7),
-    HEADING_IMAGE(8),
-    PULLOUT_IMAGE(9),
-    HORZ_LINE(10),
-    VERT_LINE(11),
-    NOISE(12),
-    COUNT(13);
+    EQUATION(4),
+    INLINE_EQUATION(5),
+    TABLE(6),
+    VERTICAL_TEXT(7),
+    CAPTION_TEXT(8),
+    FLOWING_IMAGE(9),
+    HEADING_IMAGE(10),
+    PULLOUT_IMAGE(11),
+    HORZ_LINE(12),
+    VERT_LINE(13),
+    NOISE(14),
+    COUNT(15);
 
     PolyBlockType(long value) {
         this.value = value;
