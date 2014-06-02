@@ -57,16 +57,18 @@ public class BridJPDFExample {
                     Pointer.pointerToCString("tessedit_create_pdf"),
                     Pointer.pointerToCString("T"));
 
+            final Pointer<Byte> outputbase = Pointer.pointerToCString("out");
+
             // pdf creation
             final Pointer<TessResultRenderer> pdfRenderer =
-                    LibTess.TessPDFRendererCreate(datadir);
+                    LibTess.TessPDFRendererCreate(outputbase, datadir);
             LibTess.TessResultRendererBeginDocument(pdfRenderer,
                     Pointer.pointerToCString("document"));
             LibTess.TessResultRendererAddImage(pdfRenderer, handle);
             LibTess.TessResultRendererEndDocument(pdfRenderer);
 
             // process the page
-            LibTess.TessBaseAPIProcessPages1(handle,
+            LibTess.TessBaseAPIProcessPages(handle,
                     Pointer.pointerToCString("input2.png"), Pointer.NULL, 0,
                     pdfRenderer);
 
