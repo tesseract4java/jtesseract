@@ -9,6 +9,14 @@ This library does only cover the C API. If you are looking for a more convenient
 way to use Tesseract from Java, have a look at
 [Tess4J](http://tess4j.sourceforge.net/).
 
+
+## Get
+
+Information on how to get binary releases, documentation and source
+distributions of this software can be found on
+[search.maven.org](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.vorb%22%20AND%20a%3A%22jtesseract%22).
+
+
 ## Usage example
 
 The following lines show how to use this library to recognize text in a PNG
@@ -88,3 +96,4 @@ Other example files can be found at
 [src/test/java/de/vorb/tesseract/example][1].
 
 [1]: https://github.com/pvorb/jtesseract/tree/master/src/test/java/de/vorb/tesseract/example
+
