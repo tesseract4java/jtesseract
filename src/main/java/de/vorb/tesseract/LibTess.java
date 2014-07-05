@@ -2,7 +2,6 @@ package de.vorb.tesseract;
 
 import org.bridj.BridJ;
 import org.bridj.CRuntime;
-import org.bridj.Callback;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
 import org.bridj.LastError;
@@ -53,21 +52,6 @@ public class LibTess {
 
     /** Undefined type */
     public static interface T {
-
-    };
-
-    /** Undefined type */
-    public static interface EANYCODE_CHAR {
-
-    };
-
-    /** Undefined type */
-    public static interface inT8 {
-
-    };
-
-    /** Undefined type */
-    public static interface timeval {
 
     };
 
@@ -1537,6 +1521,36 @@ public class LibTess {
 
     protected native static int TessBaseAPIGetTextDirection(@Ptr long handle,
             @Ptr long out_offset, @Ptr long out_slope);
+
+    /**
+     * 
+     TESS_API void TESS_CALL TessBaseAPIGetFeaturesForBlob(TessBaseAPI*
+     * handle, TBLOB* blob, INT_FEATURE_STRUCT* int_features, int* num_features,
+     * int* FeatureOutlineIndex);
+     * 
+     * @param handle
+     */
+    public static void TessBaseAPIGetFeaturesForBlob(
+            Pointer<LibTess.TessBaseAPI> handle, Pointer<TBLOB> blob,
+            Pointer<INT_FEATURE_STRUCT> int_features,
+            Pointer<Integer> num_features, Pointer<Integer> FeatureOutlineIndex) {
+        TessBaseAPIGetFeaturesForBlob(Pointer.getPeer(handle),
+                Pointer.getPeer(blob), Pointer.getPeer(int_features),
+                Pointer.getPeer(num_features),
+                Pointer.getPeer(FeatureOutlineIndex));
+    }
+
+    protected native static void TessBaseAPIGetFeaturesForBlob(
+            @Ptr long handle, @Ptr long blob, @Ptr long int_features,
+            @Ptr long num_features, @Ptr long out_slope);
+
+    public static native Pointer<ROW> TessMakeTessOCRRow(float baseline,
+            float xheight, float descender, float ascender);
+
+    public static native Pointer<TBLOB> TessMakeTBLOB(Pointer<Pix> pix);
+
+    public static native void TessNormalizeTBLOB(Pointer<TBLOB> tblob,
+            Pointer<ROW> row, int numeric_mode);
 
     /**
      * Original signature :
