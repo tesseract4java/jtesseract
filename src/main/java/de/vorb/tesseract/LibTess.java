@@ -50,6 +50,8 @@ public class LibTess {
     public static final int MIN_UINT32 = (int) 0x00000000;
     public static final float MAX_FLOAT32 = (float) (3.40282347e+38);
 
+    public static final int TESSDATA_NUM_ENTRIES = 17;
+
     /** Undefined type */
     public static interface T {
 
