@@ -13,6 +13,8 @@ import javax.imageio.ImageIO;
 import org.bridj.BridJ;
 import org.bridj.Pointer;
 
+import de.vorb.tesseract.ETEXT_DESC;
+import de.vorb.tesseract.ETEXT_DESC.CANCEL_FUNC;
 import de.vorb.tesseract.LibTess;
 import de.vorb.tesseract.LibTess.TessBaseAPI;
 import de.vorb.tesseract.LibTess.TessPageIterator;
@@ -60,11 +62,38 @@ public class BridJSymbolExample {
         // set the image
         LibTess.TessBaseAPISetImage(handle,
                 Pointer.pointerToBytes(ByteBuffer.wrap(imageData)), width,
-                height,
-                bytesPerPixel, bytesPerLine);
+                height, bytesPerPixel, bytesPerLine);
+
+        final ETEXT_DESC monitor = new ETEXT_DESC();
+        // monitor.cancel(Pointer.<CANCEL_FUNC> pointerTo(new CANCEL_FUNC() {
+        // @Override
+        // public boolean apply(Pointer<?> cancel_this, int words) {
+        // return true;
+        // }
+        // }));
+        //
+        new Thread() {
+            public void run() {
+                try {
+                    while (true) {
+                        System.err.println(monitor.ocr_alive());
+                        System.err.println("progress: " + monitor.progress());
+
+                        if (monitor.progress() >= 100) {
+                            break;
+                        }
+
+                        Thread.sleep(500);
+                    }
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            };
+        }.start();
 
         // text recognition
-        LibTess.TessBaseAPIRecognize(handle, Pointer.NULL);
+        LibTess.TessBaseAPIRecognize(handle, Pointer.pointerTo(monitor));
 
         // get the result iterator
         final Pointer<TessResultIterator> resultIt =
@@ -82,20 +111,22 @@ public class BridJSymbolExample {
         final Pointer<Integer> right = Pointer.allocateInt();
         final Pointer<Integer> bottom = Pointer.allocateInt();
 
+        int symbols = 0;
         do {
             if (LibTess.TessPageIteratorIsAtBeginningOf(pageIt,
                     PageIteratorLevel.BLOCK) == LibTess.TRUE) {
             } else if (LibTess.TessPageIteratorIsAtBeginningOf(pageIt,
                     PageIteratorLevel.TEXTLINE) == LibTess.TRUE) {
-                System.out.print("\n\n");
+                // System.out.print("\n\n");
             } else if (LibTess.TessPageIteratorIsAtBeginningOf(pageIt,
                     PageIteratorLevel.WORD) == LibTess.TRUE) {
-                System.out.print('\n');
+                // System.out.print('\n');
             }
 
+            symbols++;
+
             final String symbol = LibTess.TessResultIteratorGetUTF8Text(
-                    resultIt,
-                    level).getCString();
+                    resultIt, level).getCString();
 
             LibTess.TessPageIteratorBoundingBox(pageIt, level, left, top,
                     right,
@@ -103,12 +134,11 @@ public class BridJSymbolExample {
 
             System.out.println("'" + symbol + "': (" + left.getInt() + ", "
                     + top.getInt() + ", " + right.getInt() + ", "
-                    + bottom.getInt()
-                    + ")");
+                    + bottom.getInt() + ")");
         } while (LibTess.TessPageIteratorNext(pageIt, level) > 0); // next
                                                                    // symbol
 
-        System.out.print("\n\n");
+        System.out.print(symbols + "\n\n");
 
         // calculate the time
         System.out.println("time: " + (System.currentTimeMillis() - start)
