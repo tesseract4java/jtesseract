@@ -2,6 +2,7 @@ package de.vorb.tesseract;
 
 import org.bridj.BridJ;
 import org.bridj.CRuntime;
+import org.bridj.Callback;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
 import org.bridj.LastError;
@@ -32,6 +33,43 @@ public class LibTess {
      * FALSE
      */
     public static final int FALSE = 0;
+
+    public static final int MAX_UINT8 = (int) 0xff;
+    public static final int MAX_INT8 = (int) 0x7f;
+    public static final int MIN_INT16 = (int) 0x8000;
+    public static final int MAX_INT32 = (int) 0x7fffffff;
+    public static final int MAX_INT16 = (int) 0x7fff;
+    public static final int NULL = (int) 0;
+    public static final int MIN_UINT8 = (int) 0x00;
+    public static final float MIN_FLOAT32 = (float) (1.17549435e-38);
+    public static final String INT32FORMAT = (String) "%d";
+    public static final int MIN_INT8 = (int) 0x80;
+    public static final int MAX_UINT16 = (int) 0xffff;
+    public static final long MAX_UINT32 = (long) 0xffffffffL;
+    public static final int MIN_UINT16 = (int) 0x0000;
+    public static final String INT64FORMAT = (String) "%lld";
+    public static final int MIN_UINT32 = (int) 0x00000000;
+    public static final float MAX_FLOAT32 = (float) (3.40282347e+38);
+
+    /** Undefined type */
+    public static interface T {
+
+    };
+
+    /** Undefined type */
+    public static interface EANYCODE_CHAR {
+
+    };
+
+    /** Undefined type */
+    public static interface inT8 {
+
+    };
+
+    /** Undefined type */
+    public static interface timeval {
+
+    };
 
     /**
      * @return Tesseract version string
@@ -1208,7 +1246,7 @@ public class LibTess {
      */
     public static int TessBaseAPIRecognize(
             Pointer<LibTess.TessBaseAPI> handle,
-            Pointer<LibTess.ETEXT_DESC> monitor) {
+            Pointer<ETEXT_DESC> monitor) {
         return TessBaseAPIRecognize(Pointer.getPeer(handle),
                 Pointer.getPeer(monitor));
     }
@@ -1226,7 +1264,7 @@ public class LibTess {
      */
     public static int TessBaseAPIRecognizeForChopTest(
             Pointer<LibTess.TessBaseAPI> handle,
-            Pointer<LibTess.ETEXT_DESC> monitor) {
+            Pointer<ETEXT_DESC> monitor) {
         return TessBaseAPIRecognizeForChopTest(Pointer.getPeer(handle),
                 Pointer.getPeer(monitor));
     }
@@ -2121,11 +2159,6 @@ public class LibTess {
 
     /** Undefined type */
     public static interface FILE {
-
-    };
-
-    /** Undefined type */
-    public static interface ETEXT_DESC {
 
     };
 
