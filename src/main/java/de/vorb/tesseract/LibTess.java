@@ -1505,7 +1505,7 @@ public class LibTess {
     }
 
     protected native static int TessBaseAPIIsValidWord(@Ptr long handle,
-            @Ptr long word);
+            @Ptr long word) throws LastError;
 
     /**
      * Original signature :
@@ -1522,7 +1522,7 @@ public class LibTess {
     }
 
     protected native static int TessBaseAPIGetTextDirection(@Ptr long handle,
-            @Ptr long out_offset, @Ptr long out_slope);
+            @Ptr long out_offset, @Ptr long out_slope) throws LastError;
 
     /**
      * 
@@ -1544,15 +1544,16 @@ public class LibTess {
 
     protected native static void TessBaseAPIGetFeaturesForBlob(
             @Ptr long handle, @Ptr long blob, @Ptr long int_features,
-            @Ptr long num_features, @Ptr long out_slope);
+            @Ptr long num_features, @Ptr long out_slope) throws LastError;
 
     public static native Pointer<ROW> TessMakeTessOCRRow(float baseline,
-            float xheight, float descender, float ascender);
+            float xheight, float descender, float ascender) throws LastError;
 
-    public static native Pointer<TBLOB> TessMakeTBLOB(Pointer<Pix> pix);
+    public static native Pointer<TBLOB> TessMakeTBLOB(Pointer<Pix> pix)
+            throws LastError;
 
     public static native void TessNormalizeTBLOB(Pointer<TBLOB> tblob,
-            Pointer<ROW> row, int numeric_mode);
+            Pointer<ROW> row, int numeric_mode) throws LastError;
 
     /**
      * Original signature :
@@ -1570,7 +1571,7 @@ public class LibTess {
 
     @Ptr
     protected native static long TessBaseAPIGetUnichar(@Ptr long handle,
-            int unichar_id);
+            int unichar_id) throws LastError;
 
     /**
      * Original signature :
@@ -1586,7 +1587,7 @@ public class LibTess {
     }
 
     protected native static void TessBaseAPISetMinOrientationMargin(
-            @Ptr long handle, double margin);
+            @Ptr long handle, double margin) throws LastError;
 
     /**
      * Page iterator<br>
