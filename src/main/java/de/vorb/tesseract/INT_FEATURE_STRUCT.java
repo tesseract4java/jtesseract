@@ -2,11 +2,11 @@ package de.vorb.tesseract;
 
 import org.bridj.BridJ;
 import org.bridj.Pointer;
+import org.bridj.StructObject;
 import org.bridj.ann.Constructor;
 import org.bridj.ann.Field;
-import org.bridj.cpp.CPPObject;
 
-public class INT_FEATURE_STRUCT extends CPPObject {
+public class INT_FEATURE_STRUCT extends StructObject {
     static {
         BridJ.register();
     }
