@@ -16,7 +16,7 @@ import de.vorb.leptonica.Boxa;
 import de.vorb.leptonica.Pix;
 import de.vorb.leptonica.Pixa;
 
-@Library(value = "tesseract", dependencies = { "leptonica" })
+@Library(value = "tesseract", dependencies = { "liblept170" })
 @Runtime(CRuntime.class)
 public class LibTess {
     static {
