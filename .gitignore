@@ -3,6 +3,7 @@
 .gradle
 .project
 .settings
+*.iml
 *.dll
 bin
 build

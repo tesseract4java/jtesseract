@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.vorb</groupId>
+    <artifactId>jtesseract</artifactId>
+    <version>0.0.5-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>jtesseract provides Java wrappers (JNA and BridJ) for Tesseract OCR</description>
+    <url>https://github.com/tesseract4java/jtesseract</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.nativelibs4java</groupId>
+            <artifactId>bridj</artifactId>
+            <version>0.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>de.vorb</groupId>
+            <artifactId>jleptonica</artifactId>
+            <version>0.0.3</version>
+        </dependency>
+    </dependencies>
+
+    <scm>
+        <url>https://github.com/tesseract4java/jtesseract</url>
+        <connection>https://github.com/tesseract4java/jtesseract.git</connection>
+        <developerConnection>git@github.com:tesseract4java/jtesseract.git</developerConnection>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>pvorb</id>
+            <name>Paul Vorbach</name>
+            <email>paul@vorba.ch</email>
+        </developer>
+    </developers>
+
+</project>
