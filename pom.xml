@@ -9,8 +9,31 @@
     <version>0.0.5-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <name>jtesseract</name>
     <description>jtesseract provides Java wrappers (JNA and BridJ) for Tesseract OCR</description>
     <url>https://github.com/tesseract4java/jtesseract</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/tesseract4java/jtesseract</url>
+        <connection>https://github.com/tesseract4java/jtesseract.git</connection>
+        <developerConnection>git@github.com:tesseract4java/jtesseract.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>pvorb</id>
+            <name>Paul Vorbach</name>
+            <email>paul@vorba.ch</email>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,26 +54,65 @@
         </dependency>
     </dependencies>
 
-    <scm>
-        <url>https://github.com/tesseract4java/jtesseract</url>
-        <connection>https://github.com/tesseract4java/jtesseract.git</connection>
-        <developerConnection>git@github.com:tesseract4java/jtesseract.git</developerConnection>
-    </scm>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <id>pvorb</id>
-            <name>Paul Vorbach</name>
-            <email>paul@vorba.ch</email>
-        </developer>
-    </developers>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
