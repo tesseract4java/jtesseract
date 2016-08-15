@@ -6,7 +6,7 @@
 
     <groupId>de.vorb</groupId>
     <artifactId>jtesseract</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.5</version>
     <packaging>pom</packaging>
 
     <name>jtesseract</name>
