@@ -5,8 +5,9 @@
 .settings
 *.iml
 *.dll
-bin
-build
+bin/
+build/
+target/
 hs_err_pid*.log
 lib/
 tessdata/
