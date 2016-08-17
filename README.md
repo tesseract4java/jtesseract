@@ -1,6 +1,6 @@
 # BridJ bindings for Tesseract 3.03
 
-**This library is no longer maintained! Consider using [javacpp-presets/tesseract instead][jcpp-tess].**
+**This library is no longer maintained! Consider using [javacpp-presets/tesseract][jcpp-tess] instead.**
 
 [jcpp-tess]: https://github.com/bytedeco/javacpp-presets/tree/master/tesseract
 
