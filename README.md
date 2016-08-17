@@ -1,5 +1,9 @@
 # BridJ bindings for Tesseract 3.03
 
+**This library is no longer maintained! Consider using [javacpp-presets/tesseract instead][jcpp-tess].**
+
+[jcpp-tess]: https://github.com/bytedeco/javacpp-presets/tree/master/tesseract
+
 A Java library that can be used to access Tesseract's C API from Java through
 BridJ. Therefore, this library provides interfaces that cover all of Tesseract's
 C API. BridJ classes were generated automatically by using
